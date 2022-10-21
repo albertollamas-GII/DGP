@@ -15,7 +15,7 @@ def index(request):
         return redirect('/')
 
     context = {'tasks': tasks, 'form': form}
-    return render(request, 'todoApp/list.html', context)
+    return render(request, 'todoApp/index.html', context)
 
 def updateTask(request, pk):
     task = Task.objects.get(id=pk)
