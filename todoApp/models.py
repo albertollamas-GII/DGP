@@ -1,6 +1,14 @@
 from sys import maxsize
 from django.db import models
 
+class Task(models.Model):
+    title = models.CharField(max_length=200)
+    complete = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
 # Create your models here.
 class OpcionesVisualizacion:
     Opciones = (
@@ -17,20 +25,20 @@ class OpcionesVisualizacion:
    
 class Clase(models.Model):
     Letra = models.CharField(   
-        maxsize = "2", 
-        helptext = "Introducir la Letra de la Clase", 
+        max_length = 2, 
+        help_text = "Introducir la Letra de la Clase", 
         primary_key = True,
         unique = True
     )
     Profesor = models.CharField(
-        maxsize = "100",
-        helptext = "Introduce el nombre del profesor asignado"
+        max_length = 100,
+        help_text = "Introduce el nombre del profesor asignado"
     )
 
 class Menu(models.Model):
     Tipo = models.CharField(
-        maxsize = "100",
-        helptext = "Introducir el tipo de menu",
+        max_length = 100,
+        help_text = "Introducir el tipo de menu",
         primary_key = True
     )
 
@@ -48,7 +56,5 @@ class Solicita(models.Model):
         on_delete = models.CASCADE
     )
 
-    Cantidad = models.IntegerField(
-        empty_strings_allowed = False
-    )
+    Cantidad = models.IntegerField()
 
