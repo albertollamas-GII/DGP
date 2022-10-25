@@ -1,0 +1,122 @@
+<style>
+	body {
+		background-color: rgb(242, 208, 208);
+		font-family: 'Work Sans', sans-serif;
+	}
+
+	.cabecera{
+		display: flex;
+		align-items: center;
+		text-align: center;
+        height: 20%;
+	}
+
+	h1 {
+		font-size: 4em;
+		width: 70%;
+		align-items: center;
+	}
+
+    .contenedor-icono {
+        width: 30%;
+    }
+
+    i {
+        font-size: 4em;
+    }
+
+    i:hover {
+        color: rgb(3, 15, 255);
+    } 
+
+    .section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 20px;
+    }
+
+    .section a:hover {
+        color: rgb(240, 155, 155);
+        text-decoration: none;
+    }
+
+    .imagen {
+        width: 45%;
+        height: auto;
+        border: 1px solid #ccc;
+        margin: 1.5%;
+    }
+
+    .imagen:hover {
+        border: 3px solid #777;
+    }
+
+    .imagen img {
+        width: 100%;
+        height: auto;
+        border-radius: 40px 40px 0 0;
+    }
+
+    .desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+</style>
+
+<head>
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+<div class = "cabecera">
+    <div class = "contenedor-icono">
+        <i class="fa-solid fa-user"></i>
+    </div>
+	<h1>APNE</h1>
+    <div class = "contenedor-icono">
+        <i class="fa-solid fa-user-tie"></i>
+    </div>
+</div>
+
+<div class="section"> 
+
+    <div class="imagen">
+        {% load static %}
+	    <img src='{% static "sara.jpg" %}' alt="Foto de Sara Rodríguez">
+            <div class="desc">
+                    <b>Sara Rodríguez</b>
+            </div>
+    </div>     
+    
+    <div class="imagen">
+        {% load static %}
+	    <img src='{% static "paco.jpg" %}' alt="Foto de Paco Martínez">
+            <div class="desc">
+                    <b>Paco Martínez</b>
+            </div>
+    </div>    
+
+    <div class="imagen">
+        {% load static %}
+	    <img src='{% static "marcos.jpg" %}' alt="Foto de Marcos García">
+            <div class="desc">
+                    <b>Marcos García</b>
+            </div>
+    </div>    
+
+    <div class="imagen">
+        {% load static %}
+	    <img src='{% static "laura.jpg" %}' alt="Foto de Laura López">
+            <div class="desc">
+                    <b>Laura López</b>
+            </div>
+    </div>    
+
+</div>
+
+
+</body>

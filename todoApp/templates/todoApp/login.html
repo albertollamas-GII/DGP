@@ -1,0 +1,88 @@
+<style>
+	body{
+		background-color: rgb(242, 208, 208);
+		font-family: 'Work Sans', sans-serif;
+	}
+
+	.cabecera{
+		display: flex;
+		align-items: center;
+		text-align: center;
+        height: 20%;
+	}
+
+	h1 {
+		font-size: 4em;
+		width: 70%;
+		align-items: center;
+	}
+
+    .contenedor-icono {
+        width: 30%;
+    }
+
+    i {
+        font-size: 4em;
+    }
+
+    i:hover {
+        color: rgb(3, 15, 255);
+    } 
+
+    .formulario {
+        height: 80%;
+        align-items: center;
+    }
+
+    .contenido {
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 40px;
+        background-color: rgb(220, 218, 218);
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 32px;
+        text-decoration: none;
+        margin: 4px 2px;
+        border: none;
+    }
+</style>
+
+<head>
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+<div class = "cabecera">
+    <div class = "contenedor-icono">
+        <i class="fa-solid fa-user"></i>
+    </div>
+	<h1>APNE</h1>
+    <div class = "contenedor-icono">
+        <i class="fa-solid fa-user-tie"></i>
+    </div>
+</div>
+
+<div class = "formulario">
+    <div class = "contenido">
+        <h3>Inicio sesión</h3>
+        <form>
+            <label for="user">Usuario:</label><br>
+            <input type="text" id="user" name="user"><br><br>
+
+            <label for="pwd">Contraseña:</label><br>
+            <input type="password" id="pwd" name="pwd"><br><br>
+
+            <input type="submit" value="Acceder">
+        </form>
+    </div>
+</div>
+
+</body>
