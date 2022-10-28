@@ -34,6 +34,7 @@ class Clase(models.Model):
         max_length = 100,
         help_text = "Introduce el nombre del profesor asignado"
     )
+    FotoProfesor = models.ImageField()
 
 class Menu(models.Model):
     Tipo = models.CharField(
