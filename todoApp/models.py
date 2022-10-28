@@ -34,7 +34,7 @@ class Clase(models.Model):
         max_length = 100,
         help_text = "Introduce el nombre del profesor asignado"
     )
-    FotoProfesor = models.ImageField()
+    FotoProfesor = models.ImageField(upload_to="clases")
 
 class Menu(models.Model):
     Tipo = models.CharField(
@@ -43,7 +43,7 @@ class Menu(models.Model):
         primary_key = True
     )
 
-    Imagen = models.ImageField()
+    Imagen = models.ImageField(upload_to="menus")
 
 
 class Solicita(models.Model):    
@@ -58,3 +58,4 @@ class Solicita(models.Model):
     )
 
     Cantidad = models.IntegerField()
+
