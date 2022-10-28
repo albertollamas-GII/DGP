@@ -11,6 +11,13 @@
 		display: flex;
 		align-items: center;
 		text-align: center;
+		
+	}
+	.cabecera h1{
+		width: 70%;
+	}
+	.cabecera img{
+		width: 15%;
 	}
 
 	h1 {
@@ -53,19 +60,11 @@
 
 
 <div class = "cabecera">
-	<h1>COMANDAS</h1>
+	{% load static %}
+	<h1>COMANDAS: MENÚ</h1> <img src='{% static "menu.png" %}' alt="menu comedor">
 </div>
 
-<div class="menu-selector">
-	<div class="imagen-menu">
-		{% load static %}
-		<img src='{% static "menu.png" %}' alt="menu comedor">
-		<a class="menu-selector" href="{% url 'anadir_menu' %}">Update</a>
-
-	</div>
-
-	<div class="imagen-menu">
-		{% load static %}
-		<img src='{% static "almacen.png" %}' alt="menu almacen">
-	</div>
+<div class="content">
+	{% load static %}
+	<img src='{% static "clase.png" %}'>
 </div>
