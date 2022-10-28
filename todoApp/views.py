@@ -30,6 +30,8 @@ def updateTask(request, pk):
 
     context = {'form': form}
     return render(request, 'todoApp/update_task.html', context)
+def login(request):
+    return render(request, 'todoApp/login.html')
 
 def deleteTask(request, pk):
     item = Task.objects.get(id=pk)
