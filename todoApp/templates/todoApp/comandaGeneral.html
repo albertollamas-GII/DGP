@@ -1,0 +1,184 @@
+<style>
+	html, body {
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+		background-color: rgb(242, 208, 208);
+		font-family: 'Work Sans', sans-serif;
+	}
+
+	.cabecera {
+		display: flex;
+		align-items: center;
+		text-align: center;
+        height: 5%;
+        margin-bottom: 5%;
+	}
+
+	h1 {
+		font-size: 4em;
+		width: 100%;
+		align-items: center;
+	}
+
+    .contenedor-icono {
+        width: 100%;
+    }
+
+    .contenedor-icono i {
+        font-size: 4em;
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+
+    .imagenCentral {
+        width: 100%;
+        height: 20%;
+    }
+
+    .imagenCentral img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .imagen {
+        width: 40%;
+        height: 30%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 5%;
+
+    }
+
+    .imagen img {
+        width: 100%;
+        height: auto;
+        border-radius: 40px; 
+    }
+
+    .redImg img {
+        border: 8px solid red;
+    }
+
+    .greenImg img {
+        border: 8px solid green;
+    }
+
+    .desc {
+        padding: 15px;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .contenedor-icono2 {
+        width: 100%;
+    }
+
+    .contenedor-icono2 i {
+        float: right;
+        font-size: 4em;
+        padding-right: 30px;
+    }
+
+    .greenIcon {
+        color: green;
+    }
+
+    .redIcon {
+        color: red;
+    }
+</style>
+
+<head>
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+<div class = "contenedor-icono">
+    <i class="fa-solid fa-left-long"></i>
+</div>
+
+<div class = "cabecera">
+	<h1><u>COMANDAS: MENÚ</u></h1>
+
+</div>
+
+<div class = "imagenCentral">
+    {% load static %}
+    <img src='{% static "clases.png" %}' alt="Pictograma de una clase">
+</div>
+
+<div class="section"> 
+
+    
+    
+    <div class="imagen">
+        <div class="greenImg">
+        {% load static %}
+	    <img src='{% static "sara.jpg" %}' alt="Foto de Sara Rodríguez">
+            <div class="desc">
+                    <b>Sara Rodríguez </b>
+                    <div class="greenIcon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+            </div>
+        </div>
+    </div>     
+    
+    <div class="imagen">
+        <div class="redImg">
+        {% load static %}
+	    <img src='{% static "paco.jpg" %}' alt="Foto de Paco Martínez">
+            <div class="desc">
+                    <b>Paco Martínez </b>
+                    <div class="redIcon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+            </div>
+        </div>
+    </div>    
+
+    <div class="imagen">
+        <div class="redImg">
+        {% load static %}
+	    <img src='{% static "paco.jpg" %}' alt="Foto de Marcos García">
+            <div class="desc">
+                    <b>Marcos García</b>
+                    <div class="redIcon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+            </div>
+        </div>
+    </div>    
+
+    <div class="imagen">
+        <div class="greenImg">
+        {% load static %}
+	    <img src='{% static "sara.jpg" %}' alt="Foto de Laura López">
+            <div class="desc">
+                    <b>Laura López</b>
+                    <div class="greenIcon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+            </div>
+        </div>
+    </div>    
+
+</div>
+
+<div class = "contenedor-icono2">
+    <i class="fa-solid fa-right-long"></i>
+</div>
+
+</body>
