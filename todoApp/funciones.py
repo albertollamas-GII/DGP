@@ -9,7 +9,8 @@ def sumatorioMenus():
     for menu in tipos_menu:
         solicitudes_por_menu = Solicita.objects.filter(TipoMenu = menu)
         total_por_menu = sum([solicita.Cantidad for solicita in solicitudes_por_menu])
-        lista.append({"menu" : menu, "cantidad" :total_por_menu})
+        if total_por_menu > 0:
+            lista.append({"menu": menu, "cantidad": total_por_menu})
 
     #breakpoint()
 
