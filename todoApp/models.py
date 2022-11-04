@@ -34,7 +34,7 @@ class Clase(models.Model):
         max_length = 100,
         help_text = "Introduce el nombre del profesor asignado"
     )
-    FotoProfesor = models.ImageField(upload_to="clases")
+    FotoProfesor = models.ImageField(upload_to="imagenes/clases")
 
     def __str__(self):
         return self.Letra + "-" +  self.Profesor
@@ -46,7 +46,7 @@ class Menu(models.Model):
         primary_key = True
     )
 
-    Imagen = models.ImageField(upload_to="menus")
+    Imagen = models.ImageField(upload_to="iamgenes/menus")
 
     def __str__(self):
         return self.Tipo
@@ -65,10 +65,33 @@ class Solicita(models.Model):
 
     Cantidad = models.IntegerField()
 
-    def __srt__(self):
-        return self.Clase_asociada + "-" + self.TipoMenu + "-" + self.Cantidad
+    def __str__(self):
+        clase = self.Clase_asociada
+        menu = self.TipoMenu
+        canti = self.Cantidad
+
+        return str(self.Clase_asociada) + " solicita " + str(self.Cantidad) + " de " + str(self.TipoMenu)
 
 class Numero(models.Model):
-    Numero = models.IntegerField()
+    Numero = models.IntegerField(primary_key=True)
     
-    Imagen = models.ImageField(upload_to="manos")
+    Imagen = models.ImageField(upload_to="imagenes/manos")
+
+    def __str__(self):
+        return self.Imagen
+
+class Estudiante(models.Model):
+    Nombre = models.CharField(max_length = 100)
+
+    Imagen = models.ImageField(upload_to="imagenes/estudiantes")
+
+    def __str__(self):
+        return self.Nombre
+
+class Historico(models.Model):
+
+    Fecha_ini = models.DateField()
+
+    Fecha_fin = models.DateField()
+
+    Documento = models.FileField(upload_to="docs")
