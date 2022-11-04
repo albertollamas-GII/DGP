@@ -36,7 +36,7 @@ class Clase(models.Model):
     )
     FotoProfesor = models.ImageField(upload_to="imagenes/clases")
 
-    Check = models.BooleanField()
+    Check = models.BooleanField( default = True)
 
     def __str__(self):
         return self.Letra + "-" +  self.Profesor + "-" + self.Check
