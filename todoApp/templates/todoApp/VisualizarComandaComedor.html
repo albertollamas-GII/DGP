@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <title>Visualizar Comandas Comedor</title>
+        <link rel="stylesheet" href="{% static 'visualizarComandasComedor.css'%}">
+    </head>
+    <body>
+        <header>
+            Menús Comedor
+        </header>
+        <div id="listado">
+            {% for menu in lista %}
+                <div class="menu">
+                    <span class="tipo">{{menu.menu}}</span>
+                    <span class="num">{{menu.cantidad}}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

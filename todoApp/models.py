@@ -36,6 +36,9 @@ class Clase(models.Model):
     )
     FotoProfesor = models.ImageField(upload_to="clases")
 
+    def __str__(self):
+        return self.Letra + "-" +  self.Profesor
+
 class Menu(models.Model):
     Tipo = models.CharField(
         max_length = 100,
@@ -44,6 +47,9 @@ class Menu(models.Model):
     )
 
     Imagen = models.ImageField(upload_to="menus")
+
+    def __str__(self):
+        return self.Tipo
 
 
 class Solicita(models.Model):    
@@ -59,3 +65,10 @@ class Solicita(models.Model):
 
     Cantidad = models.IntegerField()
 
+    def __srt__(self):
+        return self.Clase_asociada + "-" + self.TipoMenu + "-" + self.Cantidad
+
+class Numero(models.Model):
+    Numero = models.IntegerField()
+    
+    Imagen = models.ImageField(upload_to="manos")

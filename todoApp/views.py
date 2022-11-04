@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import *
 from .forms import *
-#import funciones
+from .funciones import *
 
 def index(request):
     tasks = Task.objects.all()
@@ -50,7 +50,15 @@ def deleteTask(request, pk):
     return render(request, 'todoApp/delete.html', context)
 
 def comandasGeneral(request):
-    #lista = funciones.obtenerListaClases
+    listaClases = Clase.objects.all()
 
-    return render(request, 'todoApp/comandaGeneral.html')
+    return render(request, 'todoApp/comandasGeneral.html', {"lista" : listaClases})
 
+def formularioComanda(request):
+    listaMenus = Menu.objects.all()
+
+    return render(request, "todoApp/{formularioMenusComedorAlberto}", {"lista" : listaMenus}) #AÑADIRLO CUANDO ALBERTO LO ESCOJA
+
+def visualizarComanda(request):
+    listaTotales = sumatorioMenus()
+    return render(request, "todoApp/VisualizarComandaComedor.html", {"lista" : listaTotales}) #AÑADIRLO CUANDO SE SEPA
