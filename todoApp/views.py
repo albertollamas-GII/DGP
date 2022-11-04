@@ -37,9 +37,6 @@ def updateTask(request, pk):
 def login(request):
     return render(request, 'todoApp/login.html')
 
-def anadir_menu(request):
-    return render(request, 'todoApp/anadir_menu.html')
-
 def deleteTask(request, pk):
     item = Task.objects.get(id=pk)
     if request.method == 'POST':
@@ -54,10 +51,12 @@ def comandasGeneral(request):
 
     return render(request, 'todoApp/comandaGeneral.html', {"lista" : listaClases})
 
-def formularioComanda(request):
+def formularioComanda(request, pk):
     listaMenus = Menu.objects.all()
+    
+    clase = Clase.objects.get()
 
-    return render(request, "todoApp/{formularioMenusComedorAlberto}", {"lista" : listaMenus}) #AÑADIRLO CUANDO ALBERTO LO ESCOJA
+    return render(request, "todoApp/anadir_menu.html", {"lista" : listaMenus}) #AÑADIRLO CUANDO ALBERTO LO ESCOJA
 
 def visualizarComanda(request):
     listaTotales = sumatorioMenus()
