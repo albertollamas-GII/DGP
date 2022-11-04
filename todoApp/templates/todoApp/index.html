@@ -59,8 +59,10 @@
 <div class="menu-selector">
 	<div class="imagen-menu">
 		{% load static %}
-		<img src='{% static "menu.png" %}' alt="menu comedor">
-		<a class="menu-selector" href="{% url 'anadir_menu' %}">Update</a>
+		<a class="menu-selector" href="{% url 'comandaGeneral' %}">
+			<img src='{% static "menu.png" %}' alt="menu comedor">
+		</a>
+		
 
 	</div>
 

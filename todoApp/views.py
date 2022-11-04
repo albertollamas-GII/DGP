@@ -5,7 +5,7 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import *
 from .forms import *
-import funciones
+#import funciones
 
 def index(request):
     tasks = Task.objects.all()
@@ -50,7 +50,7 @@ def deleteTask(request, pk):
     return render(request, 'todoApp/delete.html', context)
 
 def comandasGeneral(request):
-    lista = funciones.obtenerListaClases
+    #lista = funciones.obtenerListaClases
 
-    return render(request, 'todoApp/comandasGeneral.html', lista)
+    return render(request, 'todoApp/comandaGeneral.html')
 
