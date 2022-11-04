@@ -94,4 +94,4 @@ class Historico(models.Model):
 
     Fecha_fin = models.DateField()
 
-    Documento = models.FileField(upload_to="docs")
+    Documento = models.FileField(upload_to="docs/historico")
