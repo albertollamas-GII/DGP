@@ -129,6 +129,8 @@
     
     
     <div class="imagen">
+        {% load static %}
+        <a href="{% url 'anadir_menu' %}">
         <div class="greenImg">
         {% load static %}
 	    <img src='{% static "laura.jpg" %}' alt="Foto de Sara Rodríguez">
@@ -139,6 +141,7 @@
                     </div>
             </div>
         </div>
+        </a>
     </div>     
     
     <div class="imagen">
