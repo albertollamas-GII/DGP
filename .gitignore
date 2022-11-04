@@ -1,2 +1,5 @@
 learnDjango/__pycache__/*.pyc
 todoApp/__pycache__/*.pyc
+todoApp/apps.py
+learnDjango/urls.py
+learnDjango/settings.py
