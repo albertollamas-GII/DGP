@@ -15,7 +15,7 @@
 
 	h1 {
 		font-size: 4em;
-		width: 100%;
+		width: 70%;
 		align-items: center;
 	}
 
@@ -37,6 +37,17 @@
 	
 	}
 
+	.visualizacionProfesor {
+		border-width: thick;
+		border-color: black;
+		border: 40px;
+		border: solid;
+		margin: 2%;
+		padding: 2%;
+		border-radius: 30px;
+		background-color:cornsilk;
+	}
+
 	/* Responsive */
 	@media screen and (max-width: 1000px) {
 		.imagen-menu {
@@ -49,11 +60,18 @@
 		}
 		
 	}
+
+
 </style>
 
 
 <div class = "cabecera">
 	<h1>COMANDAS</h1>
+	<div class="visualizacionProfesor">
+		<a class="menuProfesor" href="{% url 'menusTotalesProfesor' %}">
+			<h3>Visualizacion Profesor</h3>
+		</a>
+	</div>
 </div>
 
 <div class="menu-selector">

@@ -52,7 +52,7 @@ def deleteTask(request, pk):
 def comandasGeneral(request):
     listaClases = Clase.objects.all()
 
-    return render(request, 'todoApp/comandasGeneral.html', {"lista" : listaClases})
+    return render(request, 'todoApp/comandaGeneral.html', {"lista" : listaClases})
 
 def formularioComanda(request):
     listaMenus = Menu.objects.all()
