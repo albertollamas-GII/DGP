@@ -2,3 +2,4 @@ learnDjango/__pycache__/*.pyc
 todoApp/__pycache__/*.pyc
 learnDjango/__pycache__/__init__.cpython-310.pyc
 *.pyc
+learnDjango/__pycache__/__init__.cpython-310.pyc
