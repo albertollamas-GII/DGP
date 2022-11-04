@@ -1,4 +1,73 @@
 {% load static %}
+<style>
+    html, body {margin: 0; padding:0;height: 100%; background-color:cornsilk;}
+
+    header{
+        height: 10%;
+        font-size: 4rem;
+        text-align: center;
+        padding-top: 1%;
+    }
+    #listado{
+        height: auto;
+        border-width: thick;
+		border-color: black;
+		border: 10px;
+		border: solid;
+		margin: 2%;
+
+		padding: 2%;
+		border-radius: 10px;
+		background-color: #d7d7d7;
+    }
+    .emptyList{
+        border-width: thick;
+		border-color: black;
+		border: 10px;
+		border: solid;
+		margin: 2%;
+		padding: 2%;
+        font-size: 2rem;
+        text-align: center;
+
+    }
+    .menu{
+      border-width: thick;
+		border-color: black;
+		border: 10px;
+		border: solid;
+		margin: 2%;
+		padding: 2%;
+        font-size: 4.5rem;
+    }
+    .num{
+      border-width: thick;
+		border-color: black;
+		border: 10px;
+		border: solid;
+        padding-left: 1%;
+        padding-right: 1%;
+        text-align: center;
+        float: right;
+    }
+    .tipo{
+        margin-left: 12%;
+    }
+    /* Responsive */
+	@media screen and (max-width: 1000px) {
+		.imagen-menu {
+			margin: 5%;
+		}
+
+		.menu-selector {
+			display: block;
+			text-align: center;
+			height: 100%;
+		}
+
+	}
+</style>
+
 <html>
     <head>
         <title>Visualizar Comandas Comedor</title>
@@ -6,15 +75,25 @@
     </head>
     <body>
         <header>
-            Menús Comedor
+            <u>MENÚS COMEDOR</u>
         </header>
-        <div id="listado">
+
+        {% if lista  %}
+            <div id="listado">
             {% for menu in lista %}
                 <div class="menu">
-                    <span class="tipo">{{menu.menu}}</span>
-                    <span class="num">{{menu.cantidad}}</span>
+                    <div>
+                        <span class="tipo">{{menu.menu}}</span>
+                        <span class="num">{{menu.cantidad}}</span>
+                    </div>
                 </div>
             {% endfor %}
         </div>
+        {% else %}
+            <div class="emptyList">
+                <h1>No se ha encontrado ningún menú</h1>
+            </div>
+        {% endif %}
+
     </body>
 </html>
