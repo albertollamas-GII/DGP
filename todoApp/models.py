@@ -80,7 +80,7 @@ class Numero(models.Model):
     def __str__(self):
         return self.Imagen
 
-class Estudiantes(models.Model):
+class Estudiante(models.Model):
     Nombre = models.CharField(max_length = 100)
 
     Imagen = models.ImageField(upload_to="imagenes/estudiantes")
@@ -88,10 +88,10 @@ class Estudiantes(models.Model):
     def __str__(self):
         return self.Nombre
 
-class Historicos(models.Model):
+class Historico(models.Model):
 
     Fecha_ini = models.DateField()
 
     Fecha_fin = models.DateField()
 
-    Documento = models.FileField()
+    Documento = models.FileField(upload_to="docs")
