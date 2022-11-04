@@ -1,2 +1,2 @@
-learnDjango/__pycache__/*
-todoApp/__pycache__/*
+learnDjango/__pycache__/*.pyc
+todoApp/__pycache__/*.pyc
