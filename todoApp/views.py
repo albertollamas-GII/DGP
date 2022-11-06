@@ -37,8 +37,14 @@ def updateTask(request, pk):
 def login(request):
     return render(request, 'todoApp/login.html')
 
-def anadir_menu(request):
-    return render(request, 'todoApp/anadir_menu.html')
+def anadir_menu(request, clase = 'Clase de Ejemplo'):
+    profe = clase
+    alumnoRutaMal = obtenerAlumno("pablo")
+    context = {'profe' : profe,
+                'estudiante': alumnoRutaMal,
+                }
+    
+    return render(request, 'todoApp/anadir_menu.html', context)
 
 def deleteTask(request, pk):
     item = Task.objects.get(id=pk)

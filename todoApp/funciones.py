@@ -15,3 +15,12 @@ def sumatorioMenus():
     #breakpoint()
 
     return lista
+
+def obtenerAlumno(nombre):
+    alumnos_totales = Estudiante.objects.all()
+
+    for estudiante in alumnos_totales:
+        if estudiante.Nombre.__contains__(nombre):
+            return estudiante
+        else:
+            return "not found"

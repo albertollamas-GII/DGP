@@ -61,10 +61,11 @@
 
 <div class = "cabecera">
 	{% load static %}
-	<h1>COMANDAS: MENÚ</h1> <img src='{% static "menu.png" %}' alt="menu comedor">
+	<h1>COMANDAS: MENÚ {{profe}}</h1> <img src='{% static "menu.png" %}' alt="menu comedor">
 </div>
 
 <div class="content">
-	{% load static %}
-	<img src='{% static "clase.png" %}'>
+	
+	<img src="../../../{{estudiante.Imagen}}">
+	<h1>{{estudiante.Imagen}}</h1>
 </div>

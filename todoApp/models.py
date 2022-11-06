@@ -34,9 +34,9 @@ class Clase(models.Model):
         max_length = 100,
         help_text = "Introduce el nombre del profesor asignado"
     )
-    FotoProfesor = models.ImageField(upload_to="imagenes/clases")
+    FotoProfesor = models.ImageField(upload_to="static/")
 
-    Check = models.BooleanField( default = True)
+    Check = models.BooleanField( default = False)
 
     def __str__(self):
         return self.Letra + "-" +  self.Profesor + "-" + self.Check
@@ -48,7 +48,7 @@ class Menu(models.Model):
         primary_key = True
     )
 
-    Imagen = models.ImageField(upload_to="static/imagenes/menus")
+    Imagen = models.ImageField(upload_to="static/")
 
     def __str__(self):
         return self.Tipo
@@ -77,7 +77,7 @@ class Solicita(models.Model):
 class Numero(models.Model):
     Numero = models.IntegerField(primary_key=True)
     
-    Imagen = models.ImageField(upload_to="static/imagenes/manos")
+    Imagen = models.ImageField(upload_to="static/")
 
     def __str__(self):
         return self.Imagen
@@ -85,7 +85,7 @@ class Numero(models.Model):
 class Estudiante(models.Model):
     Nombre = models.CharField(max_length = 100)
 
-    Imagen = models.ImageField(upload_to="static/imagenes/estudiantes")
+    Imagen = models.ImageField(upload_to="static/")
 
     def __str__(self):
         return self.Nombre
@@ -96,4 +96,4 @@ class Historico(models.Model):
 
     Fecha_fin = models.DateField()
 
-    Documento = models.FileField(upload_to="static/docs/historico")
+    Documento = models.FileField(upload_to="static/")
