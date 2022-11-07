@@ -24,3 +24,12 @@ def obtenerAlumno(nombre):
             return estudiante
         else:
             return "not found"
+
+def obtenerClase(clase):
+    clases = Clase.objects.all()
+
+    for aula in clases:
+        if aula.Letra.__contains__(clase):
+            return aula
+        else:
+            return "not found"

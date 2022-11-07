@@ -148,62 +148,34 @@
 
 <div class="section"> 
 
-    
-    
+        
+    {% for clase in clases %}
     <div class="imagen">
         {% load static %}
         <a href="{% url 'anadir_menu' %}">
-        <div class="greenImg">
-        {% load static %}
-	    <img src='{% static "laura.jpg" %}' alt="Foto de Sara Rodríguez">
-            <div class="desc">
-                    <b>Sara Rodríguez </b>
-                    <div class="greenIcon">
-                        <i class="fa-regular fa-circle-check"></i>
-                    </div>
+            {% if clase.Check %}
+            <div class="greenImg">
+            {% else %}
+            <div class = "redImg">
+            {%endif%}
+            <img src="../../../{{clase.FotoProfesor}}" alt="Foto">
+                <div class="desc">
+                        <b> {{clase.Profesor}} </b>
+                        {% if clase.Check == True %}
+                        <div class="greenIcon">
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                        {% else %}
+                        <div class="redIcon">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        {% endif %}
+                </div>
             </div>
-        </div>
         </a>
-    </div>     
+    </div>
+    {% endfor %}   
     
-    <div class="imagen">
-        <div class="redImg">
-        {% load static %}
-	    <img src='{% static "marcos.jpg" %}' alt="Foto de Paco Martínez">
-            <div class="desc">
-                    <b>Paco Martínez </b>
-                    <div class="redIcon">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-            </div>
-        </div>
-    </div>    
-
-    <div class="imagen">
-        <div class="redImg">
-        {% load static %}
-	    <img src='{% static "laura.jpg" %}' alt="Foto de Marcos García">
-            <div class="desc">
-                    <b>Marcos García</b>
-                    <div class="redIcon">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-            </div>
-        </div>
-    </div>    
-
-    <div class="imagen">
-        <div class="greenImg">
-        {% load static %}
-	    <img src='{% static "marcos.jpg" %}' alt="Foto de Laura López">
-            <div class="desc">
-                    <b>Laura López</b>
-                    <div class="greenIcon">
-                        <i class="fa-regular fa-circle-check"></i>
-                    </div>
-            </div>
-        </div>
-    </div>    
 
 </div>
 

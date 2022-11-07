@@ -39,7 +39,7 @@ class Clase(models.Model):
     Check = models.BooleanField( default = False)
 
     def __str__(self):
-        return self.Letra + "-" +  self.Profesor + "-" + self.Check
+        return self.Letra + "-" +  self.Profesor + "-"
 
 class Menu(models.Model):
     Tipo = models.CharField(

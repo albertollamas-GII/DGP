@@ -38,11 +38,19 @@ def login(request):
     return render(request, 'todoApp/login.html')
 
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
-    profe = clase
-    alumnoRutaMal = obtenerAlumno("pablo")
+    
+    profe = obtenerClase(clase) 
+    form = TaskForm(request.POST or None)
+    if request.method == 'POST':
+        if (profe.Letra > 0):
+            form = TaskForm(request.POST, instance=profe.Letra)
+            if form.is_valid():
+                form.save()
+                return redirect('/')  
+    
+    print(profe.__str__)
     context = {'profe' : profe,
-                'estudiante': alumnoRutaMal,
-                }
+                'form' : form}
     
     return render(request, 'todoApp/anadir_menu.html', context)
 
@@ -57,8 +65,8 @@ def deleteTask(request, pk):
 
 def comandasGeneral(request):
     listaClases = Clase.objects.all()
-
-    return render(request, 'todoApp/comandaGeneral.html', {"lista" : listaClases})
+    context = {'clases': listaClases}
+    return render(request, 'todoApp/comandaGeneral.html', context)
 
 def formularioComanda(request):
     listaMenus = Menu.objects.all()
