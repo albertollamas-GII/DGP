@@ -8,17 +8,7 @@ from .forms import *
 from .funciones import *
 
 def index(request):
-    tasks = Task.objects.all()
-
-    form = TaskForm()
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('/')
-
-    context = {'tasks': tasks, 'form': form}
-    return render(request, 'todoApp/index.html', context)
+    return render(request, 'todoApp/index.html')
 
 def updateTask(request, pk):
     task = Task.objects.get(id=pk)
@@ -39,14 +29,15 @@ def login(request):
 
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     
-    profe = obtenerClase(clase) 
-    form = MenuForm(request.POST or None)
+    profe = obtenerClase(clase)
+    solicitud = obtenerSolicitudClase(clase)
+    print (solicitud.__str__)
+    form = MenuForm()
     if request.method == 'POST':
-        if (profe.Letra > 0):
-            form = MenuForm(request.POST, instance=profe.Letra)
-            if form.is_valid():
-                form.save()
-                return redirect('/')  
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')  
     
     context = {'profe' : profe,
                 'form' : form}

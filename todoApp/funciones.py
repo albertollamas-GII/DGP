@@ -33,3 +33,12 @@ def obtenerClase(clase):
             return aula
         else:
             return "not found"
+
+def obtenerSolicitudClase(clase):
+    solicitudes = Solicita.objects.all()
+
+    for solicitud in solicitudes:
+        if solicitud.Clase_asociada == clase:
+            return solicitud
+        else: 
+            return "not found"
