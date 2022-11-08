@@ -65,7 +65,11 @@
 </div>
 
 <div class="content">
-	
+	<form method="POST" action ="/">
+		{%csrf_token%}
+		
+		<input type="submit" name ="prueba">
+	</form>
 	<img src="../../../{{profe.FotoProfesor}}">
 	<h1>{{profe.Profesor}}</h1>
 </div>
