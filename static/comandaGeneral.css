@@ -1,0 +1,113 @@
+.cabecera {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 15%;
+}
+
+h1 {
+    font-size: 4em;
+    width: 100%;
+    align-items: center;
+}
+
+
+.contenedor-icono {
+    width: 100%;
+    height: 5%;
+}
+
+.contenedor-icono i {
+    font-size: 4em;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.imagenCentral {
+    width: 40%;
+    height: 100%;
+    padding: 5%;
+}
+
+.imagenCentral img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (min-height: 1080px) {
+    .section {
+        width: 100%;
+        height: 75%;
+        display: flex;
+    }
+    .imagen {
+        height: 45%;
+        width: 45%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+
+    }
+    .imagen img {
+        width: 100%;
+        height: 70%;
+        border-radius: 40px; 
+    }
+}
+@media screen and (min-width: 1080px) {
+    .section {
+        width: 100%;
+        height: 75%;
+        display: flex;
+        overflow: auto;
+    }
+    .imagen {
+        height: 90%;
+        width: 25%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+    }
+    .imagen img {
+        
+        width: 100%;
+        height: 70%;
+        border-radius: 40px; 
+    }
+}
+
+
+.redImg img {
+    border: 8px solid red;
+}
+
+.greenImg img {
+    border: 8px solid green;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.contenedor-icono2 {
+    width: 100%;
+    height: 5%;
+}
+
+.contenedor-icono2 i {
+    float: right;
+    font-size: 4em;
+    padding-right: 30px;
+}
+
+.greenIcon {
+    color: green;
+}
+
+.redIcon {
+    color: red;
+}

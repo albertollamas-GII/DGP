@@ -40,15 +40,14 @@ def login(request):
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     
     profe = obtenerClase(clase) 
-    form = TaskForm(request.POST or None)
+    form = MenuForm(request.POST or None)
     if request.method == 'POST':
         if (profe.Letra > 0):
-            form = TaskForm(request.POST, instance=profe.Letra)
+            form = MenuForm(request.POST, instance=profe.Letra)
             if form.is_valid():
                 form.save()
                 return redirect('/')  
     
-    print(profe.__str__)
     context = {'profe' : profe,
                 'form' : form}
     
