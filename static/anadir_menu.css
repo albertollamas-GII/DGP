@@ -7,39 +7,35 @@
 .cabecera h1{
     width: 70%;
 }
-.cabecera img{
-    width: 15%;
-}
 
 h1 {
     font-size: 4em;
     width: 100%;
     align-items: center;
 }
-
-.menu-selector{
+.fotos-laterales {
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.fotoProfesor {
+    width: 30%;
+    margin-top: 20px
+}
+.fotoClase {
+    width:40%;
 }
 
-.imagen-menu {
-    border-width: thick;
-    border-color: black;
-    border: 40px;
-    border: solid;
-    margin: 2%;
-    padding: 2%;
-    border-radius: 30px;
-    background-color:cornsilk;
+.foto
 
+.contenedor-icono {
+    width: 10%;
+    height: 5%;
+    margin-left: 10px;
 }
 
-.fotoprofe {
-    display: none;
+.contenedor-icono i {
+    font-size: 4em;
+    margin-left: 10px;
 }
-
-
 
 /* Responsive */
 @media screen and (max-width: 1000px) {

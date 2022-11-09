@@ -29,10 +29,10 @@ def obtenerClase(clase):
     clases = Clase.objects.all()
 
     for aula in clases:
-        if aula.Letra.__contains__(clase):
+        if aula.Letra == clase:
             return aula
-        else:
-            return "not found"
+    
+    return "not found"
 
 def obtenerSolicitudClase(clase):
     solicitudes = Solicita.objects.all()

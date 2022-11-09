@@ -9,9 +9,7 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = "__all__"
 
-class MenuForm(forms.ModelForm):
-    cantidad = forms.IntegerField(min_value=0)
-    
+class MenuForm(ModelForm):
     class Meta:
         model = Solicita
         fields = "__all__"

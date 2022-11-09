@@ -1,18 +1,26 @@
 {%load static%}
+<script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'anadir_menu.css' %}">
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 
 <div class = "cabecera">
-	{% load static %}
-	<h1>COMANDAS: MENÚ {{profe.Letra}}</h1> <img src='{% static "menu.png" %}' alt="menu comedor">
+	<div class = "contenedor-icono">
+		{% load static %}
+		<a href="{% url 'comandaGeneral' %}" ><i class="fa-solid fa-left-long"></i></a>
+	
+	</div>
+	<h1>Clase {{profe.Letra}}: La clase de {{nombreProfesor}}</h1> 
+	<div class = "fotos-laterales">
+		<img src="../../../{{profe.FotoClase}}" alt="menu comedor" class ="fotoClase">
+		<img src="../../../{{profe.FotoProfesor}}" alt="menu comedor" class ="fotoProfesor">
+	</div>
+	
 </div>
 
 <div class="content">
-	<form method="POST" action ="/">
-		{%csrf_token%}
+	<form method="POST" action ="" enctype="multipart/form-data">
+		{% csrf_token %}
 		{{form}}
 		<input type="submit" name ="prueba">
 	</form>
-	<!-- <img src="../../../{{profe.FotoProfesor}}" class="fotoprofe"> -->
-	<h1>{{profe.Profesor}}</h1>
 </div>
