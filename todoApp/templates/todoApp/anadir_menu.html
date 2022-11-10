@@ -16,11 +16,63 @@
 	</div>
 	
 </div>
-
 <div class="content">
 	<form method="POST" action ="" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{form}}
+		{% for menu in menus %}
+		<div class="menu">
+			<span class="tipo" name = "tipoMenu">{{menu.Tipo}}</span>
+			<img src="../../../{{menu.Imagen}}" name="imagenMenu">
+			{{form.Cantidad}}
+		</div>
+		{% endfor %}
 		<input type="submit" name ="prueba">
 	</form>
+
+	<div class = "contenedor-icono2" name ="paginaSiguiente" onclick="nextMenu()" >
+		<span ><u>Página siguiente</u></span>
+		<i class="fa-solid fa-right-long"></i>
+	</div>
 </div>
+
+<script>
+	let cantidades = document.getElementsByName("Cantidad");
+	let tipos = document.getElementsByName("tipoMenu");
+	let fotos = document.getElementsByName("imagenMenu");
+	let i = 0;
+	console.log(cantidades);
+	cantidades.item(2).hidden = true;
+	cantidades.item(3).hidden = true;
+	cantidades.item(4).hidden = true;
+	cantidades.item(5).hidden = true;
+
+	tipos.item(2).hidden = true;
+	tipos.item(3).hidden = true;
+	tipos.item(4).hidden = true;
+	tipos.item(5).hidden = true;
+
+	fotos.item(2).hidden = true;
+	fotos.item(3).hidden = true;
+	fotos.item(4).hidden = true;
+	fotos.item(5).hidden = true;
+
+	function nextMenu() {
+		cantidades.item(i).hidden = true;
+		cantidades.item((i + 1) % 6).hidden = true;
+		cantidades.item((i + 2) % 6).hidden = false;
+		cantidades.item((i + 3) % 6).hidden = false;
+
+		tipos.item(i).hidden = true;
+		tipos.item((i + 1) % 6).hidden = true;
+		tipos.item((i + 2) % 6).hidden = false;
+		tipos.item((i + 3) % 6).hidden = false;
+
+		fotos.item(i).hidden = true;
+		fotos.item((i + 1) % 6).hidden = true;
+		fotos.item((i + 2) % 6).hidden = false;
+		fotos.item((i + 3) % 6).hidden = false;
+
+		i = (i + 2) % 6;
+	}
+
+</script>

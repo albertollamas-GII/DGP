@@ -29,7 +29,6 @@ def login(request):
 
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     profe = obtenerClase(clase)
-    
     form = MenuForm()
     if request.method == 'POST':
         print('Printing POST', request.POST)
@@ -37,11 +36,12 @@ def anadir_menu(request, clase = 'Clase de Ejemplo'):
         if form.is_valid():
             form.save()
             return redirect('/')
-
+    menus = Menu.objects.all()
     nombre = profe.Profesor.split(" ")[0] # Para mostrar solo el nombre del profesor
     context = {'profe' : profe,
                 'form' : form,
-                'nombreProfesor': nombre}
+                'nombreProfesor': nombre,
+                'menus': menus}
     
     return render(request, 'todoApp/anadir_menu.html', context)
 
