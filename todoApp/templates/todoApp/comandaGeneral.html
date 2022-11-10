@@ -48,9 +48,9 @@
         }
         .imagen {
             height: 45%;
-            width: 27%;
-            padding-left: 3%;
-            padding-right: 3%;
+            width: 33%;
+            padding-left: 8%;
+            padding-right: 8%;
             padding-top: 3%;
 
         }
@@ -129,18 +129,27 @@
     .contenedor-icono2 {
         height: 7.5%;
         width: 100%;
-        text-align: right;
+        display: flex;
     }
 
     .contenedor-icono2 i {
         font-size: 50px;
         padding-right: 30px;
+        padding-left: 30px;
     }
 
     .contenedor-icono2 span {
         font-size: 40px;
     }
 
+    .previous {
+        width: 50%;
+    }
+
+    .next {
+        width: 50%;
+        text-align: right;
+    }
 </style>
 
 <head>
@@ -201,14 +210,82 @@
 
 </div>
 
-<div class = "contenedor-icono2" id ="paginaSiguiente">
-    <span><u>Página siguiente</u></span>
-    <i class="fa-solid fa-right-long"></i>
+<div class = "contenedor-icono2">
+
+    <div class = "previous">
+        <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
+            <i class="fa-solid fa-left-long"></i>
+            <span><u>Página anterior</u></span>
+        </div>
+    </div>
+
+    <div class = "next">
+        <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
+            <span><u>Página siguiente</u></span>
+            <i class="fa-solid fa-right-long"></i>
+        </div>
+    </div>
 </div>
 
 
 </body>
 
 <script>
+    let clases = document.getElementsByClassName("imagen");
+    let previous = document.getElementById("paginaAnterior");
+        previous.hidden = true;
+    let next = document.getElementById("paginaSiguiente");
+    if ( clases.length > 4) {
+        for (let i = 4 ; i < clases.length; i++) 
+            clases.item(i).hidden = true;
+    }
+    else 
+        next.hidden = true;
+    let ultimo = 3;
+    let mostrando = 4;
+    function nextPage() {
+
+        previous.hidden = false;
+
+        // Ocultamos las clases que se han mostrado en la página anterior si existen más clases por mostrar
+        if ( (ultimo+1) != clases.length ) {
+            for (let i = ultimo; i >= ultimo-3 ; i--) 
+                clases.item(i).hidden = true;
+        
+
+            // Mostramos las siguientes clases 
+            
+            for (let i = ultimo+1 ; (i < clases.length) && (i < ultimo+5) ; i++) {
+                clases.item(i).hidden = false;
+                aux = i;
+            }
+            mostrando = aux - ultimo;
+            ultimo = aux;
+        }
+        //comprobamos si va a haber más clases por mostrar o no 
+        if ( (ultimo+1) == clases.length ) 
+            next.hidden = true;
+    }
     
+    function previousPage() {
+
+        next.hidden = false;
+
+        //Ocultamos las clases que se estaban mostrando
+
+        for (let i = ultimo; i > (ultimo - mostrando) ; i--) {
+                clases.item(i).hidden = true;
+                aux = i;
+        }
+        ultimo = aux-1;
+
+        // Mostramos las clases anteriores 
+
+        for (let i = ultimo; i >= ultimo-3 ; i--) 
+                clases.item(i).hidden = false;
+
+        if ( (ultimo-3) == 0 ) 
+            previous.hidden = true;
+        
+    }
 </script>
