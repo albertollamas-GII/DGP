@@ -80,9 +80,6 @@ class Numero(models.Model):
     
     Imagen = models.ImageField(upload_to="static/numeros/")
 
-    def __str__(self):
-        return self.Imagen
-
 class Estudiante(models.Model):
     Nombre = models.CharField(max_length = 100)
 

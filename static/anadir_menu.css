@@ -6,6 +6,8 @@
 }
 .cabecera h1{
     width: 70%;
+    font-size: 3em;
+    margin-left: 7%;
 }
 
 h1 {
@@ -23,8 +25,6 @@ h1 {
 .fotoClase {
     width:40%;
 }
-
-.foto
 
 .contenedor-icono {
     width: 10%;
@@ -52,6 +52,35 @@ h1 {
     font-size: 40px;
 }
 
+.content {
+    text-align: center;
+}
+.menu {
+    display: block;
+}
+.imagenMenu {
+    width: 30%;
+    border:solid;
+    border-radius: 10px;
+    fill: antiquewhite;
+    
+    margin-top: 10px;
+}
+
+.menu h2 {
+    font-size: 3em;
+}
+.imagenMas, .imagenMenos {
+    width: 10%;
+}
+.imagenNumero {
+    width: 20%;
+}
+
+
+.flechas {
+    display: flex;
+}
 /* Responsive */
 @media screen and (max-width: 1000px) {
     .imagen-menu {

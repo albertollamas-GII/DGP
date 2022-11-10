@@ -21,17 +21,34 @@
 		{% csrf_token %}
 		{% for menu in menus %}
 		<div class="menu">
-			<span class="tipo" name = "tipoMenu">{{menu.Tipo}}</span>
-			<img src="../../../{{menu.Imagen}}" name="imagenMenu">
+			<h2 class="tipo" name = "tipoMenu">{{menu.Tipo}}</h2>
+			<img src="../../../{{menu.Imagen}}" name="imagenMenu" class = "imagenMenu">
 			{{form.Cantidad}}
+			{%load static%}
+			<img src="{% static 'menos.png' %}" name = "imagenMenos" class = "imagenMenos" onclick= "restarCantidad()">
+			{% for numero in numeros %}
+			<img src="../../../{{numero.Imagen}}" name = "imagenNumero" class = "imagenNumero">
+			{% endfor %} 
+			{%load static%}
+			<img src="{% static 'mas.png' %}" name = "imagenMas" class = "imagenMas" onclick = "sumarCantidad()">
+			
+			{{solicitudes.TipoMenu}}
+			
 		</div>
 		{% endfor %}
 		<input type="submit" name ="prueba">
 	</form>
+	<div class = "flechas">
+		<div class = "contenedor-icono2" id ="paginaAnterior" onclick="previousMenu()">
+			<i class="fa-solid fa-left-long"></i>
+			<span><u>Página anterior</u></span>
+			
+		</div>
 
-	<div class = "contenedor-icono2" name ="paginaSiguiente" onclick="nextMenu()" >
-		<span ><u>Página siguiente</u></span>
-		<i class="fa-solid fa-right-long"></i>
+		<div class = "contenedor-icono2" name ="paginaSiguiente" onclick="nextMenu()" >
+			<span ><u>Página siguiente</u></span>
+			<i class="fa-solid fa-right-long"></i>
+		</div>
 	</div>
 </div>
 
@@ -39,40 +56,103 @@
 	let cantidades = document.getElementsByName("Cantidad");
 	let tipos = document.getElementsByName("tipoMenu");
 	let fotos = document.getElementsByName("imagenMenu");
-	let i = 0;
-	console.log(cantidades);
-	cantidades.item(2).hidden = true;
-	cantidades.item(3).hidden = true;
-	cantidades.item(4).hidden = true;
-	cantidades.item(5).hidden = true;
+	let botonEnviar = document.getElementsByName("prueba");
+	let imagenMas = document.getElementsByName("imagenMas");
+	let imagenMenos = document.getElementsByName("imagenMenos");
 
-	tipos.item(2).hidden = true;
-	tipos.item(3).hidden = true;
-	tipos.item(4).hidden = true;
-	tipos.item(5).hidden = true;
+	botonEnviar.item(0).hidden = true;
+	let showHidden = 0;
+	let cuentaPag = 0;
 
-	fotos.item(2).hidden = true;
-	fotos.item(3).hidden = true;
-	fotos.item(4).hidden = true;
-	fotos.item(5).hidden = true;
+
+	for (let k = 2; k < 6; k++) {
+		cantidades.item(k).hidden = true;
+		tipos.item(k).hidden = true;
+		fotos.item(k).hidden = true;
+		imagenMas.item(k).hidden = true;
+		imagenMenos.item(k).hidden = true;
+	}
+
+	let numeros = document.getElementsByName("imagenNumero");
+	
+	let i = 1;
+	let j = 11;
+
+	for (let k = 0; k < 6; k++) {
+		for (i; i < j; i++) {
+			numeros.item(i).hidden = true;
+		}
+		if (i < 22 && j < 22){
+			i++; 
+			j = j + 11;
+		} else {
+			j = j+11;
+		}
+	}
+	let tip = 0;
+	i = 0; j = 11;
 
 	function nextMenu() {
-		cantidades.item(i).hidden = true;
-		cantidades.item((i + 1) % 6).hidden = true;
-		cantidades.item((i + 2) % 6).hidden = false;
-		cantidades.item((i + 3) % 6).hidden = false;
+		
+		tipos.item(tip).hidden = true;
+		tipos.item((tip + 1) % 6).hidden = true;
+		tipos.item((tip + 2) % 6).hidden = false;
+		tipos.item((tip + 3) % 6).hidden = false;
 
-		tipos.item(i).hidden = true;
-		tipos.item((i + 1) % 6).hidden = true;
-		tipos.item((i + 2) % 6).hidden = false;
-		tipos.item((i + 3) % 6).hidden = false;
+		fotos.item(tip).hidden = true;
+		fotos.item((tip + 1) % 6).hidden = true;
+		fotos.item((tip + 2) % 6).hidden = false;
+		fotos.item((tip + 3) % 6).hidden = false;
 
-		fotos.item(i).hidden = true;
-		fotos.item((i + 1) % 6).hidden = true;
-		fotos.item((i + 2) % 6).hidden = false;
-		fotos.item((i + 3) % 6).hidden = false;
+		imagenMas.item(tip).hidden = true;
+		imagenMas.item((tip + 1) % 6).hidden = true;
+		imagenMas.item((tip + 2) % 6).hidden = false;
+		imagenMas.item((tip + 3) % 6).hidden = false;
 
-		i = (i + 2) % 6;
+		imagenMenos.item(tip).hidden = true;
+		imagenMenos.item((tip + 1) % 6).hidden = true;
+		imagenMenos.item((tip + 2) % 6).hidden = false;
+		imagenMenos.item((tip + 3) % 6).hidden = false;
+
+		tip = (tip + 2) % 6;
+		
+		let y = 11;
+		console.log(i, j);
+		numeros.item(i).hidden = true;
+		numeros.item(j).hidden = true;
+		numeros.item((i+22) % 66).hidden = false;
+		numeros.item((j+22) % 66).hidden = false;
+		console.log(i+22, j+22);
+		i = (i + 22) % 66;
+		j = (j + 22) % 66;
+	}
+
+	let vectorCantidades = [0,0,0,0,0,0];
+
+	function sumarCantidad() {
+		if (!imagenMas.item(tip).hidden && vectorCantidades[tip + 1] == 0){
+			vectorCantidades[tip]++;
+			cantidades.item(tip).value=vectorCantidades[tip];
+			console.log(cantidades.item(tip).value);
+		}
+		if (!imagenMas.item(tip + 1).hidden && vectorCantidades[tip] != 0){
+			vectorCantidades[tip + 1]++;
+			cantidades.item(tip + 1).value=vectorCantidades[tip + 1];
+			console.log(cantidades.item(tip + 1).value);
+		}
+	}
+
+	function restarCantidad() {
+		if (!imagenMenos.item(tip).hidden){
+			vectorCantidades[tip]--;
+			cantidades.item(tip).value=vectorCantidades[tip];
+			console.log(cantidades.item(tip).value);
+		}
+		if (!imagenMenos.item(tip + 1).hidden){
+			vectorCantidades[tip + 1]--;
+			cantidades.item(tip + 1).value=vectorCantidades[tip + 1];
+			console.log(cantidades.item(tip + 1).value);
+		}
 	}
 
 </script>
