@@ -9,7 +9,10 @@ h1 {
     width: 70%;
     align-items: center;
 }
-
+.title_images {
+    font-size: 3em;
+    text-align: center;
+}
 .menu-selector{
     display: flex;
     justify-content: center;
@@ -21,6 +24,8 @@ h1 {
     border-width: thick;
     border-color: black;
     border: 40px;
+    width: auto;
+
     border: solid;
     margin: 2%;
     padding: 2%;
@@ -43,9 +48,7 @@ h1 {
 
 /* Responsive */
 @media screen and (max-width: 1000px) {
-    .imagen-menu {
-        margin: 5%;
-    }
+
 
     .menu-selector {
         display: block;
