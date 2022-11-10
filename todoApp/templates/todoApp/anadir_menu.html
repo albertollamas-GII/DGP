@@ -72,6 +72,10 @@
 
     function ocultarMenus(addIds,pagina){
 
+		cantidades.forEach(element => {
+			element.style.display = "none";
+		});
+
         hideManos(pagina);
         for(let i = 0 ; i < imagenMas.length ; i++){
             if(addIds){
@@ -84,7 +88,7 @@
             toSet(tipos,i,true);
         }
         for(let i = pagina ; i < pagina+2 ; i++){
-            toSet(cantidades,i,false);
+            toSet(cantidades,i,true);
             toSet(imagenMas,i,false);
             toSet(imagenMenos,i,false);
             toSet(fotos,i,false);
