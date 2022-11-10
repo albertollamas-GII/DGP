@@ -1,3 +1,4 @@
+import pprint
 from turtle import end_fill
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -30,18 +31,18 @@ def login(request):
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     profe = obtenerClase(clase)
     numeros = Numero.objects.all()
-    solicitudes = Solicita.objects.filter(Clase_asociada = clase)
-    print(solicitudes)
+    solicitudes = Solicita.objects.filter(Clase_asociada = profe.Letra)
+    menus = Menu.objects.all()
     form = MenuForm()
     
     if request.method == 'POST':
-        print('Printing POST', request.POST)
-        form = MenuForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+        Cantidades = request.POST.getlist('Cantidad')
+
+        for sol, cantidad in zip(solicitudes,Cantidades):
+
+            sol.Cantidad = cantidad
+            sol.save()
     
-    menus = Menu.objects.all()
     nombre = profe.Profesor.split(" ")[0] # Para mostrar solo el nombre del profesor
     context = {'profe' : profe,
                 'form' : form,

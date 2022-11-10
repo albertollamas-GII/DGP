@@ -25,12 +25,12 @@
 			<img src="../../../{{menu.Imagen}}" name="imagenMenu" class = "imagenMenu">
 			{{form.Cantidad}}
 			{%load static%}
-			<img src="{% static 'menos.png' %}" name = "imagenMenos" class = "imagenMenos" onclick= "restarCantidad()">
+			<img src="{% static 'menos.png' %}" name = "imagenMenos" class = "imagenMenos" onclick= "restarCantidad('{{ menu.Tipo }}')">
 			{% for numero in numeros %}
 			<img src="../../../{{numero.Imagen}}" name = "imagenNumero" class = "imagenNumero">
-			{% endfor %} 
+			{% endfor %}
 			{%load static%}
-			<img src="{% static 'mas.png' %}" name = "imagenMas" class = "imagenMas" onclick = "sumarCantidad()">
+			<img src="{% static 'mas.png' %}" id = "{{ menu.Tipo }}" class = "imagenMas" onclick = "sumarCantidad('{{ menu.Tipo }}')">
 			
 			{{solicitudes.TipoMenu}}
 			
@@ -53,106 +53,124 @@
 </div>
 
 <script>
-	let cantidades = document.getElementsByName("Cantidad");
-	let tipos = document.getElementsByName("tipoMenu");
-	let fotos = document.getElementsByName("imagenMenu");
-	let botonEnviar = document.getElementsByName("prueba");
-	let imagenMas = document.getElementsByName("imagenMas");
-	let imagenMenos = document.getElementsByName("imagenMenos");
+	var cantidades = document.getElementsByName("Cantidad");
+	var tipos = document.getElementsByName("tipoMenu");
+	var fotos = document.getElementsByName("imagenMenu");
+	var botonEnviar = document.getElementsByName("prueba");
+	var imagenMas = document.getElementsByClassName("imagenMas");
+	var imagenMenos = document.getElementsByName("imagenMenos");
+    var tip = 0;
+	botonEnviar.item(0).style.display = "none";
+	var showHidden = 0;
+	var cuentaPag = 0;
+    var numeros = document.getElementsByName("imagenNumero");
 
-	botonEnviar.item(0).hidden = true;
-	let showHidden = 0;
-	let cuentaPag = 0;
+    const ids = [];
+    // itera por todos los menus disponibles
+
+    ocultarMenus(true,0);
+
+    function ocultarMenus(addIds,pagina){
+
+        hideManos(pagina);
+        for(let i = 0 ; i < imagenMas.length ; i++){
+            if(addIds){
+                ids.push(imagenMas.item(i).id);
+            }
+            toSet(cantidades,i,true);
+            toSet(imagenMas,i,true);
+            toSet(imagenMenos,i,true);
+            toSet(fotos,i,true);
+            toSet(tipos,i,true);
+        }
+        for(let i = pagina ; i < pagina+2 ; i++){
+            toSet(cantidades,i,false);
+            toSet(imagenMas,i,false);
+            toSet(imagenMenos,i,false);
+            toSet(fotos,i,false);
+            toSet(tipos,i,false);
+        }
+    }
+
+    function toCheck(a,pos){
+        return pos >= 0 && pos < a.length;
+    }
+    function toSet(a,pos,isNone){
+        if(toCheck(a,pos)){
+             if(isNone){
+                 a.item(pos).style.display = "none";
+             }else{
+                 a.item(pos).style.display = "inline";
+             }
+
+        }
+    }
 
 
-	for (let k = 2; k < 6; k++) {
-		cantidades.item(k).hidden = true;
-		tipos.item(k).hidden = true;
-		fotos.item(k).hidden = true;
-		imagenMas.item(k).hidden = true;
-		imagenMenos.item(k).hidden = true;
-	}
 
-	let numeros = document.getElementsByName("imagenNumero");
-	
-	let i = 1;
-	let j = 11;
+	function hideManos(pagina){
+        for(let i = 0 ; i < numeros.length ; i++){
+            toSet(numeros,i,true);
+        }
 
-	for (let k = 0; k < 6; k++) {
-		for (i; i < j; i++) {
-			numeros.item(i).hidden = true;
-		}
-		if (i < 22 && j < 22){
-			i++; 
-			j = j + 11;
-		} else {
-			j = j+11;
-		}
-	}
-	let tip = 0;
-	i = 0; j = 11;
+        // 0 , 12 , 22 , 34
+
+        let primer = pagina*2*12;
+
+        let segundo = pagina*2*12+12;
+        console.log(primer + " - "+segundo);
+        toSet(numeros,primer,false);
+        toSet(numeros,segundo,false);
+    }
+
 
 	function nextMenu() {
-		
-		tipos.item(tip).hidden = true;
-		tipos.item((tip + 1) % 6).hidden = true;
-		tipos.item((tip + 2) % 6).hidden = false;
-		tipos.item((tip + 3) % 6).hidden = false;
-
-		fotos.item(tip).hidden = true;
-		fotos.item((tip + 1) % 6).hidden = true;
-		fotos.item((tip + 2) % 6).hidden = false;
-		fotos.item((tip + 3) % 6).hidden = false;
-
-		imagenMas.item(tip).hidden = true;
-		imagenMas.item((tip + 1) % 6).hidden = true;
-		imagenMas.item((tip + 2) % 6).hidden = false;
-		imagenMas.item((tip + 3) % 6).hidden = false;
-
-		imagenMenos.item(tip).hidden = true;
-		imagenMenos.item((tip + 1) % 6).hidden = true;
-		imagenMenos.item((tip + 2) % 6).hidden = false;
-		imagenMenos.item((tip + 3) % 6).hidden = false;
-
-		tip = (tip + 2) % 6;
-		
-		let y = 11;
-		console.log(i, j);
-		numeros.item(i).hidden = true;
-		numeros.item(j).hidden = true;
-		numeros.item((i+22) % 66).hidden = false;
-		numeros.item((j+22) % 66).hidden = false;
-		console.log(i+22, j+22);
-		i = (i + 22) % 66;
-		j = (j + 22) % 66;
+        tip++;
+        if(tip >= tipos.length){
+            tip = tipos.length-1;
+        }
+        ocultarMenus(false,tip);
 	}
 
-	let vectorCantidades = [0,0,0,0,0,0];
+    function previousMenu(){
+        tip--;
+        if(tip < 0){
+            tip = 0;
+        }
+        ocultarMenus(false,tip);
+    }
+	var vectorCantidades = [0,0,0,0,0,0];
 
-	function sumarCantidad() {
-		if (!imagenMas.item(tip).hidden && vectorCantidades[tip + 1] == 0){
-			vectorCantidades[tip]++;
-			cantidades.item(tip).value=vectorCantidades[tip];
-			console.log(cantidades.item(tip).value);
-		}
-		if (!imagenMas.item(tip + 1).hidden && vectorCantidades[tip] != 0){
-			vectorCantidades[tip + 1]++;
-			cantidades.item(tip + 1).value=vectorCantidades[tip + 1];
-			console.log(cantidades.item(tip + 1).value);
-		}
+	function sumarCantidad(tipoClicked) {
+        let pos = ids.indexOf(tipoClicked);
+        if(!toCheck(vectorCantidades,pos)) return;
+        if(!toCheck(numeros,vectorCantidades[pos])) return;
+
+        numeros.item(vectorCantidades[pos]).style.display = "none";
+        vectorCantidades[pos]++;
+        if(vectorCantidades[pos] >= numeros.length){
+            vectorCantidades[pos] = numeros.length-1;
+        }
+        numeros.item(vectorCantidades[pos]).style.display = "inline";
+        cantidades.item(pos).value=vectorCantidades[pos];
+
 	}
 
-	function restarCantidad() {
-		if (!imagenMenos.item(tip).hidden){
-			vectorCantidades[tip]--;
-			cantidades.item(tip).value=vectorCantidades[tip];
-			console.log(cantidades.item(tip).value);
-		}
-		if (!imagenMenos.item(tip + 1).hidden){
-			vectorCantidades[tip + 1]--;
-			cantidades.item(tip + 1).value=vectorCantidades[tip + 1];
-			console.log(cantidades.item(tip + 1).value);
-		}
+	function restarCantidad(tipoClicked) {
+        let pos = ids.indexOf(tipoClicked);
+        if(!toCheck(vectorCantidades,pos))return;
+        if(!toCheck(numeros,vectorCantidades[pos])) return;
+
+        numeros.item(vectorCantidades[pos]).style.display = "none";
+        vectorCantidades[pos]--;
+        if(vectorCantidades[pos] < 0){
+            vectorCantidades[pos] = 0;
+        }
+        numeros.item(vectorCantidades[pos]).style.display = "inline";
+        cantidades.item(pos).value=vectorCantidades[pos];
+
+
+
 	}
 
 </script>
