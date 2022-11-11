@@ -5,6 +5,13 @@ html, body {margin: 0; padding:0;height: 100%; background-color:cornsilk;}
     font-size: 4rem;
     text-align: center;
     padding-top: 1%;
+    display: flex;
+    margin-top: 4%;
+}
+
+.contenedor-icono{
+    margin-right: 20%;
+    margin-left: 2%;
 }
 #listado{
     height: auto;
