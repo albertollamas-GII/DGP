@@ -59,6 +59,7 @@ h1 {
     display: grid;
     max-height: fit-content;
     grid-template-columns: 50% 10% 30% 10%;
+    margin-bottom: 2%;
 }
 
 .menu div{
@@ -66,7 +67,7 @@ h1 {
 }
 
 .imagenMenu {
-    width: 90%;
+    width: 60%;
     border:solid;
     border-radius: 10px;
     fill: antiquewhite;
@@ -85,6 +86,13 @@ h1 {
 .imagenNumero {
     width: 90%;
     margin: auto;
+}
+
+#envioForm {
+    background-color: green;
+    width: 30%;
+    margin-left : 3%;
+    font-size: 3em;
 }
 
 
