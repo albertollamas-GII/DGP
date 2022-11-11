@@ -33,6 +33,8 @@ def anadir_menu(request, clase = 'Clase de Ejemplo'):
     numeros = Numero.objects.all()
     solicitudes = Solicita.objects.filter(Clase_asociada = profe.Letra)
     menus = Menu.objects.all()
+    for menu in menus:
+        menu.Tipo = menu.Tipo.upper
     form = MenuForm()
     
     if request.method == 'POST':
@@ -46,7 +48,7 @@ def anadir_menu(request, clase = 'Clase de Ejemplo'):
     nombre = profe.Profesor.split(" ")[0] # Para mostrar solo el nombre del profesor
     context = {'profe' : profe,
                 'form' : form,
-                'nombreProfesor': nombre,
+                'nombreProfesor': nombre.upper,
                 'menus': menus,
                 'numeros': numeros,
                 'solicitudes': solicitudes}

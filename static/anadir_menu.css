@@ -91,10 +91,10 @@ h1 {
 }
 
 #envioForm {
-    background-color: green;
-    width: 30%;
+    max-width: 30%;
     margin-left : 3%;
-    font-size: 3em;
+    font-size: 1em;
+    height: 60px;
 }
 
 

@@ -1,6 +1,6 @@
 html, body {margin: 0; padding:0;height: 100%; background-color:cornsilk;}
 
-header{
+.header{
     height: 10%;
     font-size: 4rem;
     text-align: center;
