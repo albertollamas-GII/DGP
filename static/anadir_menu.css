@@ -31,9 +31,7 @@ h1 {
     height: 5%;
     margin-left: 10px;
 }
-.tipo {
-    text-transform: capitalize;
-}
+
 .contenedor-icono i {
     font-size: 4em;
     margin-left: 10px;
@@ -61,7 +59,6 @@ h1 {
     display: grid;
     max-height: fit-content;
     grid-template-columns: 50% 10% 30% 10%;
-    margin-bottom: 2%;
 }
 
 .menu div{
@@ -69,7 +66,7 @@ h1 {
 }
 
 .imagenMenu {
-    width: 60%;
+    width: 90%;
     border:solid;
     border-radius: 10px;
     fill: antiquewhite;
@@ -88,13 +85,6 @@ h1 {
 .imagenNumero {
     width: 90%;
     margin: auto;
-}
-
-#envioForm {
-    max-width: 30%;
-    margin-left : 3%;
-    font-size: 1em;
-    height: 60px;
 }
 
 
