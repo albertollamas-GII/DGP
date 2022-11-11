@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     text-align: center;
+    height: 12%;
 }
 
 h1 {
@@ -14,26 +15,33 @@ h1 {
     text-align: center;
 }
 .menu-selector{
-    display: flex;
+    display: grid;
+    grid-column: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 4%;
 }
 
 .imagen-menu {
     border-width: thick;
     border-color: black;
     border: 40px;
-    width: auto;
+    width: fit-content;
 
     border: solid;
-    margin: 2%;
+    margin: auto;
+    margin-bottom: 20%;
     padding: 2%;
     border-radius: 30px;
     background-color:cornsilk;
-
-
 }
+
+.imagen-menu img{
+    max-height: 30vh;
+}
+
+
 
 .visualizacionProfesor {
     border-width: thick;
@@ -54,6 +62,7 @@ h1 {
         display: block;
         text-align: center;
         height: 100%;
+        margin-top: 2%;
     }
     
 }
