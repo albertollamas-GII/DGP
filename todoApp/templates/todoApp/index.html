@@ -1,28 +1,36 @@
-<style>
-	body{
-		background-color: bisque;
-		font-family: 'Work Sans', sans-serif;
-	}
 
-	.cabecera{
-		display: flex;
-		align-items: center;
-		text-align: center;
-	}
-
-	h1 {
-		font-size: 4em;
-		width: 100%;
-		align-items: center;
-	}
-</style>
+{%load static%}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 
 
 <div class = "cabecera">
 	<h1>COMANDAS</h1>
+	<div class="visualizacionProfesor">
+		<a class="urlProfesor" href="{% url 'menusTotalesProfesor' %}">
+			<h3>Visualizacion Profesor</h3>
+		</a>
+
+		<a class="urlProfesor" href="http://127.0.0.1:8000/admin">
+			<h3>Admin</h3>
+		</a>
+	</div>
 </div>
 
-<div class="center-column">
-	{% load static %}
-	<img src='{% static "menu.png" %}' alt="My image">
+<div class="menu-selector">
+	<div class="imagen-menu">
+		<div class="title_images"><b>MENUS</b></div>
+		{% load static %}
+		<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+			<img src='{% static "menu.png" %}' alt="menu comedor">
+		</a>
+		
+
+	</div>
+
+	<div class="imagen-menu">
+		<div class="title_images"><b>ALMACEN</b></div>
+		{% load static %}
+		<img src='{% static "almacen.png" %}' alt="menu almacen">
+	</div>
 </div>

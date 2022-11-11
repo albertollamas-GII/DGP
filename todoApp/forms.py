@@ -8,3 +8,8 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = "__all__"
+
+class MenuForm(ModelForm):
+    class Meta:
+        model = Solicita
+        fields = "__all__"

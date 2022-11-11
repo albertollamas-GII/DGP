@@ -1,2 +1,7 @@
-learnDjango/_pycache__/*
-todoApp/__pycache__/*
+learnDjango/__pycache__/*.pyc
+todoApp/__pycache__/*.pyc
+todoApp/apps.py
+learnDjango/urls.py
+learnDjango/settings.py
+todoApp/migrations/__pycache__/*.pyc
+db.sqlite3

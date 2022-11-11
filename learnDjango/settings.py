@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todoApp',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +73,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learnDjango.wsgi.application'
 
-
+GRAPH_MODELS = {
+    "all_applications": True,
+    "group_models": True,
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
