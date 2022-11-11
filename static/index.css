@@ -5,11 +5,14 @@
 }
 
 h1 {
-    font-size: 6em;
+    font-size: 4em;
     width: 70%;
     align-items: center;
 }
-
+.title_images {
+    font-size: 3em;
+    text-align: center;
+}
 .menu-selector{
     display: flex;
     justify-content: center;
@@ -21,6 +24,8 @@ h1 {
     border-width: thick;
     border-color: black;
     border: 40px;
+    width: auto;
+
     border: solid;
     margin: 2%;
     padding: 2%;
@@ -39,15 +44,11 @@ h1 {
     padding: 2%;
     border-radius: 30px;
     background-color:cornsilk;
-    font-size: 24px;
 }
-
 
 /* Responsive */
 @media screen and (max-width: 1000px) {
-    .imagen-menu {
-        margin: 5%;
-    }
+
 
     .menu-selector {
         display: block;
@@ -56,4 +57,3 @@ h1 {
     }
     
 }
-
