@@ -5,7 +5,7 @@
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 6em;
     width: 70%;
     align-items: center;
 }
@@ -39,7 +39,9 @@ h1 {
     padding: 2%;
     border-radius: 30px;
     background-color:cornsilk;
+    font-size: 24px;
 }
+
 
 /* Responsive */
 @media screen and (max-width: 1000px) {

@@ -31,7 +31,9 @@ h1 {
     height: 5%;
     margin-left: 10px;
 }
-
+.tipo {
+    text-transform: capitalize;
+}
 .contenedor-icono i {
     font-size: 4em;
     margin-left: 10px;
