@@ -1,6 +1,13 @@
 <style>
-	body {
-		background-color: rgb(242, 208, 208);
+    html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
+	body{
+		background-color:aliceblue;
 		font-family: 'Work Sans', sans-serif;
 	}
 
@@ -9,6 +16,7 @@
 		align-items: center;
 		text-align: center;
         height: 20%;
+        border: 3px solid black;
 	}
 
 	h1 {
@@ -16,6 +24,68 @@
 		width: 70%;
 		align-items: center;
 	}
+
+    
+    @media screen and (min-height: 1080px) {
+        .section {
+            width: 100%;
+            height: 67.5%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .imagen {
+            height: 45%;
+            width: 33%;
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-top: 3%;
+
+        }
+        .imagen img {
+            width: 100%;
+            height: 70%;
+            border-radius: 40px;
+            border: 3px solid black;
+        }
+    }
+    @media screen and (min-width: 1080px) {
+        .section {
+            width: 100%;
+            height: 67.5%;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .imagen {
+            height: 90%;
+            width: 18.9%;
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 3%;
+        }
+        .imagen img {
+            
+            width: 100%;
+            height: 70%;
+            border-radius: 40px;
+            border: 3px solid black;
+        }
+    }
+
+    .section a:link {
+        text-decoration: none;
+    }
+
+    .section a:visited {
+        color: black;
+    }
+
+    .desc {
+        padding: 15px;
+        text-align: center;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
 
     .contenedor-icono {
         width: 30%;
@@ -26,44 +96,37 @@
     }
 
     i:hover {
-        color: rgb(3, 15, 255);
+        color: rgb(243, 168, 89);
     } 
 
     .section {
+        height: 72.5%;
+    }
+
+    .contenedor-icono2 {
+        height: 7.5%;
         width: 100%;
-        height: auto;
         display: flex;
-        flex-wrap: wrap;
-        padding-top: 20px;
     }
 
-    .section a:hover {
-        color: rgb(240, 155, 155);
-        text-decoration: none;
+    .contenedor-icono2 i {
+        font-size: 50px;
+        padding-right: 30px;
+        padding-left: 30px;
     }
 
-    .imagen {
-        width: 45%;
-        height: auto;
-        border: 1px solid #ccc;
-        margin: 1.5%;
+    .contenedor-icono2 span {
+        font-size: 40px;
     }
 
-    .imagen:hover {
-        border: 3px solid #777;
+    .previous {
+        width: 50%;
     }
 
-    .imagen img {
-        width: 100%;
-        height: auto;
-        border-radius: 40px 40px 0 0;
+    .next {
+        width: 50%;
+        text-align: right;
     }
-
-    .desc {
-        padding: 15px;
-        text-align: center;
-    }
-
 </style>
 
 <head>
@@ -82,41 +145,100 @@
     </div>
 </div>
 
-<div class="section"> 
-
-    <div class="imagen">
-        {% load static %}
-	    <img src='{% static "sara.jpg" %}' alt="Foto de Sara Rodríguez">
-            <div class="desc">
-                    <b>Sara Rodríguez</b>
-            </div>
-    </div>     
+<div class = "section">
     
+    {% for clase in clases %}
     <div class="imagen">
         {% load static %}
-	    <img src='{% static "paco.jpg" %}' alt="Foto de Paco Martínez">
-            <div class="desc">
-                    <b>Paco Martínez</b>
-            </div>
-    </div>    
-
-    <div class="imagen">
-        {% load static %}
-	    <img src='{% static "marcos.jpg" %}' alt="Foto de Marcos García">
-            <div class="desc">
-                    <b>Marcos García</b>
-            </div>
-    </div>    
-
-    <div class="imagen">
-        {% load static %}
-	    <img src='{% static "laura.jpg" %}' alt="Foto de Laura López">
-            <div class="desc">
-                    <b>Laura López</b>
-            </div>
-    </div>    
+        <a href="{% url 'anadir_menu' clase.Letra %}">
+            {% load static %}
+            <img src="../../../{{clase.FotoProfesor}}" alt="Foto">
+                <div class="desc">
+                    <b> {{clase.Profesor}} </b>
+                </div>
+        </a>
+    </div>
+    {% endfor %}  
 
 </div>
 
 
+<div class = "contenedor-icono2">
+
+    <div class = "previous">
+        <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
+            <i class="fa-solid fa-left-long"></i>
+            <span><u>Página anterior</u></span>
+        </div>
+    </div>
+
+    <div class = "next">
+        <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
+            <span><u>Página siguiente</u></span>
+            <i class="fa-solid fa-right-long"></i>
+        </div>
+    </div>
+</div>
+
+
 </body>
+
+<script>
+    let clases = document.getElementsByClassName("imagen");
+    let previous = document.getElementById("paginaAnterior");
+        previous.hidden = true;
+    let next = document.getElementById("paginaSiguiente");
+    if ( clases.length > 4) {
+        for (let i = 4 ; i < clases.length; i++) 
+            clases.item(i).hidden = true;
+    }
+    else 
+        next.hidden = true;
+    let ultimo = 3;
+    let mostrando = 4;
+    function nextPage() {
+
+        previous.hidden = false;
+
+        // Ocultamos las clases que se han mostrado en la página anterior si existen más clases por mostrar
+        if ( (ultimo+1) != clases.length ) {
+            for (let i = ultimo; i >= ultimo-3 ; i--) 
+                clases.item(i).hidden = true;
+        
+
+            // Mostramos las siguientes clases 
+            
+            for (let i = ultimo+1 ; (i < clases.length) && (i < ultimo+5) ; i++) {
+                clases.item(i).hidden = false;
+                aux = i;
+            }
+            mostrando = aux - ultimo;
+            ultimo = aux;
+        }
+        //comprobamos si va a haber más clases por mostrar o no 
+        if ( (ultimo+1) == clases.length ) 
+            next.hidden = true;
+    }
+    
+    function previousPage() {
+
+        next.hidden = false;
+
+        //Ocultamos las clases que se estaban mostrando
+
+        for (let i = ultimo; i > (ultimo - mostrando) ; i--) {
+                clases.item(i).hidden = true;
+                aux = i;
+        }
+        ultimo = aux-1;
+
+        // Mostramos las clases anteriores 
+
+        for (let i = ultimo; i >= ultimo-3 ; i--) 
+                clases.item(i).hidden = false;
+
+        if ( (ultimo-3) == 0 ) 
+            previous.hidden = true;
+        
+    }
+</script>

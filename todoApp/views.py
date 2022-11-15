@@ -28,6 +28,11 @@ def updateTask(request, pk):
 def login(request):
     return render(request, 'todoApp/login.html')
 
+def login2(request):
+    listaClases = Clase.objects.all()
+    context = {'clases': listaClases}
+    return render(request, 'todoApp/login2.html', context)
+
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     profe = obtenerClase(clase)
     numeros = Numero.objects.all()

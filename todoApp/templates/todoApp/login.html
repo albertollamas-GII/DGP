@@ -1,6 +1,13 @@
 <style>
+    html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+    }
+
 	body{
-		background-color: rgb(242, 208, 208);
+		background-color:aliceblue;
 		font-family: 'Work Sans', sans-serif;
 	}
 
@@ -9,6 +16,7 @@
 		align-items: center;
 		text-align: center;
         height: 20%;
+        border: 3px solid black;
 	}
 
 	h1 {
@@ -16,32 +24,57 @@
 		width: 70%;
 		align-items: center;
 	}
-
+    h2 {
+        font-size: 2.5em;
+    }
+    .contenedor-inicio {
+        text-align: center;
+    }
     .contenedor-icono {
         width: 30%;
     }
-
+    .contenedor-btn {
+        width: 100%;
+        text-align: center;
+    }
     i {
         font-size: 4em;
     }
 
+    form {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    input[type=email], input[type=password] {
+        width: 100%;
+        height: 10%;
+        background-color:aliceblue;
+    }
+
+    input[type=email]:focus, input[type=password]:focus {
+        background-color:rgb(210, 209, 209);
+    }
     i:hover {
-        color: rgb(3, 15, 255);
+        color: rgb(243, 168, 89);
     } 
 
     .formulario {
         height: 80%;
-        align-items: center;
+        display : flex;
+        justify-content : center;
+        align-items : center;
     }
 
     .contenido {
-        border: 2px solid rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
         border-radius: 40px;
-        background-color: rgb(220, 218, 218);
+        background-color:cornsilk;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
-        text-align: center;
+        width: 70%;
+        height: 70%;
+        padding: 40px;
     }
 
     input[type=submit] {
@@ -50,7 +83,8 @@
         padding: 16px 32px;
         text-decoration: none;
         margin: 4px 2px;
-        border: none;
+        width: 50%;
+        font-size: 1em;
     }
 </style>
 
@@ -72,15 +106,19 @@
 
 <div class = "formulario">
     <div class = "contenido">
-        <h3>Inicio sesión</h3>
+        <div class = "contenedor-inicio">
+            <h2>Inicio sesión</h2>
+        </div>
         <form>
-            <label for="user">Usuario:</label><br>
-            <input type="text" id="user" name="user"><br><br>
+            <label for="email">Usuario</label><br>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"><br><br>
 
-            <label for="pwd">Contraseña:</label><br>
-            <input type="password" id="pwd" name="pwd"><br><br>
+            <label for="pwd">Contraseña</label><br>
+            <input type="password" id="pwd" name="pwd"><br><br><br>
 
-            <input type="submit" value="Acceder">
+            <div class = "contenedor-btn">
+                <input type="submit" value="Entrar">
+            </div>
         </form>
     </div>
 </div>
