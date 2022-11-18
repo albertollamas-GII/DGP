@@ -35,7 +35,7 @@ class Clase(models.Model):
         help_text = "Introduce el nombre del profesor asignado"
     )
     FotoProfesor = models.ImageField(upload_to="static/profesores/")
-
+    Password = models.CharField(max_length=100)
     FotoClase = models.ImageField(upload_to="static/clases/", null = True)
     Check = models.BooleanField( default = False)
 
