@@ -24,14 +24,14 @@ h1 {
 }
 
 .imagen-menu {
+    border: solid;
     border-width: thick;
     border-color: black;
     border: 40px;
     width: fit-content;
 
-    border: solid;
     margin: auto;
-    margin-bottom: 20%;
+    margin-bottom: 7.5%;
     padding: 2%;
     border-radius: 30px;
     background-color:cornsilk;
