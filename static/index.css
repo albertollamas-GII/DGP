@@ -24,12 +24,13 @@ h1 {
 }
 
 .imagen-menu {
-    border: solid;
+    border: 40px;
     border-width: thick;
     border-color: black;
-    border: 40px;
-    width: fit-content;
+    border: solid;
 
+
+    width: fit-content;
     margin: auto;
     margin-bottom: 7.5%;
     padding: 2%;
