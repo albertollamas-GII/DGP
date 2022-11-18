@@ -1,3 +1,4 @@
+import pprint
 from turtle import end_fill
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -27,21 +28,35 @@ def updateTask(request, pk):
 def login(request):
     return render(request, 'todoApp/login.html')
 
+def login2(request):
+    listaClases = Clase.objects.all()
+    context = {'clases': listaClases}
+    return render(request, 'todoApp/login2.html', context)
+
 def anadir_menu(request, clase = 'Clase de Ejemplo'):
     profe = obtenerClase(clase)
-    
+    numeros = Numero.objects.all()
+    solicitudes = Solicita.objects.filter(Clase_asociada = profe.Letra)
+    menus = Menu.objects.all()
+    for menu in menus:
+        menu.Tipo = menu.Tipo.upper
     form = MenuForm()
+    
     if request.method == 'POST':
-        print('Printing POST', request.POST)
-        form = MenuForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+        Cantidades = request.POST.getlist('Cantidad')
 
+        for sol, cantidad in zip(solicitudes,Cantidades):
+
+            sol.Cantidad = cantidad
+            sol.save()
+    
     nombre = profe.Profesor.split(" ")[0] # Para mostrar solo el nombre del profesor
     context = {'profe' : profe,
                 'form' : form,
-                'nombreProfesor': nombre}
+                'nombreProfesor': nombre.upper,
+                'menus': menus,
+                'numeros': numeros,
+                'solicitudes': solicitudes}
     
     return render(request, 'todoApp/anadir_menu.html', context)
 

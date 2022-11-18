@@ -6,6 +6,8 @@
 }
 .cabecera h1{
     width: 70%;
+    font-size: 3em;
+    margin-left: 7%;
 }
 
 h1 {
@@ -13,7 +15,7 @@ h1 {
     width: 100%;
     align-items: center;
 }
-.fotos-laterales {
+.fotos-laterales{
     display: flex;
 }
 .fotoProfesor {
@@ -24,19 +26,81 @@ h1 {
     width:40%;
 }
 
-.foto
-
 .contenedor-icono {
     width: 10%;
     height: 5%;
     margin-left: 10px;
 }
-
+.tipo {
+    text-transform: capitalize;
+}
 .contenedor-icono i {
     font-size: 4em;
     margin-left: 10px;
 }
 
+.contenedor-icono2 {
+    height: 7.5%;
+    width: 100%;
+    text-align: right;
+}
+
+.contenedor-icono2 i {
+    font-size: 50px;
+    padding-right: 30px;
+}
+
+.contenedor-icono2 span {
+    font-size: 40px;
+}
+
+.content {
+    text-align: center;
+}
+.menu {
+    display: grid;
+    max-height: fit-content;
+    grid-template-columns: 50% 10% 30% 10%;
+    margin-bottom: 2%;
+}
+
+.menu div{
+    align-items: center;
+}
+
+.imagenMenu {
+    width: 60%;
+    border:solid;
+    border-radius: 10px;
+    fill: antiquewhite;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.menu h2 {
+    font-size: 3em;
+    grid-column: 1 / 5;
+}
+.imagenMas, .imagenMenos {
+    width: 90%;
+    margin: auto;
+}
+.imagenNumero {
+    width: 90%;
+    margin: auto;
+}
+
+#envioForm {
+    max-width: 30%;
+    margin-left : 3%;
+    font-size: 1em;
+    height: 60px;
+}
+
+
+.flechas {
+    display: flex;
+}
 /* Responsive */
 @media screen and (max-width: 1000px) {
     .imagen-menu {
