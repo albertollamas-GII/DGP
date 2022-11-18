@@ -96,11 +96,13 @@
     
 <div class = "cabecera">
     <div class = "contenedor-icono">
-        <i class="fa-solid fa-user"></i>
+        {% load static %}
+        <a href="{% url 'login2' %}" ><i class="fa-solid fa-user"></i></a>
     </div>
 	<h1>APNE</h1>
     <div class = "contenedor-icono">
-        <i class="fa-solid fa-user-tie"></i>
+        {% load static %}
+        <a href="{% url 'login' %}" ><i class="fa-solid fa-user-tie"></i></a>
     </div>
 </div>
 
