@@ -16,6 +16,14 @@ def sumatorioMenus():
 
     return lista
 
+def obtenerProfesor(nombre,password):
+    clases = Clase.objects.all()
+
+    for profesor in clases:
+        if profesor.Profesor == nombre and profesor.Password == password:
+            return profesor
+    return "404"
+
 def obtenerAlumno(nombre):
     alumnos_totales = Estudiante.objects.all()
 
