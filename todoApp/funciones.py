@@ -28,10 +28,10 @@ def obtenerAlumno(nombre):
     alumnos_totales = Estudiante.objects.all()
 
     for estudiante in alumnos_totales:
-        if estudiante.Nombre.__contains__(nombre):
+        if estudiante.Nombre == nombre:
             return estudiante
-        else:
-            return "not found"
+    return "not found"
+
 
 def obtenerClase(clase):
     clases = Clase.objects.all()

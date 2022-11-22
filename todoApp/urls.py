@@ -6,6 +6,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('home/', views.index, name="index"),
+    path('login/<str:estudiante>',views.password_estudiante, name="password_estudiante"),
     path('login/profesor/',views.login, name="login"),
     path('',views.login2,name="login2"),
     path('update_task/<str:pk>/', views.updateTask, name = "update_task"),

@@ -12,6 +12,10 @@ from .funciones import *
 def index(request):
     return render(request, 'todoApp/index.html')
 
+def password_estudiante(request, estudiante):
+    el = obtenerAlumno(estudiante)
+
+    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el})
 
 def updateTask(request, pk):
     task = Task.objects.get(id=pk)
@@ -43,8 +47,8 @@ def login(request):
 
 
 def login2(request):
-    listaClases = Clase.objects.all()
-    context = {'clases': listaClases}
+    lista_estudiantes = Estudiante.objects.all()
+    context = {'estudiantes': lista_estudiantes}
     return render(request, 'todoApp/login2.html', context)
 
 
