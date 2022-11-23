@@ -17,6 +17,15 @@ def password_estudiante(request, estudiante):
 
     return render(request, 'todoApp/password_estudiante.html',{'estudiante':el})
 
+def asignar_tareas(request,user,password):
+    profe = obtenerProfesor(user,password)
+    if profe == '404':
+        return render(request, 'todoApp/login.html', {'isUser': False})
+
+    estudiantes = Estudiante.objects.all()
+    tareas = Task.objects.all()
+    return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
+
 def updateTask(request, pk):
     task = Task.objects.get(id=pk)
 
@@ -36,12 +45,7 @@ def login(request):
     if request.method == 'POST':
         user = request.POST.get('text')
         password = request.POST.get('pwd')
-        value = obtenerProfesor(user, password)
-        print(value)
-        if value == '404':
-            return render(request, 'todoApp/login.html', {'isUser': False})
-        else:
-            return render(request, 'todoApp/index.html')
+        return asignar_tareas(request,user,password)
 
     return render(request, 'todoApp/login.html', {'isUser': True})
 
