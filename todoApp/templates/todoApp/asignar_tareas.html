@@ -75,19 +75,30 @@
 
     var select_tarea = document.getElementById("tarea")
     var select_estudiante = document.getElementById("estudiante")
+    var fecha_inicio = document.getElementById("fecha_ini")
+    var fecha_fin = document.getElementById("fecha_fin")
 
     function pintar(){
-        var result = getSelectValues(select_estudiante)
-        var result2 = getSelectValues(select_tarea)
-        alert(result+" | "+result2)
+        let result = getSelectValues(select_estudiante)
+        let result2 = getSelectValues(select_tarea)
+        let inicio = fecha_inicio.value
+        let fin = fecha_fin.value
+
+        //TODO ENVIAR EL FORMULARIO A LA BASE DE DATOS DE LOS ALUMNOS
+        alert("Estudiantes seleccionados: "+result+"\n"+
+        "Tareas asignadas: "+result2+"\n"+"Fecha de inicio: "+inicio+"\n"+
+        "Fecha de fin: "+fin)
+
     }
 
-    function getSelectValues(select) {
-      var result = [];
-      var options = select && select.options;
-      var opt;
 
-      for (var i=0, iLen=options.length; i<iLen; i++) {
+
+    function getSelectValues(select) {
+      let result = [];
+      let options = select && select.options;
+      let opt;
+
+      for (let i=0, iLen=options.length; i<iLen; i++) {
         opt = options[i];
 
         if (opt.selected) {
