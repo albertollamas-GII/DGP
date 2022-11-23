@@ -23,7 +23,7 @@ def asignar_tareas(request,user,password):
         return render(request, 'todoApp/login.html', {'isUser': False})
 
     estudiantes = Estudiante.objects.all()
-    tareas = Task.objects.all()
+    tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
     return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
 
 def updateTask(request, pk):
