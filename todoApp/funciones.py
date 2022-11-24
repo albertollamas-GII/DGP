@@ -32,6 +32,13 @@ def obtenerAlumno(nombre):
             return estudiante
     return "not found"
 
+def obtenerAlumnoPassword(nombre, password):
+    alumnos_totales = Estudiante.objects.all()
+
+    for estudiante in alumnos_totales:
+        if estudiante.Nombre == nombre and estudiante.Password == password:
+            return estudiante
+    return "404"
 
 def obtenerClase(clase):
     clases = Clase.objects.all()

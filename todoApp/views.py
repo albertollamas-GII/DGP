@@ -15,7 +15,15 @@ def index(request):
 def password_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
     lista_passwords = ImagenPassword.objects.all()
-    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords})
+    if request.method == 'POST':
+        user = request.POST.get('nombre-estudiante')
+        password = request.POST.get('password')
+        isUser = obtenerAlumnoPassword(user,password)
+        if isUser == "404":
+            return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
+        else:
+            return render(request,'todoApp/index.html')
+    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def asignar_tareas(request,user,password):
     profe = obtenerProfesor(user,password)
