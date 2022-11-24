@@ -95,3 +95,9 @@ class Historico(models.Model):
     Fecha_fin = models.DateField()
 
     Documento = models.FileField(upload_to="static/menusAnteriores/")
+
+class ImagenPassword(models.Model):
+    Imagen = models.ImageField(upload_to="static/imagen_password")
+    Nombre = models.CharField(max_length=100)
+    def __str__(self):
+        return self.Nombre

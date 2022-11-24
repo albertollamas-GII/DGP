@@ -14,8 +14,8 @@ def index(request):
 
 def password_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
-
-    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el})
+    lista_passwords = ImagenPassword.objects.all()
+    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords})
 
 def asignar_tareas(request,user,password):
     profe = obtenerProfesor(user,password)
