@@ -1,0 +1,80 @@
+.all{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.principal{
+    height: 90%;
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.titulo{
+    width: 100%;
+    text-align: center;
+}
+
+
+.boton_enviar{
+    text-align: center;
+    width: 100%;
+}
+
+.tarea_estudiante{
+    width: 100%;
+    display: grid;
+    grid-column: auto;
+    align-items: center;
+
+}
+
+.tarea{
+
+    display: block;
+    margin: 2%;
+
+}
+
+
+.estudiante{
+
+    display: block;
+    margin: 2%;
+}
+
+
+.fecha_inicio{
+    display: block;
+    margin: 2%;
+}
+.form-control{
+    width: 50%;
+}
+
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: auto;
+    font-size: 1em;
+}
+
+#estudiante{
+    background-color: green;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+
+    .selecciones{
+        height: 85%;
+        width: 100%;
+    }
+}

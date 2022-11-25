@@ -1,0 +1,111 @@
+{% load static %}
+<script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/asignar_tareas.css' %}">
+
+
+
+<div class="all">
+    <div class="principal">
+        <div class="titulo">
+            <h1>
+                ASIGNACION DE TAREAS
+            </h1>
+        </div>
+        <div class="selecciones">
+            <div class="tarea_estudiante">
+                <div class="tarea">
+                    <label for="tarea">SELECCIONE LA TAREA</label><br>
+                    <select  name="tarea" id="tarea" multiple>
+                        {% for tarea in tareas %}
+                            <option value={{ tarea.title }}>{{ tarea.title.upper }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="estudiante">
+                    <label for="estudiante">SELECCIONE AL ESTUDIANTE</label><br>
+                    <select name="estudiante" id="estudiante" multiple>
+                        {% for estudiante in estudiantes %}
+                            <option value={{ estudiante.Nombre }}>{{ estudiante.Nombre.upper }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="fechas">
+
+                <div class="fecha_inicio">
+                    <label for="fecha_ini">FECHA DE INICIO</label><br>
+                    <form>
+                        <input class="form-control" id="fecha_ini" placeholder="Selecciona la fecha">
+                    </form>
+                </div>
+
+                <div class="fecha_inicio">
+                    <label for="fecha_fin">FECHA DE FIN</label><br>
+                    <form>
+                        <input class="form-control" id="fecha_fin" placeholder="Selecciona la fecha">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="boton_enviar">
+            <input type="submit" value="Asignar" id="formularioBase" onclick="pintar()">
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    new MultiSelectTag('tarea')  // id
+    new MultiSelectTag('estudiante')  // id
+
+    flatpickr("#fecha_ini",{
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+    });
+     flatpickr("#fecha_fin",{
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+    });
+
+    var select_tarea = document.getElementById("tarea")
+    var select_estudiante = document.getElementById("estudiante")
+    var fecha_inicio = document.getElementById("fecha_ini")
+    var fecha_fin = document.getElementById("fecha_fin")
+
+    function pintar(){
+        let result = getSelectValues(select_estudiante)
+        let result2 = getSelectValues(select_tarea)
+        let inicio = fecha_inicio.value
+        let fin = fecha_fin.value
+
+        //TODO ENVIAR EL FORMULARIO A LA BASE DE DATOS DE LOS ALUMNOS
+        alert("Estudiantes seleccionados: "+result+"\n"+
+        "Tareas asignadas: "+result2+"\n"+"Fecha de inicio: "+inicio+"\n"+
+        "Fecha de fin: "+fin)
+
+    }
+
+
+
+    function getSelectValues(select) {
+      let result = [];
+      let options = select && select.options;
+      let opt;
+
+      for (let i=0, iLen=options.length; i<iLen; i++) {
+        opt = options[i];
+
+        if (opt.selected) {
+          result.push(opt.value); //opt.text tmb puede ser
+        }
+      }
+      return result;
+    }
+
+</script>

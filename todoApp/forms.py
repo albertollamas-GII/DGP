@@ -9,6 +9,7 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = "__all__"
 
+
 class MenuForm(ModelForm):
     class Meta:
         model = Solicita
