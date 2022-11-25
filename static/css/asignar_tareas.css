@@ -72,9 +72,15 @@ input[type=submit] {
 
 /* Responsive */
 @media screen and (max-width: 1000px) {
-
+    .principal{
+        font-size: 3rem;
+    }
     .selecciones{
-        height: 85%;
+        height: auto;
         width: 100%;
+    }
+
+    .form-control{
+        font-size: 2rem;
     }
 }

@@ -1,100 +1,6 @@
-<style>
-    html, body {
-        height: 100%;
-        width: 100%;
-        padding: 0%;
-        margin: 0%;
-    }
-
-	body{
-		background-color:aliceblue;
-		font-family: 'Work Sans', sans-serif;
-	}
-
-    .not_found{
-        height: 1%;
-    }
-
-	.cabecera{
-		display: flex;
-		align-items: center;
-		text-align: center;
-        height: 20%;
-        border: 3px solid black;
-	}
-
-	h1 {
-		font-size: 4em;
-		width: 70%;
-		align-items: center;
-	}
-    h2 {
-        font-size: 2.5em;
-    }
-    .contenedor-inicio {
-        text-align: center;
-    }
-    .contenedor-icono {
-        width: 30%;
-    }
-    .contenedor-btn {
-        width: 100%;
-        text-align: center;
-    }
-    i {
-        font-size: 4em;
-    }
-
-    form {
-        font-size: 2em;
-
-        font-weight: bold;
-    }
-
-
-    input[type=text], input[type=password] {
-        width: 100%;
-        height: 10%;
-        background-color:aliceblue;
-    }
-
-    input[type=text]:focus, input[type=password]:focus {
-        background-color:rgb(210, 209, 209);
-    }
-    i:hover {
-        color: rgb(243, 168, 89);
-    } 
-
-    .formulario {
-        height: auto;
-        display : flex;
-        margin: 5%;
-        justify-content : center;
-        align-items : center;
-    }
-
-    .contenido {
-        border: 3px solid rgb(0, 0, 0);
-        border-radius: 40px;
-        background-color:cornsilk;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-        height: 70%;
-        padding: 40px;
-    }
-
-    input[type=submit] {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px 32px;
-        text-decoration: none;
-        margin: 4px 2px;
-        width: 50%;
-        font-size: 1em;
-    }
-</style>
-
+{%load static%}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/login_profesor.css' %}">
 <head>
     <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 </head>
@@ -130,7 +36,7 @@
                  {% if not isUser %}
                      <p class="not_found">Not found</p>
                  {% endif %}
-                <input type="submit" value="Entrar" id="formularioBase">
+                <input type="submit" value="Entrar" id="entrarFormul">
             </div>
         </form>
 

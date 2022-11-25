@@ -22,7 +22,7 @@ def password_estudiante(request, estudiante):
         if isUser == "404":
             return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return render(request,'todoApp/index.html')
+            return index(request)
     return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def asignar_tareas(request,user,password):
