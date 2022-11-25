@@ -18,20 +18,23 @@
 </div>
 
 <div class="menu-selector">
-	<div class="imagen-menu">
+	<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+		<div class="imagen-menu">
 
-		<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+	
 			<div class="title_images"><b>MENUS</b></div>
 			{% load static %}
 			<img src='{% static "menu.png" %}' alt="menu comedor">
-		</a>
-	</div>
 
-	<div class="imagen-menu">
+		</div>
+	</a>
+	<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+		<div class="imagen-menu">
+			
+			<div class="title_images"><b>ALMACEN</b></div>
 
-		<div class="title_images"><b>ALMACEN</b></div>
-
-		{% load static %}
-		<img src='{% static "almacen.png" %}' alt="menu almacen">
-	</div>
+			{% load static %}
+			<img src='{% static "almacen.png" %}' alt="menu almacen">
+		</div>
+	</a>
 </div>
