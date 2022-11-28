@@ -7,7 +7,7 @@ a {
 }
 
 i {
-    font-size: 3em;
+    font-size: 5em;
 }
 
 i:hover {
@@ -20,7 +20,7 @@ i:hover {
     border-bottom: 2px solid;
     color: black;
     display: flex;
-    font-size: 3em;
+    font-size: 4em;
     text-align: center;
 }
 
@@ -37,6 +37,8 @@ i:hover {
 
 .alumnos{
     background-color: yellow;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 
 }
 .chats{
