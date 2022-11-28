@@ -7,7 +7,7 @@ html, body {
 
 	body{
 		background-color:aliceblue;
-		font-family: 'Work Sans', sans-serif;
+		font-family: 'Letters for Learners', sans-serif;
 	}
 
     .not_found{
@@ -18,9 +18,16 @@ html, body {
 		display: flex;
 		align-items: center;
 		text-align: center;
-        height: 10%;
+        height: 15%;
         border: 3px solid black;
+        margin: 1%;
+        border-radius: 15px;
 	}
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
 
 	h1 {
 		font-size: 4em;
@@ -28,13 +35,17 @@ html, body {
 		align-items: center;
 	}
     h2 {
-        font-size: 4rem;
+        font-size: 2.5em;
     }
     .contenedor-inicio {
         text-align: center;
     }
     .contenedor-icono {
         width: 30%;
+    }
+
+    .titulo-inicio{
+        font-size: 3em;
     }
     .contenedor-btn {
         width: 100%;
@@ -44,19 +55,23 @@ html, body {
         font-size: 4em;
     }
 
-    form {
-        font-size: 3em;
+    label{
+        font-size: 1.4em;
+    }
 
+    form {
+        font-size: 2.5em;
         font-weight: bold;
     }
 
-
     input[type=text], input[type=password] {
         width: 100%;
-        font-size: 2.5rem;
-        border: 1px solid;
-        color: black;
-        border-radius: 10px
+        height: 15%;
+        background-color:aliceblue;
+        padding: 15px;
+        margin-top: 2%;
+        font-size: 1em;
+        font-family: 'Letters for Learners', sans-serif;
     }
 
     input[type=text]:focus, input[type=password]:focus {
@@ -69,7 +84,7 @@ html, body {
     .formulario {
         height: auto;
         display : flex;
-        margin: 5%;
+        margin: 4%;
         justify-content : center;
         align-items : center;
     }
@@ -81,7 +96,7 @@ html, body {
         margin-left: auto;
         margin-right: auto;
         width: 70%;
-        height: fit-content;
+        height: 70%;
         padding: 40px;
     }
 
@@ -89,6 +104,7 @@ html, body {
         background-color: #04AA6D;
         color: white;
         padding: 16px 32px;
+        font-family: 'Letters for Learners', sans-serif;
         text-decoration: none;
         margin: 4px 2px;
         width: 50%;

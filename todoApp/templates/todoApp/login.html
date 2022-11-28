@@ -1,6 +1,8 @@
+
 {%load static%}
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 <link rel="stylesheet" href="{% static 'css/login_profesor.css' %}">
+
 <head>
     <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 </head>
@@ -22,7 +24,7 @@
 <div class = "formulario">
     <div class = "contenido">
         <div class = "contenedor-inicio">
-            <h2>Inicio sesión</h2>
+            <h2 class="titulo-inicio">INICIO SESIÓN</h2>
         </div>
         <form method="POST" action ="" enctype="multipart/form-data" id="formularioBase">
             {% csrf_token %}

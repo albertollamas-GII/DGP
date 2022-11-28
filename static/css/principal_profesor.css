@@ -1,0 +1,46 @@
+.contenedor-icono{
+    text-align: right;
+    margin: 0.5%;
+}
+a {
+    color: black;
+}
+
+i {
+    font-size: 3em;
+}
+
+i:hover {
+    color: rgb(243, 168, 89);
+}
+
+.panel{
+
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    color: black;
+    display: flex;
+    font-size: 3em;
+    text-align: center;
+}
+
+.panel a{
+    text-decoration: none;
+    color: black;
+    width: 33.33%;
+}
+
+.tareas{
+    background-color: red;
+
+}
+
+.alumnos{
+    background-color: yellow;
+
+}
+.chats{
+    background-color: #04AA6D;
+
+}
+

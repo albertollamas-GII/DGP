@@ -12,6 +12,8 @@ from .funciones import *
 def index(request):
     return render(request, 'todoApp/index.html')
 
+
+
 def password_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
     lista_passwords = ImagenPassword.objects.all()
@@ -25,10 +27,7 @@ def password_estudiante(request, estudiante):
             return index(request)
     return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
-def asignar_tareas(request,user,password):
-    profe = obtenerProfesor(user,password)
-    if profe == '404':
-        return render(request, 'todoApp/login.html', {'isUser': False})
+def asignar_tareas(request,profe):
 
     estudiantes = Estudiante.objects.all()
     tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
@@ -53,7 +52,11 @@ def login(request):
     if request.method == 'POST':
         user = request.POST.get('text')
         password = request.POST.get('pwd')
-        return asignar_tareas(request,user,password)
+        profe = obtenerProfesor(user, password)
+        if profe == '404':
+            return render(request, 'todoApp/login.html', {'isUser': False})
+        else:
+            return asignar_tareas(request,profe)
 
     return render(request, 'todoApp/login.html', {'isUser': True})
 

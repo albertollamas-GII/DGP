@@ -5,10 +5,23 @@
 
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 <link rel="stylesheet" href="{% static 'css/asignar_tareas.css' %}">
+<link rel="stylesheet" href="{% static 'css/principal_profesor.css' %}">
+<script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 
+<div class="contenedor-icono">
+    <a href="{% url 'menusTotalesProfesor' %}"> <i class="fa-solid fa-user-tie"></i></a>
+</div>
+
+
+<div class="panel">
+    <a href="#tareas"><div class="tareas" >TAREAS</div></a>
+    <a href="#alumnos"> <div class="alumnos">ALUMNOS</div></a>
+    <a href="#chats" ><div class="chats">CHATS</div></a>
+</div>
 
 
 <div class="all">
+
     <div class="principal">
         <div class="titulo">
             <h1>
