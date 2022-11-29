@@ -1,13 +1,20 @@
 .cabecera{
-    display: flex;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
     align-items: center;
     text-align: center;
     height: 12%;
 }
+.cabecera a{
+    font-size: 2em;
+}
+.cabecera i{
+    font-size: 3.5em;
+}
 
 h1 {
     font-size: 4em;
-    width: 70%;
+    width: 100%;
     align-items: center;
 }
 .title_images {
@@ -37,7 +44,7 @@ h1 {
 .enlace-comedor{
     text-decoration: none;
     color:black;
-    margin-bottom: 20%;
+    margin-bottom: 12%;
 }
 
 .enlace-comedor a::selection{
@@ -47,6 +54,14 @@ h1 {
 .title_images{
     color:black;
 }
+.menu-selector{
+    display: grid;
+    grid-column: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4%;
+}
 
 
 
@@ -55,7 +70,7 @@ h1 {
     border-color: black;
     border: 40px;
     border: solid;
-    margin: 2%;
+    margin: 10%;
     padding: 2%;
     border-radius: 30px;
     background-color:cornsilk;
@@ -78,12 +93,5 @@ h1 {
   
 }
 
-.menu-selector{
-    display: grid;
-    grid-column: auto;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 4%;
-}
+
 

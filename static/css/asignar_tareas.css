@@ -12,6 +12,12 @@
     border-radius: 10px;
 }
 
+.contenedor-icono{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
 .titulo{
     width: 100%;
     text-align: center;
