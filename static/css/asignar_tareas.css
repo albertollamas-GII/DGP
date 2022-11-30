@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 3em ;
 }
 .principal{
     height: 95%;
@@ -75,6 +76,14 @@ input[type=submit] {
     background-color: green;
 }
 
+.verMenus{
+    align-items: center;
+    text-align: center;
+    font-size: 4em;
+    background-color: blanchedalmond;
+    height: 100%;
+    padding-top: 3%;
+}
 
 /* Responsive */
 @media screen and (max-width: 1000px) {

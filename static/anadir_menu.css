@@ -43,11 +43,12 @@ h1 {
     height: 7.5%;
     width: 100%;
     text-align: right;
+    
 }
 
 .contenedor-icono2 i {
     font-size: 50px;
-    padding-right: 30px;
+    padding-right: 40px;
 }
 
 .contenedor-icono2 span {

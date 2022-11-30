@@ -7,7 +7,7 @@ html, body {
 
 body {
     background-color:aliceblue;
-    font-family: 'Letters for Learners', 'Little Days';
+    font-family: 'Escolar2', 'sans-serif';
 }
 
 
@@ -48,11 +48,12 @@ h1 {
 .contenedor-icono2 {
     height: 7.5%;
     width: 100%;
+    font-size: 13px;
     display: flex;
 }
 
 .contenedor-icono2 i {
-    font-size: 5em;
+    font-size: 4em;
     padding-right: 30px;
     padding-left: 20px;
     padding-top: 10%;

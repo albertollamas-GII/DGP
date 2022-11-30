@@ -91,7 +91,10 @@ def anadir_menu(request, clase='Clase de Ejemplo'):
                'numeros': numeros,
                'solicitudes': solicitudes}
 
-    return render(request, 'todoApp/anadir_menu.html', context)
+    if request.method == 'POST':
+        return comandasGeneral(request)
+    else:
+        return render(request, 'todoApp/anadir_menu.html', context)
 
 
 def deleteTask(request, pk):
