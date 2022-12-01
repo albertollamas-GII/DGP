@@ -78,7 +78,8 @@ def anadir_menu(request, clase='Clase de Ejemplo'):
 
     if request.method == 'POST':
         Cantidades = request.POST.getlist('Cantidad')
-
+        profe.Check = True
+        profe.save()
         for sol, cantidad in zip(solicitudes, Cantidades):
             sol.Cantidad = cantidad
             sol.save()
