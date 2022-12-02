@@ -1,0 +1,132 @@
+body{
+    font-family: sans-serif;
+    background-color: #ffffff;
+}
+
+.all{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5%;
+}
+.principal{
+    height: 95%;
+    width: 90%;
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    background-color: #ebedf1;
+    filter: drop-shadow(0 0px 2px black)
+}
+
+.contenedor-icono{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+.titulo{
+    width: 100%;
+    font-size: 0.7em;
+    text-align: center;
+    color: #171710;
+}
+
+
+.boton_enviar{
+    text-align: center;
+    width: 100%;
+    margin-top: 20%;
+}
+
+.tarea_estudiante{
+    width: 100%;
+    display: grid;
+    grid-column: auto;
+    align-items: center;
+
+}
+
+.tarea{
+    display: block;
+    margin: 2%;
+    color: #171710;
+}
+
+
+.estudiante{
+    display: block;
+    margin: 2%;
+    color: #171710;
+}
+
+.wrapper .body{
+    height: 1.5em;
+}
+
+.mult-select-tag button:first-child {
+    width: 4em;
+    height: 70%;
+}
+
+.mult-select-tag .item-label{
+    font-size: 1em;
+}
+
+.mult-select-tag .item-close-svg {
+    height: 0.7em;
+    width: 0.7em;
+}
+
+.mult-select-tag .input{
+    padding: 0.7rem;
+    font-size: 0.7em;
+}
+
+
+.fecha_inicio{
+    display: block;
+    margin: 2%;
+}
+.form-control{
+    font-size: 1em;
+    border-radius: 5px;
+    border: solid;
+    border-color: #e2ebf0;
+}
+
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: auto;
+    font-size: 1em;
+}
+
+#estudiante{
+    background-color: green;
+}
+
+.verMenus{
+    align-items: center;
+    text-align: center;
+    font-size: 4em;
+    background-color: blanchedalmond;
+    height: 100%;
+    padding-top: 3%;
+}
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+    .principal{
+        font-size: 3rem;
+    }
+    .selecciones{
+        height: auto;
+        width: 100%;
+    }
+}

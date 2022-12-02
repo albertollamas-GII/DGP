@@ -8,21 +8,28 @@
 
 	body{
 		background-color:aliceblue;
-		font-family: 'Work Sans', sans-serif;
+		font-family: 'Escolar2', sans-serif;
 	}
 
 	.cabecera{
 		display: flex;
 		align-items: center;
 		text-align: center;
-        height: 20%;
+        background-color: cornsilk;
         border: 3px solid black;
+        margin: 1%;
+        border-radius: 15px;
 	}
 
+    a{
+        color: black;
+    }
+
 	h1 {
-		font-size: 4em;
+		font-size: 5em;
 		width: 70%;
 		align-items: center;
+        font-family: 'Letters for Learners', sans-serif;
 	}
 
     
@@ -34,7 +41,7 @@
             flex-wrap: wrap;
         }
         .imagen {
-            height: 45%;
+            height: 57%;
             width: 33%;
             padding-left: 8%;
             padding-right: 8%;
@@ -83,12 +90,22 @@
     .desc {
         padding: 15px;
         text-align: center;
-        font-size: 30px;
+        font-size: 2.5em;
         text-transform: uppercase;
     }
 
     .contenedor-icono {
         width: 30%;
+
+    }
+
+    .contenedor-icono span {
+        font-size: 40px;
+        padding-left: 4%;
+    }
+
+    a {
+       text-decoration: none;
     }
 
     i {
@@ -101,6 +118,7 @@
 
     .section {
         height: 72.5%;
+        font-size: 2em;
     }
 
     .contenedor-icono2 {
@@ -137,24 +155,28 @@
     
 <div class = "cabecera">
     <div class = "contenedor-icono">
-        <i class="fa-solid fa-user"></i>
+        {% load static %}
+        <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user"></i></a>
+        <span>Administrador</span>
     </div>
 	<h1>APNE</h1>
     <div class = "contenedor-icono">
-        <i class="fa-solid fa-user-tie"></i>
+        {% load static %}
+        <a href="{% url 'login' %}" ><i class="fa-solid fa-user-tie"></i></a>
+        <span>Profesores</span>
     </div>
 </div>
 
 <div class = "section">
     
-    {% for clase in clases %}
+    {% for estudiante in estudiantes %}
     <div class="imagen">
         {% load static %}
-        <a href="{% url 'anadir_menu' clase.Letra %}">
+        <a href="{% url 'password_estudiante' estudiante.Nombre %}">
             {% load static %}
-            <img src="../../../{{clase.FotoProfesor}}" alt="Foto">
+            <img src="../../../{{estudiante.Imagen}}" alt="Foto">
                 <div class="desc">
-                    <b> {{clase.Profesor}} </b>
+                    <b> {{estudiante.Nombre}} </b>
                 </div>
         </a>
     </div>

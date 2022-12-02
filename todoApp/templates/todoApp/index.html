@@ -3,32 +3,32 @@
 <link rel="stylesheet" href="{% static 'index.css' %}">
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 
+<script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+
 
 <div class = "cabecera">
+    <a href="{% url 'login2' %}"> <i class="fa-solid fa-left-long"></i> </a>
 	<h1>COMANDAS</h1>
-	<div class="visualizacionProfesor">
-		<a class="urlProfesor" href="{% url 'menusTotalesProfesor' %}">
-			<h3>Visualizacion Profesor</h3>
-		</a>
-
-		<a class="urlProfesor" href="http://127.0.0.1:8000/admin">
-			<h3>Admin</h3>
-		</a>
-	</div>
 </div>
 
 <div class="menu-selector">
-	<div class="imagen-menu">
-		<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+	<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+		<div class="imagen-menu">
+
+	
 			<div class="title_images"><b>MENUS</b></div>
 			{% load static %}
 			<img src='{% static "menu.png" %}' alt="menu comedor">
-		</a>
-	</div>
 
-	<div class="imagen-menu">
-		<div class="title_images"><b>ALMACEN</b></div>
-		{% load static %}
-		<img src='{% static "almacen.png" %}' alt="menu almacen">
-	</div>
+		</div>
+	</a>
+	<a class="enlace-comedor" href="{% url 'comandaGeneral' %}">
+		<div class="imagen-menu">
+			
+			<div class="title_images"><b>ALMACEN</b></div>
+
+			{% load static %}
+			<img src='{% static "almacen.png" %}' alt="menu almacen">
+		</div>
+	</a>
 </div>

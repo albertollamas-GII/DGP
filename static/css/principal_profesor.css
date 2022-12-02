@@ -1,0 +1,32 @@
+.contenedor-icono{
+    text-align: right;
+    margin: 2%;
+}
+a {
+    color: black;
+}
+
+i {
+    font-size: 5em;
+}
+
+i:hover {
+    color: rgb(243, 168, 89);
+}
+
+.panel{
+    display: flex;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.panel a{
+    text-decoration: none;
+    color: black;
+    width: 33.33%;
+    font-size: 3em;
+}
+
+
+
