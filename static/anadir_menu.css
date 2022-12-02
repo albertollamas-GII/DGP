@@ -28,7 +28,6 @@ h1 {
 
 .contenedor-icono {
     width: 10%;
-    height: 5%;
     margin-left: 10px;
 }
 .tipo {
@@ -40,7 +39,6 @@ h1 {
 }
 
 .contenedor-icono2 {
-    height: 7.5%;
     width: 100%;
     text-align: right;
     
@@ -92,16 +90,28 @@ h1 {
 }
 
 #envioForm {
-    max-width: 30%;
-    margin-left : 3%;
-    font-size: 1em;
-    height: 60px;
+    height: 80px;
 }
 
 
 .flechas {
-    display: flex;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    height: 100px;
+    align-items: center;
+    justify-items: center;
 }
+#botoncito{
+    width: 50%;
+    text-align: center; 
+    background-color: green;
+    border-radius: 15px;
+    float:right; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
 /* Responsive */
 @media screen and (max-width: 1000px) {
     .imagen-menu {

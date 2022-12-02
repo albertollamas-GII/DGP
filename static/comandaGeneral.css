@@ -59,6 +59,8 @@ h1 {
     padding-top: 10%;
 }
 
+
+
 @media screen and (min-height: 1080px) {
     .cabecera {
     display: grid;

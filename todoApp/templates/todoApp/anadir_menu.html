@@ -20,7 +20,7 @@
 	<form method="POST" action ="" enctype="multipart/form-data" id="formularioBase">
 		{% csrf_token %}
 		{% for menu in menus %}
-		<div class="menu">
+		<div class="menu" name="menuses">
 			<h2 class="tipo" name = "tipoMenu">{{menu.Tipo}}</h2>
 			<img src="../../../{{menu.Imagen}}" name="imagenMenu" class = "imagenMenu">
 			{{form.Cantidad}}
@@ -38,18 +38,24 @@
 		{% endfor %}
 	</form>
 	<div class = "flechas">
-		<div class = "contenedor-icono2" id ="paginaAnterior" onclick="previousMenu()">
-			<i class="fa-solid fa-left-long"></i>
-			<span><u>Página anterior</u></span>
-			
-		</div>
-        <div style="width: 30%;text-align: center; background-color: green;border-radius: 15px;float:right; margin-left: 5%; margin-right: 5%;">
+        <div style="float: left;">
+            <div class = "contenedor-icono2" id ="paginaAnterior" onclick="previousMenu()">
+                <i class="fa-solid fa-left-long"></i>
+                <span><u>Página anterior</u></span>
+                
+            </div>
+        </div>
+		
+        <div id="botoncito">
             <input form="formularioBase" type="image" name ="prueba" id="envioForm" src="{% static 'mano.png' %}">
         </div>
-        <div class = "contenedor-icono2" id ="paginaSiguiente" onclick="nextMenu()" >
-			<span><u>Página siguiente</u></span>
-			<i class="fa-solid fa-right-long"></i>
-		</div>
+        <div style="float: right;">
+            <div class = "contenedor-icono2" id ="paginaSiguiente" onclick="nextMenu()" >
+                <span><u>Página siguiente</u></span>
+                <i class="fa-solid fa-right-long"></i>
+            </div>
+        </div>
+        
 	</div>
     
 </div>
@@ -61,22 +67,15 @@
     pagAnterior.style.display = "none";
 
 	var cantidades = document.getElementsByName("Cantidad");
-	var tipos = document.getElementsByName("tipoMenu");
-	var fotos = document.getElementsByName("imagenMenu");
-	var botonEnviar = document.getElementsByName("prueba");
-	var imagenMas = document.getElementsByClassName("imagenMas");
-	var imagenMenos = document.getElementsByName("imagenMenos");
+    var menus = document.getElementsByName("menuses");
     var tip = 0;
-	var showHidden = 0;
-	var cuentaPag = 0;
     var numeros = document.getElementsByName("imagenNumero");
 	var vectorCantidades = [0,0,0,0,0,0];
     const ids = [];
     // itera por todos los menus disponibles
 
-
-    for(let i = 0 ; i < imagenMas.length ; i++){
-        ids.push(imagenMas.item(i).id);
+    for(let i = 0 ; i < menus.length ; i++){
+        ids.push(document.getElementsByClassName("imagenMas").item(i).id);
     }
     cantidades.forEach(c => {
             c.style.display = "none";
@@ -87,21 +86,15 @@
     function ocultarMenus(pagina){
         hideManos(pagina);
 
-        for(let i = 0 ; i < imagenMas.length ; i++){
+        for(let i = 0 ; i < menus.length ; i++){
 
-            toSet(imagenMas,i,true);
-            toSet(imagenMenos,i,true);
-            toSet(fotos,i,true);
-            toSet(tipos,i,true);
+            toSet(menus,i,true,"grid");
         }
 
         let pag = pagina * 2;
         for(let i = pag ; i < pag+2 ; i++){
 
-            toSet(imagenMas,i,false);
-            toSet(imagenMenos,i,false);
-            toSet(fotos,i,false);
-            toSet(tipos,i,false);
+            toSet(menus,i,false,"grid");
         }
 
     }
@@ -109,12 +102,12 @@
     function toCheck(a,pos){
         return pos >= 0 && pos < a.length;
     }
-    function toSet(a,pos,isNone){
+    function toSet(a,pos,isNone,mode="inline"){
         if(toCheck(a,pos)){
              if(isNone){
                  a.item(pos).style.display = "none";
              }else{
-                 a.item(pos).style.display = "inline";
+                 a.item(pos).style.display = mode;
              }
 
         }
@@ -142,10 +135,10 @@
 
 	function nextMenu() {
         tip++;
-        if(tip >= tipos.length/2){
-            tip = tipos.length/2 - 1 ;
+        if(tip >= menus.length/2){
+            tip = menus.length/2 - 1 ;
         }
-        if(tip >= tipos.length/2 -1){
+        if(tip >= menus.length/2 -1){
             pagSiguiente.style.display = "none";
         }else{
             pagSiguiente.style.display = "inline";
@@ -176,8 +169,8 @@
         if(!toCheck(numeros,vectorCantidades[pos])) return;
 
         vectorCantidades[pos]++;
-        if(vectorCantidades[pos] >= numeros.length/tipos.length){
-            vectorCantidades[pos] = numeros.length/tipos.length -1;
+        if(vectorCantidades[pos] >= numeros.length/menus.length){
+            vectorCantidades[pos] = numeros.length/menus.length -1;
         }
         hideManos(tip);
         cantidades.item(pos).value=vectorCantidades[pos];
