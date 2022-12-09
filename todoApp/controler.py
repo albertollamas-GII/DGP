@@ -71,6 +71,7 @@ def login_profesor(request):
 
 
 def anadir_menu(request, clase='Clase de Ejemplo'):
+    print("entraito")
     profe = obtenerClase(clase)
     numeros = Numero.objects.all()
     solicitudes = Solicita.objects.filter(Clase_asociada=profe.Letra)
@@ -98,6 +99,7 @@ def anadir_menu(request, clase='Clase de Ejemplo'):
     if request.method == 'POST':
         return comandas_general(request)
     else:
+        print("entra")
         return render(request, 'todoApp/anadir_menu.html', context)
 
 
@@ -111,17 +113,10 @@ def deleteTask(request, pk):
     return render(request, 'todoApp/delete.html', context)
 
 
-def comandas_general(request):
+def comanda_general(request):
     listaClases = Clase.objects.all()
     context = {'clases': listaClases}
-    return render(request, 'todoApp/comanda_general.html', context)
-
-
-def formulario_comanda(request):
-    listaMenus = Menu.objects.all()
-
-    return render(request, "todoApp/{formularioMenusComedorAlberto}",
-                  {"lista": listaMenus})  # AÑADIRLO CUANDO ALBERTO LO ESCOJA
+    return render(request, "todoApp/comanda_general.html", context)
 
 
 def visualizar_comanda(request):
