@@ -1,0 +1,34 @@
+
+{%load static%}
+<link rel="stylesheet" href="{% static 'index_estudiante.css' %}">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+<script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+
+
+<div class = "cabecera">
+    <a href="{% url 'login2' %}"> <i class="fa-solid fa-left-long"></i> </a>
+	<h1>COMANDAS</h1>
+</div>
+
+<div class="menu-selector">
+	<a class="enlace-comedor" href="{% url 'comanda_general' %}">
+		<div class="imagen-menu">
+
+	
+			<div class="title_images"><b>MENUS</b></div>
+			{% load static %}
+			<img src='{% static "menu.png" %}' alt="menu comedor">
+
+		</div>
+	</a>
+	<a class="enlace-comedor" href="{% url 'comanda_general' %}">
+		<div class="imagen-menu">
+			
+			<div class="title_images"><b>ALMACEN</b></div>
+
+			{% load static %}
+			<img src='{% static "almacen.png" %}' alt="menu almacen">
+		</div>
+	</a>
+</div>

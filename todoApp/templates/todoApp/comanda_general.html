@@ -1,56 +1,80 @@
+<style>
+	
+</style>
+
 <head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'comanda_general.css' %}">
     <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href='{% static "agenda.jpg" %}'>
+    <title>APNE</title>
 </head>
 
 <body>
-    
+
+
+
+
 <div class = "cabecera">
     <div class = "contenedor-icono">
         {% load static %}
-        <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user"></i></a>
-        <span>Administrador</span>
+        <a href="{% url 'index' %}" ><i class="fa-solid fa-left-long"></i></a>
     </div>
-	<h1>APNE</h1>
-    <div class = "contenedor-icono">
+
+	<h1><b>COMANDAS COMEDOR </b></h1>
+
+    <div class = "imagenCentral">
         {% load static %}
-        <a href="{% url 'login_profesor' %}" ><i class="fa-solid fa-user-tie"></i></a>
-        <span>Profesores</span>
+        <img src='{% static "clases.png" %}' alt="Pictograma de una clase">
     </div>
 </div>
 
-<div class = "section">
-    
-    {% for estudiante in estudiantes %}
+
+<div class="section"> 
+
+
+    {% for clase in clases %}
     <div class="imagen">
         {% load static %}
-        <a href="{% url 'login_estudiante' estudiante.Nombre %}">
+        <a href="{% url 'anadir_menu' clase.Letra %}">
+            {% if clase.Check %}
+            <div class="greenImg">
+            {% else %}
+            <div class = "redImg">
+            {%endif%}
             {% load static %}
-            <img src="../../../{{estudiante.Imagen}}" alt="Foto">
+            <img src="../../../{{clase.FotoProfesor}}" alt="Foto">
                 <div class="desc">
-                    <b> {{estudiante.Nombre}} </b>
+                    <b> {{clase.Profesor}} </b>
+                    {% if clase.Check == True %}
+                    <div class="greenIcon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    {% else %}
+                    <div class="redIcon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    {% endif %}
                 </div>
+            </div>
         </a>
     </div>
-    {% endfor %}  
+    {% endfor %}     
 
 </div>
-
 
 <div class = "contenedor-icono2">
 
     <div class = "previous">
         <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
             <i class="fa-solid fa-left-long"></i>
-            <span><u>Página anterior</u></span>
+            <span>Página anterior</span>
         </div>
     </div>
 
     <div class = "next">
-        <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
-            <span><u>Página siguiente</u></span>
+        <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()" style="float: right;">
+            <span>Página siguiente</span>
             <i class="fa-solid fa-right-long"></i>
         </div>
     </div>

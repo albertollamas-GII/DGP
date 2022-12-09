@@ -1,20 +1,20 @@
 from django.urls import path, re_path
-from . import views
+from . import controler
 from django.views.generic import RedirectView
 
 #from django.conf.urls import url
 
 urlpatterns = [
-    path('home/', views.index, name="index"),
-    path('login/<str:estudiante>',views.password_estudiante, name="password_estudiante"),
-    path('login/profesor/',views.login, name="login"),
-    path('',views.login2,name="login2"),
-    path('update_task/<str:pk>/', views.updateTask, name = "update_task"),
-    path('delete/<str:pk>/', views.deleteTask, name = "delete"),
-    path('comedor/anadir_menu/<str:clase>/', views.anadir_menu, name="anadir_menu"),
-    path('comedor/anadir_menu/', views.anadir_menu, name="anadir_menu"),
-    path('comedor/', views.comandasGeneral, name="comandaGeneral"),
-    path('profesor/comanda/', views.visualizarComanda, name="menusTotalesProfesor"),
+    path('home/', controler.index_estudiante, name="index_estudiante"),
+    path('login/<str:estudiante>',controler.login_estudiante, name="login_estudiante"),
+    path('login/profesor/',controler.login_profesor, name="login_profesor"),
+    path('',controler.index,name="index"),
+    path('update_task/<str:pk>/', controler.updateTask, name = "update_task"),
+    path('delete/<str:pk>/', controler.deleteTask, name = "delete"),
+    path('comedor/anadir_menu/<str:clase>/', controler.anadir_menu, name="anadir_menu"),
+    path('comedor/anadir_menu/', controler.anadir_menu, name="anadir_menu"),
+    path('comedor/', controler.comandas_general, name="comanda_general"),
+    path('profesor/comanda/', controler.visualizarComanda, name="menusTotalesProfesor"),
 
     #url(r'^favicon\.ico$',RedirectView.as_view(url='/static/favicon.ico'))
 
