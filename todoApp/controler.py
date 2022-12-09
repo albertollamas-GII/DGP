@@ -22,7 +22,6 @@ def index_estudiante(request):
 def login_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
     lista_passwords = ImagenPassword.objects.all()
-    print("ola")
     if request.method == 'POST':
         user = request.POST.get('nombre-estudiante')
         password = request.POST.get('password')
@@ -33,8 +32,12 @@ def login_estudiante(request, estudiante):
             return index_estudiante(request)
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
-def asignar_tareas(request,profe):
+def index_profesor(request,profe):
+    estudiantes = Estudiante.objects.all()
+    tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
+    return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
 
+def asignar_tareas(request,profe):
     estudiantes = Estudiante.objects.all()
     tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
     return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
@@ -62,7 +65,7 @@ def login_profesor(request):
         if profe == '404':
             return render(request, 'todoApp/login_profesor.html', {'isUser': False})
         else:
-            return asignar_tareas(request,profe)
+            return index_profesor(request,profe)
 
     return render(request, 'todoApp/login_profesor.html', {'isUser': True})
 
@@ -114,13 +117,13 @@ def comandas_general(request):
     return render(request, 'todoApp/comanda_general.html', context)
 
 
-def formularioComanda(request):
+def formulario_comanda(request):
     listaMenus = Menu.objects.all()
 
     return render(request, "todoApp/{formularioMenusComedorAlberto}",
                   {"lista": listaMenus})  # AÑADIRLO CUANDO ALBERTO LO ESCOJA
 
 
-def visualizarComanda(request):
+def visualizar_comanda(request):
     listaTotales = sumatorioMenus()
-    return render(request, "todoApp/VisualizarComandaComedor.html", {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA
+    return render(request, "todoApp/visualizar_comanda_comedor.html", {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA

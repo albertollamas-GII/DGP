@@ -11,10 +11,9 @@ urlpatterns = [
     path('',controler.index,name="index"),
     path('update_task/<str:pk>/', controler.updateTask, name = "update_task"),
     path('delete/<str:pk>/', controler.deleteTask, name = "delete"),
-    path('comedor/anadir_menu/<str:clase>/', controler.anadir_menu, name="anadir_menu"),
     path('comedor/anadir_menu/', controler.anadir_menu, name="anadir_menu"),
     path('comedor/', controler.comandas_general, name="comanda_general"),
-    path('profesor/comanda/', controler.visualizarComanda, name="menusTotalesProfesor"),
+    path('profesor/comanda/', controler.visualizar_comanda, name="menus_totales_profesor"),
 
     #url(r'^favicon\.ico$',RedirectView.as_view(url='/static/favicon.ico'))
 
