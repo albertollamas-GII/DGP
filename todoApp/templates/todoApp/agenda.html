@@ -1,0 +1,79 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/agenda.css' %}">
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+    <!--<link rel="icon" type="image/x-icon" href='{% static "agenda.jpg" %}'>-->
+    <title>APNE</title>
+</head>
+
+<body>
+
+    <div class = "cabecera">
+        
+        <div class = "anterior">
+            <div class = "flecha" id ="paginaAnterior" onclick="previousPage()">
+                <i class="fa-solid fa-left-long"></i>
+            </div>
+        </div>
+
+        <div class = "imagenCentral">
+            {% load static %}
+            <img src='{% static "semana/martes.png" %}' alt="Pictograma del dia de la semana Martes">
+        </div>
+
+        <div class = "siguiente">
+            <div class = "flecha" id = "paginaSiguiente" onclick="nextPage()">
+                <i class="fa-solid fa-right-long"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section"> 
+    
+        <div class="grid-container">
+            <div class="reloj">
+                {% load static %}
+                <img src='{% static "horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">
+            </div>
+            <div class="tarea">
+                <div class="titulo">
+                    <b><span>Poner el microondas</span></b>
+                </div>
+                <div class="contenedorImagen">
+                    <img src='{% static "tareas/microondas/microondas.png" %}' alt="Pictograma de un microondas"> 
+                </div>
+            </div>
+            <div class="realizacion">
+                <div class="greenIcon">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+            </div>  
+            <div class="reloj">
+                {% load static %}
+                <img src='{% static "horas/once.png" %}' alt="Pictograma de un reloj que marca las once en punto">
+            </div>
+            <div class="tarea"></div>
+            <div class="realizacion"></div>  
+            <div class="reloj">
+                {% load static %}
+                <img src='{% static "horas/doce.png" %}' alt="Pictograma de un reloj que marca las doce en punto">
+            </div>
+            <div class="tarea"></div>
+            <div class="realizacion">
+                <div class="redIcon">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>  
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    function nextPage() {
+    }
+    function previousPage() {
+    }
+</script>

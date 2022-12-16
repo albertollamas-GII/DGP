@@ -8,6 +8,15 @@ from .models import *
 from .forms import *
 from .funciones import *
 
+def agenda(request):
+    return render(request, 'todoApp/agenda.html')
+
+def visualizar_tareas_txt(request):
+    return render(request, 'todoApp/visualizar_tareas_txt.html')
+
+def visualizar_tareas_img(request):
+    return render(request, 'todoApp/visualizar_tareas_img.html')
+
 def index(request):
     lista_estudiantes = Estudiante.objects.all()
     context = {'estudiantes': lista_estudiantes}

@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color:aliceblue;
+    font-family: 'Escolar2', 'sans-serif';
+}
+
+.cabecera {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    padding-top: 10%;
+}
+
+.anterior {
+    height: 100%;
+    width: 15%;
+    padding-right: 30px;
+    padding-top: 50px;
+}
+
+.imagenCentral {
+    height: 100%;
+    width: 70%;
+    align-items: center;
+}
+
+.siguiente {
+    height: 100%;
+    width: 15%;
+    padding-left: 30px;
+    padding-top: 50px;
+}
+
+.flecha {
+    font-size: 6em;
+}
+
+#paginaAnterior {
+    float: right;
+}
+
+.imagenCentral img {
+    width: 100%;
+    border: 3px solid black;
+}
+
+.section {
+    height: 67%;
+    width: 100%;
+}
+
+.grid-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    grid-auto-rows: minmax(33%, 33%);
+}
+
+.reloj, .tarea, .realizacion {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 4px solid black;
+    padding: 20px;
+}
+
+.reloj img {
+    width: 100%;
+}
+
+.realizacion {
+    text-align: center;
+    padding-top: 45%;
+    padding-bottom: 45%;
+    font-size: 120px;
+}
+.greenIcon {
+    color: green;
+}
+
+.redIcon {
+    color: red;
+}
+
+.tarea {
+    font-size: 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    width: 100%;
+    height: 30%;
+}
+
+.contenedorImagen {
+    width: 100%;
+    height: 70%;
+    text-align: center;
+}
+
+.tarea img {
+    height: 100%;
+}
+
+
