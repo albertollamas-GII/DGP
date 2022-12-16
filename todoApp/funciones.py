@@ -11,9 +11,6 @@ def sumatorioMenus():
         total_por_menu = sum([solicita.Cantidad for solicita in solicitudes_por_menu])
         if total_por_menu > 0:
             lista.append({"menu": menu, "cantidad": total_por_menu})
-
-    #breakpoint()
-
     return lista
 
 def obtenerProfesor(nombre,password):
@@ -40,14 +37,7 @@ def obtenerAlumnoPassword(nombre, password):
             return estudiante
     return "404"
 
-def obtenerClase(clase):
-    clases = Clase.objects.all()
 
-    for aula in clases:
-        if aula.Letra == clase:
-            return aula
-    
-    return "not found"
 
 
 

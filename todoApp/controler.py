@@ -33,28 +33,12 @@ def login_estudiante(request, estudiante):
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def index_profesor(request,profe):
-    estudiantes = Estudiante.objects.all()
-    tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
-    return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
+    return asignar_tareas(request,profe)
 
 def asignar_tareas(request,profe):
     estudiantes = Estudiante.objects.all()
-    tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
+    tareas = Tarea.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
     return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
-
-def updateTask(request, pk):
-    task = Task.objects.get(id=pk)
-
-    form = TaskForm(instance=task)
-
-    if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-
-    context = {'form': form}
-    return render(request, 'todoApp/update_task.html', context)
 
 
 def login_profesor(request):
@@ -71,8 +55,7 @@ def login_profesor(request):
 
 
 def anadir_menu(request, clase='Clase de Ejemplo'):
-    print("entra" , clase)
-    profe = obtenerClase(clase)
+    profe = Clase.objects.get(Letra=clase)
     numeros = Numero.objects.all()
     solicitudes = Solicita.objects.filter(Clase_asociada=profe.Letra)
     menus = Menu.objects.all()
