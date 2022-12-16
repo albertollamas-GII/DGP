@@ -8,13 +8,18 @@ from .models import *
 from .forms import *
 from .funciones import *
 
-
 def index(request):
-    return render(request, 'todoApp/index.html')
+    lista_estudiantes = Estudiante.objects.all()
+    context = {'estudiantes': lista_estudiantes}
+    return render(request, 'todoApp/index.html', context)
+
+
+def index_estudiante(request):
+    return render(request, 'todoApp/index_estudiante.html')
 
 
 
-def password_estudiante(request, estudiante):
+def login_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
     lista_passwords = ImagenPassword.objects.all()
     if request.method == 'POST':
@@ -22,13 +27,17 @@ def password_estudiante(request, estudiante):
         password = request.POST.get('password')
         isUser = obtenerAlumnoPassword(user,password)
         if isUser == "404":
-            return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
+            return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return index(request)
-    return render(request, 'todoApp/password_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
+            return index_estudiante(request)
+    return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
+
+def index_profesor(request,profe):
+    estudiantes = Estudiante.objects.all()
+    tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
+    return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
 
 def asignar_tareas(request,profe):
-
     estudiantes = Estudiante.objects.all()
     tareas = Task.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
     return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
@@ -48,26 +57,21 @@ def updateTask(request, pk):
     return render(request, 'todoApp/update_task.html', context)
 
 
-def login(request):
+def login_profesor(request):
     if request.method == 'POST':
         user = request.POST.get('text')
         password = request.POST.get('pwd')
         profe = obtenerProfesor(user, password)
         if profe == '404':
-            return render(request, 'todoApp/login.html', {'isUser': False})
+            return render(request, 'todoApp/login_profesor.html', {'isUser': False})
         else:
-            return asignar_tareas(request,profe)
+            return index_profesor(request,profe)
 
-    return render(request, 'todoApp/login.html', {'isUser': True})
-
-
-def login2(request):
-    lista_estudiantes = Estudiante.objects.all()
-    context = {'estudiantes': lista_estudiantes}
-    return render(request, 'todoApp/login2.html', context)
+    return render(request, 'todoApp/login_profesor.html', {'isUser': True})
 
 
 def anadir_menu(request, clase='Clase de Ejemplo'):
+    print("entraito")
     profe = obtenerClase(clase)
     numeros = Numero.objects.all()
     solicitudes = Solicita.objects.filter(Clase_asociada=profe.Letra)
@@ -93,8 +97,9 @@ def anadir_menu(request, clase='Clase de Ejemplo'):
                'solicitudes': solicitudes}
 
     if request.method == 'POST':
-        return comandasGeneral(request)
+        return comandas_general(request)
     else:
+        print("entra")
         return render(request, 'todoApp/anadir_menu.html', context)
 
 
@@ -108,19 +113,12 @@ def deleteTask(request, pk):
     return render(request, 'todoApp/delete.html', context)
 
 
-def comandasGeneral(request):
+def comanda_general(request):
     listaClases = Clase.objects.all()
     context = {'clases': listaClases}
-    return render(request, 'todoApp/comandaGeneral.html', context)
+    return render(request, "todoApp/comanda_general.html", context)
 
 
-def formularioComanda(request):
-    listaMenus = Menu.objects.all()
-
-    return render(request, "todoApp/{formularioMenusComedorAlberto}",
-                  {"lista": listaMenus})  # AÑADIRLO CUANDO ALBERTO LO ESCOJA
-
-
-def visualizarComanda(request):
+def visualizar_comanda(request):
     listaTotales = sumatorioMenus()
-    return render(request, "todoApp/VisualizarComandaComedor.html", {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA
+    return render(request, "todoApp/visualizar_comanda_comedor.html", {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA
