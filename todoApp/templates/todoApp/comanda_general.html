@@ -27,11 +27,8 @@
 
 
 <div class="section"> 
-
-
     {% for clase in clases %}
     <div class="imagen">
-        {% load static %}
         <a href="{% url 'anadir_menu' clase.Letra %}">
             {% if clase.Check %}
             <div class="greenImg">

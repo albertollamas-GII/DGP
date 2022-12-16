@@ -71,7 +71,7 @@ def login_profesor(request):
 
 
 def anadir_menu(request, clase='Clase de Ejemplo'):
-    print("entraito")
+    print("entra" , clase)
     profe = obtenerClase(clase)
     numeros = Numero.objects.all()
     solicitudes = Solicita.objects.filter(Clase_asociada=profe.Letra)
