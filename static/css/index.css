@@ -1,0 +1,134 @@
+.cabecera{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: cornsilk;
+    border: 3px solid black;
+    margin: 1%;
+    border-radius: 15px;
+}
+
+a{
+    color: black;
+}
+
+h1 {
+    font-size: 5em;
+    width: 70%;
+    align-items: center;
+    font-family: 'Letters for Learners', sans-serif;
+}
+
+
+@media screen and (min-height: 1080px) {
+    .section {
+        width: 100%;
+        height: 67.5%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .imagen {
+        height: 57%;
+        width: 33%;
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-top: 3%;
+
+    }
+    .imagen img {
+        width: 100%;
+        height: 70%;
+        border-radius: 40px;
+        border: 3px solid black;
+    }
+}
+@media screen and (min-width: 1080px) {
+    .section {
+        width: 100%;
+        height: 67.5%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    .imagen {
+        height: 90%;
+        width: 18.9%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 3%;
+    }
+    .imagen img {
+        
+        width: 100%;
+        height: 70%;
+        border-radius: 40px;
+        border: 3px solid black;
+    }
+}
+
+.section a:link {
+    text-decoration: none;
+}
+
+.section a:visited {
+    color: black;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.contenedor-icono {
+    width: 30%;
+
+}
+
+.contenedor-icono span {
+    font-size: 40px;
+    padding-left: 4%;
+}
+
+a {
+   text-decoration: none;
+}
+
+i {
+    font-size: 4em;
+}
+
+i:hover {
+    color: rgb(243, 168, 89);
+} 
+
+.section {
+    height: 72.5%;
+    font-size: 2em;
+}
+
+.contenedor-icono2 {
+    height: 7.5%;
+    width: 100%;
+    display: flex;
+}
+
+.contenedor-icono2 i {
+    font-size: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.contenedor-icono2 span {
+    font-size: 40px;
+}
+
+.previous {
+    width: 50%;
+}
+
+.next {
+    width: 50%;
+    text-align: right;
+}

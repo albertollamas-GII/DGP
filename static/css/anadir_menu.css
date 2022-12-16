@@ -1,0 +1,126 @@
+.cabecera{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+}
+.cabecera h1{
+    width: 70%;
+    font-size: 3em;
+    margin-left: 7%;
+}
+
+h1 {
+    font-size: 4em;
+    width: 100%;
+    align-items: center;
+}
+.fotos-laterales{
+    display: flex;
+}
+.fotoProfesor {
+    width: 30%;
+    margin-top: 20px
+}
+.fotoClase {
+    width:40%;
+}
+
+.contenedor-icono {
+    width: 10%;
+    margin-left: 10px;
+}
+.tipo {
+    text-transform: capitalize;
+}
+.contenedor-icono i {
+    font-size: 4em;
+    margin-left: 10px;
+}
+
+.contenedor-icono2 {
+    width: 100%;
+    text-align: right;
+    
+}
+
+.contenedor-icono2 i {
+    font-size: 50px;
+    padding-right: 40px;
+}
+
+.contenedor-icono2 span {
+    font-size: 40px;
+}
+
+.content {
+    text-align: center;
+}
+.menu {
+    display: grid;
+    max-height: fit-content;
+    grid-template-columns: 50% 10% 30% 10%;
+    margin-bottom: 2%;
+}
+
+.menu div{
+    align-items: center;
+}
+
+.imagenMenu {
+    width: 60%;
+    border:solid;
+    border-radius: 10px;
+    fill: antiquewhite;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.menu h2 {
+    font-size: 3em;
+    grid-column: 1 / 5;
+}
+.imagenMas, .imagenMenos {
+    width: 90%;
+    margin: auto;
+}
+.imagenNumero {
+    width: 90%;
+    margin: auto;
+}
+
+#envioForm {
+    height: 80px;
+}
+
+
+.flechas {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    height: 100px;
+    align-items: center;
+    justify-items: center;
+}
+#botoncito{
+    width: 50%;
+    text-align: center; 
+    background-color: green;
+    border-radius: 15px;
+    float:right; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+    .imagen-menu {
+        margin: 5%;
+    }
+
+    .menu-selector {
+        display: block;
+        text-align: center;
+    }
+    
+}

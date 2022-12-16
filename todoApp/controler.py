@@ -80,20 +80,9 @@ def anadir_menu(request, clase='Clase de Ejemplo'):
                'solicitudes': solicitudes}
 
     if request.method == 'POST':
-        return comandas_general(request)
+        return comanda_general(request)
     else:
-        print("entra")
         return render(request, 'todoApp/anadir_menu.html', context)
-
-
-def deleteTask(request, pk):
-    item = Task.objects.get(id=pk)
-    if request.method == 'POST':
-        item.delete()
-        return redirect('/')
-
-    context = {'item': item}
-    return render(request, 'todoApp/delete.html', context)
 
 
 def comanda_general(request):
