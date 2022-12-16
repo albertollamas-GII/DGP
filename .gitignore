@@ -4,4 +4,3 @@ todoApp/apps.py
 learnDjango/urls.py
 learnDjango/settings.py
 todoApp/migrations/__pycache__/*.pyc
-db.sqlite3
