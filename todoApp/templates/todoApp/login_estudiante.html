@@ -9,19 +9,18 @@
     <div class = "contenedor-icono">
         {% load static %}
         <a href="{% url 'index' %}" ><i class="fa-solid fa-left-long"></i></a>
-
     </div>
-    <div class="foto_estudiante">
 
+    <div class="foto_estudiante">
         <div class="estudiante">
             <img class="imagen_estudiante" src="../../../{{estudiante.Imagen}}" alt="estudiante" >
-
         </div>
     </div>
 
     <div class="foto_passwords">
         {% for imagen in imagenes %}
             <div class="password">
+                <!--<span>{{imagen.Imagen}}</span>-->
                 <img class="imagen_password" src="../../../{{imagen.Imagen}}"alt="estudiante" onclick="addImg('{{imagen.Nombre}}','{{ imagen.Imagen }}')">
             </div>
         {% endfor %}
