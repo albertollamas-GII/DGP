@@ -1,14 +1,6 @@
 from sys import maxsize
 from django.db import models
 
-class Task(models.Model):
-    title = models.CharField(max_length=200)
-    complete = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
-
 # Create your models here.
 class OpcionesVisualizacion:
     Opciones = (
@@ -100,3 +92,30 @@ class ImagenPassword(models.Model):
     Nombre = models.CharField(max_length=100)
     def __str__(self):
         return self.Nombre
+
+class Tarea(models.Model):
+    Id = models.AutoField(
+        auto_created=True,
+        primary_key=True
+    )
+    Descripcion = models.CharField(max_length=50)
+    FechaIni = models.DateField()
+    FechaFin = models.DateField()
+
+class Paso(models.Model):
+    Descripcion = models.CharField(max_length=250)
+    Imagen = models.ImageField(upload_to="static/imagenes/pasos")
+    Tarea_asociada = models.ForeignKey(
+        "Tarea",
+        on_delete=models.CASCADE
+    )
+
+class Pool(models.Model):
+    Estudiante = models.ForeignKey(
+        "Estudiante",
+        on_delete=models.CASCADE
+    )
+    Tarea = models.ForeignKey(
+        "Tarea",
+        on_delete=models.CASCADE
+    )
