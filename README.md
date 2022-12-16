@@ -24,8 +24,6 @@ Si no está instalado -> [pulsa aquí](https://docs.python.org/3/using/windows.h
    > python manage.py runserver y entrar a: http://127.0.0.1:8000/
 
 6. Para añadir nuevas tablas
-   > python manage.py migrate --fake todoApp zero
-   > eliminar todos los todoApp/migrations/000x_loquesea.py MENOS __init__py
    > python manage.py makemigrations
    > python manage.py migrate
 
