@@ -1,0 +1,309 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/visualizar_tareas_img.css' %}">
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+    <!--<link rel="icon" type="image/x-icon" href='{% static "agenda.jpg" %}'>-->
+    <title>APNE</title>
+</head>
+
+<!--
+    pasos : [
+        {descripcion: sdsfhskdf
+        }
+    ]
+-->
+
+
+
+<body>
+
+    <div class = "cabecera">
+        
+        <div class = "anterior">
+            <div class = "flecha">
+                <i class="fa-solid fa-left-long"></i>
+            </div>
+        </div>
+
+        <div class = "contenedor_titulo">
+            <h1>Lavarse las manos</h1>
+        </div>
+
+        <div class = "imagenCentral">
+            {% load static %}
+            <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
+        </div>
+
+
+    </div>
+
+    <div class="section"> 
+
+        <div class="grid-container">
+
+            <div class = "paso">
+
+                <div class = "num_paso">
+                    <img src='{% static "numeros/uno.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "tareas/lavarse_las_manos/abrir.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/dos.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/3.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "tareas/lavarse_las_manos/lavar.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/4.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "tareas/lavarse_las_manos/cerrar.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/5.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "tareas/lavarse_las_manos/secar.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/6.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/7.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/8.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/9.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/10.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/uno.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/dos.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "numeros/3.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+        </div>
+        
+        
+
+    </div>
+
+    <div class = "footer">
+
+        <div class = "contenedor_btn1">
+            <div class = "noRealizada">
+                <img src='{% static "mano_mal.png" %}'> 
+            </div>
+        </div>
+    
+        <div class = "contenedor_btn2">
+            <div class = "realizada">
+                <img src='{% static "mano.png" %}'> 
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "contenedor-icono2">
+
+            <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
+                <i class="fa-solid fa-left-long"></i>
+                <span>Página anterior</span>
+            </div>
+
+
+            <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
+                <span>Página siguiente</span>
+                <i class="fa-solid fa-right-long"></i>
+            </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    // Si hay más de 6 pasos, tenemos más páginas
+    let previous = document.getElementById("paginaAnterior");
+    previous.style.visibility = "hidden";
+    let next = document.getElementById("paginaSiguiente");
+
+    let pasos = document.getElementsByClassName("paso");
+    if ( pasos.length > 4) {
+        console.log("holaaaacaracoola");
+        for (let i = 4 ; i < pasos.length; i++) 
+            pasos.item(i).style.display = "none";
+        next.style.visibility ='visible';
+    }
+    else 
+        next.style.visibility ='hidden';
+    
+    let ultimo = 3;
+    let mostrando = 4;
+
+    function nextPage(){
+
+        previous.style.visibility='visible';
+
+        // Ocultamos los pasos que se han mostrado en la página anterior si existen más pasos por mostrar
+        if ( (ultimo+1) != pasos.length ) {
+            for (let i = ultimo; i >= ultimo-3 ; i--) 
+                pasos.item(i).style.display = "none";
+        
+
+            // Mostramos los siguientes pasos
+            
+            for (let i = ultimo+1 ; (i < pasos.length) && (i < ultimo+5) ; i++) {
+                pasos.item(i).style.display='flex';
+                aux = i;
+            }
+            mostrando = aux - ultimo;
+            ultimo = aux;
+        }
+        //comprobamos si va a haber más pasos por mostrar o no 
+        if ( (ultimo+1) == pasos.length ) 
+            next.style.visibility = "hidden";
+
+    }
+
+
+    function previousPage(){
+
+        next.style.visibility='visible';
+
+        //Ocultamos los pasos que se estaban mostrando
+
+        for (let i = ultimo; i > (ultimo - mostrando) ; i--) {
+                pasos.item(i).style.display = "none";
+                aux = i;
+        }
+        ultimo = aux-1;
+        
+
+        // Mostramos los pasos anteriores 
+        mostrando = 4;
+        for (let i = ultimo; i >= ultimo-3 ; i--) {
+            pasos.item(i).style.display='flex';
+        }
+        
+
+        if ( (ultimo-3) == 0 ) 
+            previous.style.visibility = "hidden";
+
+    }
+    
+</script>

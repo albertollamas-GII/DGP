@@ -1,0 +1,200 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/visualizar_tareas_txt.css' %}">
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+    <!--<link rel="icon" type="image/x-icon" href='{% static "agenda.jpg" %}'>-->
+    <title>APNE</title>
+</head>
+
+<body>
+
+    <div class = "cabecera">
+        
+        <div class = "anterior">
+            <div class = "flecha" id ="pgAnterior">
+                <i class="fa-solid fa-left-long"></i>
+            </div>
+        </div>
+
+        <div class = "contenedor_titulo">
+            <h1>Lavarse las manos</h1>
+        </div>
+
+        <div class = "imagenCentral">
+            {% load static %}
+            <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
+        </div>
+
+
+    </div>
+
+    <div class="section"> 
+
+        <div class="grid-container">
+
+            <div class = "num_paso">
+                <b>1</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Abrir el grifo tirando hacia arriba</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>2</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Enjabonarse las manos</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>3</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Colocar las manos debajo del agua</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>4</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Cerrar el grifo empujando hacia abajo</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>5</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Secarse las manos en la toalla</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>6</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Sexto paso</b>
+            </div>
+
+            <div class = "num_paso">
+                <b>7</b>
+            </div>
+            <div class = "explicacion_paso">
+                <b>Septimo paso</b>
+            </div>
+            
+
+        </div>
+        
+
+    </div>
+
+    <div class = "footer">
+
+        <div class = "contenedor_btn1">
+            <div class = "noRealizada">
+                <b><span>No realizada</span></b>
+            </div>
+        </div>
+    
+        <div class = "contenedor_btn2">
+            <div class = "realizada">
+                <b><span>Realizada</span></b>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "contenedor-icono2">
+
+        <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
+            <i class="fa-solid fa-left-long"></i>
+            <span>Página anterior</span>
+        </div>
+
+
+        <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
+            <span>Página siguiente</span>
+            <i class="fa-solid fa-right-long"></i>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    
+    // Si hay más de 6 pasos, tenemos más páginas
+    let previous = document.getElementById("paginaAnterior");
+    previous.style.visibility = "hidden";
+    let next = document.getElementById("paginaSiguiente");
+
+    let pasos = document.getElementsByClassName("num_paso");
+    let desc = document.getElementsByClassName("explicacion_paso");
+    if ( pasos.length > 4) {
+        console.log("holaaaacaracoola");
+        for (let i = 4 ; i < pasos.length; i++) {
+            pasos.item(i).style.display = "none";
+            desc.item(i).style.display = "none";
+        }
+        next.style.visibility ='visible';
+    }
+    else 
+        next.style.visibility ='hidden';
+    
+    let ultimo = 3;
+    let mostrando = 4;
+
+    function nextPage(){
+
+        previous.style.visibility='visible';
+
+        // Ocultamos los pasos que se han mostrado en la página anterior si existen más pasos por mostrar
+        if ( (ultimo+1) != pasos.length ) {
+            for (let i = ultimo; i >= ultimo-3 ; i--) {
+                pasos.item(i).style.display = "none";
+                desc.item(i).style.display = "none";
+            }
+
+            // Mostramos los siguientes pasos
+            
+            for (let i = ultimo+1 ; (i < pasos.length) && (i < ultimo+5) ; i++) {
+                pasos.item(i).style.display='flex';
+                desc.item(i).style.display = "flex";
+                aux = i;
+            }
+            mostrando = aux - ultimo;
+            ultimo = aux;
+        }
+        //comprobamos si va a haber más pasos por mostrar o no 
+        if ( (ultimo+1) == pasos.length ) 
+            next.style.visibility = "hidden";
+
+    }
+
+
+    function previousPage(){
+
+        next.style.visibility='visible';
+
+        //Ocultamos los pasos que se estaban mostrando
+
+        for (let i = ultimo; i > (ultimo - mostrando) ; i--) {
+                pasos.item(i).style.display = "none";
+                desc.item(i).style.display = "none";
+                aux = i;
+        }
+        ultimo = aux-1;
+
+        // Mostramos los pasos anteriores 
+
+        for (let i = ultimo; i >= ultimo-3 ; i--) {
+            pasos.item(i).style.display='flex';
+            desc.item(i).style.display = "flex";
+        }
+
+        if ( (ultimo-3) == 0 ) 
+            previous.style.visibility = "hidden";
+
+    }
+    
+</script>

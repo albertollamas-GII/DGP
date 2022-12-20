@@ -1,0 +1,146 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color:aliceblue;
+    font-family: 'Escolar2', 'sans-serif';
+}
+
+.cabecera {
+    height: 20%;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 15px;
+    display: flex;
+}
+
+.anterior {
+    height: 100%;
+    width: 15%;
+}
+
+.contenedor_titulo {
+    height: 100%;
+    width: 55%;
+    display: table;
+}
+
+h1 {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 4em;
+    width: 100%;
+}
+.imagenCentral {
+    height: 100%;
+    width: 30%;
+}
+
+.flecha {
+    font-size: 6em;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.imagenCentral img {
+    width: auto;
+    height: 100%;
+}
+
+.section {
+    height: 55%;
+    width: 100%;
+    font-size: 3em;
+}
+
+.grid-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    text-align: center;
+    grid-auto-rows: minmax(25%, 25%);
+}
+
+.num_paso, .explicacion_paso {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 10px solid black;
+    padding: 20px;
+}
+
+.contenedor-icono2 {
+    height: 10%;
+    width: 100%;
+    font-size: 13px;
+    display: flex;
+}
+
+.contenedor-icono2 i {
+    font-size: 4em;
+    padding-right: 30px;
+    padding-left: 20px;
+    padding-top: 10%;
+}
+
+.contenedor-icono2 span {
+    font-size: 3.5em;
+    padding-left: 0%;
+}
+
+.footer {
+    height: 15%;
+    width: 100%;
+    font-size: 3em;
+    display: flex;
+}
+
+.contenedor_btn1, .contenedor_btn2 {
+    width: 50%;
+    height: 100%;
+    margin-top: 60px;
+}
+
+.noRealizada {
+    background-color:rgb(244, 159, 159);
+    margin-left: 30px;
+}
+
+.realizada {
+    background-color:rgb(159, 244, 179);
+    margin-right: 30px;
+}
+
+#paginaSiguiente {
+    float: right;
+}
+
+.noRealizada {
+    background-color:rgb(244, 159, 159);
+}
+
+.realizada {
+    background-color:rgb(159, 244, 179);
+    float: right;
+}
+
+.noRealizada, .realizada {
+    width: 80%;
+    height: 40%;
+    border-radius: 40px; 
+    border: 5px solid black;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#paginaAnterior {
+    width: 50%;
+}
+
+#paginaSiguiente {
+    width: 50%;
+    text-align: right;
+}
