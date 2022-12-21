@@ -101,15 +101,23 @@ class Tarea(models.Model):
         primary_key=True
     )
     Descripcion = models.CharField(max_length=50)
+    Imagen = models.ImageField(upload_to="static/imagenes/tareas", null=True)
     Tipo = models.CharField(max_length=1, null=True, help_text="C => Comedor | A => Almacen | Nada => Tarea normal")
 
+    def __str__(self):
+        return f'{self.Id} - {self.Descripcion}'
+    
+
 class Paso(models.Model):
+    Orden = models.IntegerField(default=0)
     Descripcion = models.CharField(max_length=250)
     Imagen = models.ImageField(upload_to="static/imagenes/pasos")
     Tarea_asociada = models.ForeignKey(
         "Tarea",
         on_delete=models.CASCADE
     )
+    def __str__(self):
+        return f'Paso:{self.Descripcion} - Tarea:{self.Tarea_asociada}'
 
 class Pool(models.Model):
     Estudiante = models.ForeignKey(
@@ -124,3 +132,6 @@ class Pool(models.Model):
 
     FechaIni = models.DateField(default = datetime.date.today())
     FechaFin = models.DateField(default = datetime.date.today() + datetime.timedelta(days=2))
+    
+    def __str__(self):
+        return f'Tarea:{self.Tarea} - Estudiante:{self.Estudiante} - {self.Check}'

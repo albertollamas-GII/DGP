@@ -36,52 +36,37 @@
     <div class="section"> 
     
         <div class="grid-container">
-            <div class="reloj">
-                {% load static %}
-                <img src='{% static "imagenes/horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">
-            </div>
-                        
-            <div class="tarea">
-                <div class="titulo">
-                    <a href="{% url 'visualizar_tareas_img' %}"><b><span>LAVARSE LAS MANOS</span></b></a>
+            {% for tarea in tareas %}
+                <div class="reloj">
+                    <!--{% load static %}
+                    <img src='{% static "imagenes/horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">-->
+                    {{tarea.FechaIni}}
                 </div>
-                <div class="contenedorImagen">
-                    <a href="{% url 'visualizar_tareas_img' %}"><img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma de lavarse las manos"> </a>
-                </div>
-            </div>
+                <div class="tarea">
 
-            <div class="realizacion">
-                <div class="greenIcon">
-                    <i class="fa-regular fa-circle-check"></i>
+                    <div class="titulo">
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                    </div>
+                    <div class="contenedorImagen">
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}">
+                            {% load static %}
+                            <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
+                        </a>
+                    </div>
                 </div>
-            </div>  
-            <div class="reloj">
-                {% load static %}
-                <img src='{% static "imagenes/horas/once.png" %}' alt="Pictograma de un reloj que marca las once en punto">
-            </div>
-            <div class="tarea">
-                <div class="titulo">
-                    <a href="{% url 'comanda_general' %}"><b><span>MENUS</span></b></a>
-                </div>
-                <div class="contenedorImagen">
-                    <a href="{% url 'comanda_general' %}"><img src='{% static "menu.png" %}' alt="Comandas Menus"> </a>
-                </div>
-            </div>
-            <div class="realizacion">
+                <div class="realizacion">
+                    {% if tarea.Check %}
+                    <div class="greenIcon">
+                        <i class="fa-regular fa-circle-check"></i>
+                    </div>
+                    {% else %}
+                    <div class="redIcon">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    {% endif %}
+                </div>  
 
-            </div>  
-            <div class="reloj">
-                {% load static %}
-                <img src='{% static "imagenes/horas/doce.png" %}' alt="Pictograma de un reloj que marca las doce en punto">
-            </div>
-            <div class="tarea">
-                
-            </div>
-            <div class="realizacion">
-                <div class="redIcon">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>  
+            {% endfor %}
         </div>
 
     </div>

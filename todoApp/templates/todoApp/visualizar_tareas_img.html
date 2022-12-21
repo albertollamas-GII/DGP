@@ -6,14 +6,6 @@
     <title>APNE</title>
 </head>
 
-<!--
-    pasos : [
-        {descripcion: sdsfhskdf
-        }
-    ]
--->
-
-
 
 <body>
 
@@ -21,17 +13,17 @@
         
         <div class = "anterior">
             <div class = "flecha">
-                <a href="{% url 'agenda' %}"><i class="fa-solid fa-left-long"></i></a>
+                <a href="{% url 'agenda' Estudiante %}"><i class="fa-solid fa-left-long"></i></a>
             </div>
         </div>
 
         <div class = "contenedor_titulo">
-            <h1>Lavarse las manos</h1>
+            <h1>{{tarea.Descripcion}}</h1>
         </div>
 
         <div class = "imagenCentral">
             {% load static %}
-            <img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
+            <img src='/{{tarea.Imagen}}' alt="Imagen de {{tarea.Descripcion}}">
         </div>
 
 
@@ -41,164 +33,18 @@
 
         <div class="grid-container">
 
-            <div class = "paso">
+            {% for paso in pasos %}
+                <div class = "paso">
+                    <div class = "num_paso">
+                        <img src='/static/imagenes/numeros/{{paso.Orden}}.png'>
+                    </div>
 
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/1.png" %}'>
+                    <div class = "explicacion_paso">
+                        <img src='/{{paso.Imagen}}' alt="{{paso.Descripcion}}">
+                    </div>
                 </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "imagenes/tareas/lavarse_las_manos/abrir.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/2.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/3.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "imagenes/tareas/lavarse_las_manos/lavar.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/4.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "imagenes/tareas/lavarse_las_manos/cerrar.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/5.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "imagenes/tareas/lavarse_las_manos/secar.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/6.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/7.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/8.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/9.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/10.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/1.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/2.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "imagenes/numeros/3.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
+            {% endfor %}
         </div>
-        
-        
 
     </div>
 
