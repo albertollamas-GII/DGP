@@ -1,5 +1,6 @@
 from sys import maxsize
 from django.db import models
+import datetime
 
 # Create your models here.
 class OpcionesVisualizacion:
@@ -76,6 +77,7 @@ class Estudiante(models.Model):
     Nombre = models.CharField(max_length = 100)
     Imagen = models.ImageField(upload_to="static/imagenes/estudiantes/")
     Password = models.CharField(max_length=1000)
+    ModoImagen = models.BooleanField( default = False)
     def __str__(self):
         return self.Nombre
 
@@ -99,8 +101,7 @@ class Tarea(models.Model):
         primary_key=True
     )
     Descripcion = models.CharField(max_length=50)
-    FechaIni = models.DateField()
-    FechaFin = models.DateField()
+    
 
 class Paso(models.Model):
     Descripcion = models.CharField(max_length=250)
@@ -119,3 +120,7 @@ class Pool(models.Model):
         "Tarea",
         on_delete=models.CASCADE
     )
+    Check = models.BooleanField( default = False)
+
+    FechaIni = models.DateField(default = datetime.date.today())
+    FechaFin = models.DateField(default = datetime.date.today() + datetime.timedelta(days=2))

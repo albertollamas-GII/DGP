@@ -9,7 +9,7 @@
 <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 
 <div class="contenedor-icono">
-    <a href="{% url 'index' %}"> <i class="fa-solid fa-left-long"></i> </a>
+    <a href="{% url 'login_profesor' %}"> <i class="fa-solid fa-left-long"></i> </a>
 </div>
 
 
@@ -29,12 +29,14 @@
             </h1>
         </div>
         <div class="selecciones">
+            <form method="POST" action ="" enctype="multipart/form-data" id="formularioBase">
+                {% csrf_token %}
             <div class="tarea_estudiante">
                 <div class="tarea">
                     <label for="tarea">SELECCIONE LA TAREA</label><br>
                     <select  name="tarea" id="tarea" multiple>
                         {% for tarea in tareas %}
-                            <option value={{ tarea.title }}>{{ tarea.title.upper }}</option>
+                            <option value="{{ tarea.Id }}">{{ tarea.Descripcion.upper }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -64,9 +66,10 @@
                 </div>
 
             </div>
+            </form>
         </div>
         <div class="boton_enviar">
-            <input type="submit" value="Asignar" id="formularioBase" onclick="pintar()">
+            <input form = "formularioBase" type="submit" value="Asignar" id="formularioBase">
         </div>
     </div>
 </div>

@@ -21,7 +21,7 @@
         
         <div class = "anterior">
             <div class = "flecha">
-                <i class="fa-solid fa-left-long"></i>
+                <a href="{% url 'agenda' %}"><i class="fa-solid fa-left-long"></i></a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
 
         <div class = "imagenCentral">
             {% load static %}
-            <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
+            <img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
         </div>
 
 
@@ -44,11 +44,11 @@
             <div class = "paso">
 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/uno.png" %}'>
+                    <img src='{% static "imagenes/numeros/1.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
-                    <img src='{% static "tareas/lavarse_las_manos/abrir.png" %}'>
+                    <img src='{% static "imagenes/tareas/lavarse_las_manos/abrir.png" %}'>
                 </div>
 
             </div>
@@ -56,11 +56,11 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/dos.png" %}'>
+                    <img src='{% static "imagenes/numeros/2.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
-                    <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}'>
+                    <img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}'>
                 </div>
 
             </div>
@@ -68,11 +68,11 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/3.png" %}'>
+                    <img src='{% static "imagenes/numeros/3.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
-                    <img src='{% static "tareas/lavarse_las_manos/lavar.png" %}'>
+                    <img src='{% static "imagenes/tareas/lavarse_las_manos/lavar.png" %}'>
                 </div>
 
             </div>
@@ -80,11 +80,11 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/4.png" %}'>
+                    <img src='{% static "imagenes/numeros/4.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
-                    <img src='{% static "tareas/lavarse_las_manos/cerrar.png" %}'>
+                    <img src='{% static "imagenes/tareas/lavarse_las_manos/cerrar.png" %}'>
                 </div>
 
             </div>
@@ -92,11 +92,11 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/5.png" %}'>
+                    <img src='{% static "imagenes/numeros/5.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
-                    <img src='{% static "tareas/lavarse_las_manos/secar.png" %}'>
+                    <img src='{% static "imagenes/tareas/lavarse_las_manos/secar.png" %}'>
                 </div>
 
             </div>
@@ -104,19 +104,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/6.png" %}'>
-                </div>
-
-                <div class = "explicacion_paso">
-                    <img src='{% static "clase.png" %}'>
-                </div>
-
-            </div>
-
-            <div class = "paso">
-                
-                <div class = "num_paso">
-                    <img src='{% static "numeros/7.png" %}'>
+                    <img src='{% static "imagenes/numeros/6.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -128,7 +116,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/8.png" %}'>
+                    <img src='{% static "imagenes/numeros/7.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -140,7 +128,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/9.png" %}'>
+                    <img src='{% static "imagenes/numeros/8.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -152,7 +140,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/10.png" %}'>
+                    <img src='{% static "imagenes/numeros/9.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -164,7 +152,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/uno.png" %}'>
+                    <img src='{% static "imagenes/numeros/10.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -176,7 +164,7 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/dos.png" %}'>
+                    <img src='{% static "imagenes/numeros/1.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">
@@ -188,7 +176,19 @@
             <div class = "paso">
                 
                 <div class = "num_paso">
-                    <img src='{% static "numeros/3.png" %}'>
+                    <img src='{% static "imagenes/numeros/2.png" %}'>
+                </div>
+
+                <div class = "explicacion_paso">
+                    <img src='{% static "clase.png" %}'>
+                </div>
+
+            </div>
+
+            <div class = "paso">
+                
+                <div class = "num_paso">
+                    <img src='{% static "imagenes/numeros/3.png" %}'>
                 </div>
 
                 <div class = "explicacion_paso">

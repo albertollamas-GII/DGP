@@ -7,7 +7,11 @@
 </head>
 
 <body>
-
+    <a href="{% url 'index' %}">
+    <div class="logout">
+        <span>CERRAR SESIÓN</span>
+    </div>
+    </a>
     <div class = "cabecera">
         
         <div class = "anterior">
@@ -18,7 +22,7 @@
 
         <div class = "imagenCentral">
             {% load static %}
-            <img src='{% static "semana/martes.png" %}' alt="Pictograma del dia de la semana Martes">
+            <img src='{% static "imagenes/semana/lunes.png" %}' alt="Pictograma del dia de la semana Lunes">
         </div>
 
         <div class = "siguiente">
@@ -34,16 +38,18 @@
         <div class="grid-container">
             <div class="reloj">
                 {% load static %}
-                <img src='{% static "horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">
+                <img src='{% static "imagenes/horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">
             </div>
+                        
             <div class="tarea">
                 <div class="titulo">
-                    <b><span>Poner el microondas</span></b>
+                    <a href="{% url 'visualizar_tareas_img' %}"><b><span>LAVARSE LAS MANOS</span></b></a>
                 </div>
                 <div class="contenedorImagen">
-                    <img src='{% static "tareas/microondas/microondas.png" %}' alt="Pictograma de un microondas"> 
+                    <a href="{% url 'visualizar_tareas_img' %}"><img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma de lavarse las manos"> </a>
                 </div>
             </div>
+
             <div class="realizacion">
                 <div class="greenIcon">
                     <i class="fa-regular fa-circle-check"></i>
@@ -51,15 +57,26 @@
             </div>  
             <div class="reloj">
                 {% load static %}
-                <img src='{% static "horas/once.png" %}' alt="Pictograma de un reloj que marca las once en punto">
+                <img src='{% static "imagenes/horas/once.png" %}' alt="Pictograma de un reloj que marca las once en punto">
             </div>
-            <div class="tarea"></div>
-            <div class="realizacion"></div>  
+            <div class="tarea">
+                <div class="titulo">
+                    <a href="{% url 'comanda_general' %}"><b><span>MENUS</span></b></a>
+                </div>
+                <div class="contenedorImagen">
+                    <a href="{% url 'comanda_general' %}"><img src='{% static "menu.png" %}' alt="Comandas Menus"> </a>
+                </div>
+            </div>
+            <div class="realizacion">
+
+            </div>  
             <div class="reloj">
                 {% load static %}
-                <img src='{% static "horas/doce.png" %}' alt="Pictograma de un reloj que marca las doce en punto">
+                <img src='{% static "imagenes/horas/doce.png" %}' alt="Pictograma de un reloj que marca las doce en punto">
             </div>
-            <div class="tarea"></div>
+            <div class="tarea">
+                
+            </div>
             <div class="realizacion">
                 <div class="redIcon">
                     <i class="fa-solid fa-xmark"></i>
@@ -72,7 +89,11 @@
 </body>
 
 <script>
+     let previous = document.getElementById("paginaAnterior");
+        previous.hidden = true;
+    let next = document.getElementById("paginaSiguiente");
     function nextPage() {
+        
     }
     function previousPage() {
     }

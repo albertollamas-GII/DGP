@@ -38,19 +38,31 @@ def login_estudiante(request, estudiante):
         if isUser == "404":
             return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return index_estudiante(request)
+            return agenda(request)
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def index_profesor(request,profe):
-    return asignar_tareas(request,profe)
-
-def asignar_tareas(request,profe):
     estudiantes = Estudiante.objects.all()
-    tareas = Tarea.objects.all()  # TODO ASIGNAR EL POOL DE TAREAS (NO SE SI ES Task)
-    return render(request,'todoApp/asignar_tareas.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
+    tareas = Tarea.objects.all()  
+
+    if request.method == 'POST':
+        estus = request.POST.getlist('estudiante')
+        task = request.POST.get('tarea')
+        fecha_ini = request.POST.get('fecha_ini')
+        fecha_fin = request.POST.get('fecha_fin')
+        print(estus)
+        
+
+    if request.method == 'POST':
+        return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
+    else:
+        return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})    
+    
+    
 
 
 def login_profesor(request):
+    
     if request.method == 'POST':
         user = request.POST.get('text')
         password = request.POST.get('pwd')
