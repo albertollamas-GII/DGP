@@ -102,12 +102,14 @@ class Tarea(models.Model):
     )
     Descripcion = models.CharField(max_length=50)
     Imagen = models.ImageField(upload_to="static/imagenes/tareas", null=True)
+    Tipo = models.CharField(max_length=1, null=True, help_text="C => Comedor | A => Almacen | Nada => Tarea normal")
 
     def __str__(self):
         return f'{self.Id} - {self.Descripcion}'
     
 
 class Paso(models.Model):
+    Orden = models.IntegerField(default=0)
     Descripcion = models.CharField(max_length=250)
     Imagen = models.ImageField(upload_to="static/imagenes/pasos")
     Tarea_asociada = models.ForeignKey(

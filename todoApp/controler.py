@@ -23,11 +23,11 @@ def agenda(request,estudiante):
 def visualizar_tareas_txt(request):
     return render(request, 'todoApp/visualizar_tareas_txt.html')
 
-def visualizar_tareas_img(request):
-    #Tarea_seleccionada = Tarea.objects.get(tarea)
-    #Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
-    #context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea}
-    context = {}
+def visualizar_tareas_img(request, tarea):
+    Estu = Pool.objects.get(Tarea = tarea).Estudiante
+    Tarea_seleccionada = Tarea.objects.get(Id = tarea)
+    Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
+    context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea, 'Estudiante' : Estu }
     return render(request, 'todoApp/visualizar_tareas_img.html', context)
 
 def index(request):
@@ -51,7 +51,7 @@ def login_estudiante(request, estudiante):
         if isUser == "404":
             return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return agenda(request,estudiante)
+            return redirect('/alumno/agenda/' + el.Nombre)
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def index_profesor(request,profe):

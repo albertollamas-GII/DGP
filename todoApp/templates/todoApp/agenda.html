@@ -45,12 +45,12 @@
                 <div class="tarea">
 
                     <div class="titulo">
-                        <a href="{% url 'visualizar_tareas_img'%}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}"><b><span>{{tarea.Descripcion}}</span></b></a>
                     </div>
                     <div class="contenedorImagen">
-                        <a href="{% url 'visualizar_tareas_img' %}">
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}">
                             {% load static %}
-                            <img src="{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
+                            <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
                         </a>
                     </div>
                 </div>
