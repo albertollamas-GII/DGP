@@ -8,14 +8,27 @@ from .models import *
 from .forms import *
 from .funciones import *
 
-def agenda(request):
-    return render(request, 'todoApp/agenda.html')
+def agenda(request,estudiante):
+    el = obtenerAlumno(estudiante)
+    tareas = Pool.objects.filter(Estudiante=el.id)
+    context = {"tareas" : []}
+    for tarea in tareas:
+        tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
+        new_tarea = tarea.__dict__
+        new_tarea["Descripcion"]=tarea_real.Descripcion
+        new_tarea["Imagen"]=tarea_real.Imagen
+        context['tareas'].append(new_tarea) 
+    return render(request, 'todoApp/agenda.html', context)
 
 def visualizar_tareas_txt(request):
     return render(request, 'todoApp/visualizar_tareas_txt.html')
 
 def visualizar_tareas_img(request):
-    return render(request, 'todoApp/visualizar_tareas_img.html')
+    #Tarea_seleccionada = Tarea.objects.get(tarea)
+    #Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
+    #context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea}
+    context = {}
+    return render(request, 'todoApp/visualizar_tareas_img.html', context)
 
 def index(request):
     lista_estudiantes = Estudiante.objects.all()
@@ -38,7 +51,7 @@ def login_estudiante(request, estudiante):
         if isUser == "404":
             return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return agenda(request)
+            return agenda(request,estudiante)
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 def index_profesor(request,profe):
@@ -50,7 +63,7 @@ def index_profesor(request,profe):
         task = request.POST.get('tarea')
         fecha_ini = request.POST.get('fecha_ini')
         fecha_fin = request.POST.get('fecha_fin')
-        print(estus)
+        print(estus, task,fecha_fin,fecha_ini)
         
 
     if request.method == 'POST':
