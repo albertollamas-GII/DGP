@@ -8,14 +8,18 @@ from .models import *
 from .forms import *
 from .funciones import *
 
+
 def agenda(request):
     return render(request, 'todoApp/agenda.html')
+
 
 def visualizar_tareas_txt(request):
     return render(request, 'todoApp/visualizar_tareas_txt.html')
 
+
 def visualizar_tareas_img(request):
     return render(request, 'todoApp/visualizar_tareas_img.html')
+
 
 def index(request):
     lista_estudiantes = Estudiante.objects.all()
@@ -27,42 +31,40 @@ def index_estudiante(request):
     return render(request, 'todoApp/index_estudiante.html')
 
 
-
 def login_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
     lista_passwords = ImagenPassword.objects.all()
     if request.method == 'POST':
         user = request.POST.get('nombre-estudiante')
         password = request.POST.get('password')
-        isUser = obtenerAlumnoPassword(user,password)
+        isUser = obtenerAlumnoPassword(user, password)
         if isUser == "404":
-            return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error': True})
+            return render(request, 'todoApp/login_estudiante.html',
+                          {'estudiante': el, 'imagenes': lista_passwords, 'error': True})
         else:
             return agenda(request)
-    return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
+    return render(request, 'todoApp/login_estudiante.html',
+                  {'estudiante': el, 'imagenes': lista_passwords, 'error': False})
 
-def index_profesor(request,profe):
+
+def index_profesor(request, profe):
     estudiantes = Estudiante.objects.all()
-    tareas = Tarea.objects.all()  
+    tareas = Tarea.objects.all()
+    profesor = Clase.objects.get(Profesor=profe)
 
     if request.method == 'POST':
         estus = request.POST.getlist('estudiante')
-        task = request.POST.get('tarea')
-        fecha_ini = request.POST.get('fecha_ini')
-        fecha_fin = request.POST.get('fecha_fin')
-        print(estus)
-        
+        task = request.POST.getlist('tarea')
+        fecha_ini = request.POST.get('fecha_ini_id')
+        fecha_fin = request.POST.get('fecha_fin_id')
 
-    if request.method == 'POST':
-        return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})
-    else:
-        return render(request,'todoApp/index_profesor.html',{'profesor':profe,'estudiantes':estudiantes,'tareas':tareas})    
-    
-    
+        print(estus, task, fecha_fin, fecha_ini)
+
+    return render(request, 'todoApp/index_profesor.html',
+                  {'profesor': profe, 'estudiantes': estudiantes, 'tareas': tareas})
 
 
 def login_profesor(request):
-    
     if request.method == 'POST':
         user = request.POST.get('text')
         password = request.POST.get('pwd')
@@ -70,7 +72,7 @@ def login_profesor(request):
         if profe == '404':
             return render(request, 'todoApp/login_profesor.html', {'isUser': False})
         else:
-            return index_profesor(request,profe)
+            return redirect('/profesor/'+profe.Profesor)
 
     return render(request, 'todoApp/login_profesor.html', {'isUser': True})
 
@@ -114,4 +116,5 @@ def comanda_general(request):
 
 def visualizar_comanda(request):
     listaTotales = sumatorioMenus()
-    return render(request, "todoApp/visualizar_comanda_comedor.html", {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA
+    return render(request, "todoApp/visualizar_comanda_comedor.html",
+                  {"lista": listaTotales})  # AÑADIRLO CUANDO SE SEPA

@@ -101,7 +101,7 @@ class Tarea(models.Model):
         primary_key=True
     )
     Descripcion = models.CharField(max_length=50)
-    
+    Tipo = models.CharField(max_length=1, null=True, help_text="C => Comedor | A => Almacen | Nada => Tarea normal")
 
 class Paso(models.Model):
     Descripcion = models.CharField(max_length=250)

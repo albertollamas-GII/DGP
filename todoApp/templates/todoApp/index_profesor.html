@@ -36,7 +36,7 @@
                     <label for="tarea">SELECCIONE LA TAREA</label><br>
                     <select  name="tarea" id="tarea" multiple>
                         {% for tarea in tareas %}
-                            <option value="{{ tarea.Id }}">{{ tarea.Descripcion.upper }}</option>
+                            <option value="{{ tarea.Descripcion }}">{{ tarea.Descripcion.upper }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -54,14 +54,14 @@
                 <div class="fecha_inicio">
                     <label for="fecha_ini">FECHA DE INICIO</label><br>
                     <form>
-                        <input class="form-control" id="fecha_ini" placeholder="Selecciona la fecha">
+                        <input class="form-control" id="fecha_ini_id" name="fecha_ini_id" placeholder="Selecciona la fecha">
                     </form>
                 </div>
 
                 <div class="fecha_inicio">
                     <label for="fecha_fin">FECHA DE FIN</label><br>
                     <form>
-                        <input class="form-control" id="fecha_fin" placeholder="Selecciona la fecha">
+                        <input class="form-control" id="fecha_fin_id" name="fecha_fin_id" placeholder="Selecciona la fecha">
                     </form>
                 </div>
 
@@ -69,7 +69,7 @@
             </form>
         </div>
         <div class="boton_enviar">
-            <input form = "formularioBase" type="submit" value="Asignar" id="formularioBase">
+            <input form = "formularioBase" type="submit" value="Asignar" id="formularioBase" >
         </div>
     </div>
 </div>
@@ -81,30 +81,26 @@
     new MultiSelectTag('tarea')  // id
     new MultiSelectTag('estudiante')  // id
 
-    flatpickr("#fecha_ini",{
+    flatpickr("#fecha_ini_id",{
         enableTime: true,
         dateFormat: "Y-m-d H:i",
     });
-     flatpickr("#fecha_fin",{
+     flatpickr("#fecha_fin_id",{
         enableTime: true,
         dateFormat: "Y-m-d H:i",
     });
 
     var select_tarea = document.getElementById("tarea")
     var select_estudiante = document.getElementById("estudiante")
-    var fecha_inicio = document.getElementById("fecha_ini")
-    var fecha_fin = document.getElementById("fecha_fin")
+    var fecha_inicio = document.getElementById("fecha_ini_id")
+    var fecha_fin = document.getElementById("fecha_fin_id")
+
 
     function pintar(){
         let result = getSelectValues(select_estudiante)
         let result2 = getSelectValues(select_tarea)
         let inicio = fecha_inicio.value
         let fin = fecha_fin.value
-
-        //TODO ENVIAR EL FORMULARIO A LA BASE DE DATOS DE LOS ALUMNOS
-        alert("Estudiantes seleccionados: "+result+"\n"+
-        "Tareas asignadas: "+result2+"\n"+"Fecha de inicio: "+inicio+"\n"+
-        "Fecha de fin: "+fin)
 
     }
 

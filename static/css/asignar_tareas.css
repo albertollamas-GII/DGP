@@ -1,3 +1,7 @@
+html, body {margin: 0; height: 100%; overflow:scroll;}
+
+
+
 body{
     font-family: sans-serif;
     background-color: #ffffff;
@@ -119,6 +123,7 @@ input[type=submit] {
     height: 100%;
     padding-top: 3%;
 }
+
 
 /* Responsive */
 @media screen and (max-width: 1000px) {
