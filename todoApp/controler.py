@@ -8,57 +8,25 @@ from .models import *
 from .forms import *
 from .funciones import *
 
-def agenda(request,estudiante):
+fecha_visualizada = datetime.datetime.today().strftime("%Y-%m-%d")
+dia_visualizado = datetime.datetime.today().strftime("%A")
+
+def agenda(request,estudiante, fecha, dia):
     el = obtenerAlumno(estudiante)
     now = datetime.datetime.today().strftime("%Y-%m-%d")
     day = datetime.datetime.today().strftime("%A")
+    
+    fecha_formato =  datetime.datetime.strptime(fecha, "%Y-%m-%d")
+    dia_formato = datetime.datetime.strptime(dia, "%A")
 
-    tareas = Pool.objects.filter(FechaIni__startswith=(now), Estudiante=el.id)
-    context = {"tareas" : [], "dia_semana" : day, "estudiante" : estudiante}
-    for tarea in tareas:
-        tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
-        new_tarea = tarea.__dict__
-        new_tarea["Descripcion"]=tarea_real.Descripcion
-        new_tarea["Imagen"]=tarea_real.Imagen
-        context['tareas'].append(new_tarea) 
-    return render(request, 'todoApp/agenda.html', context)
+    tomorrow  = (fecha_formato + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    day_tomorrow = (fecha_formato + datetime.timedelta(days=1)).strftime("%A")
 
-def agendamas(request,estudiante):
-    el = obtenerAlumno(estudiante)
-    day = datetime.datetime.today().strftime("%A")
+    yesterday = (fecha_formato - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    day_yesterday = (fecha_formato - datetime.timedelta(days=1)).strftime("%A")
 
-    if ( day != "Friday"):
-        tomorrow = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-        day_after = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%A")
-    else:
-        tomorrow = (datetime.date.today() + datetime.timedelta(days=3)).strftime("%Y-%m-%d")
-        day_after = (datetime.date.today() + datetime.timedelta(days=3)).strftime("%A")
-
-
-    tareas = Pool.objects.filter(FechaIni__startswith=(tomorrow), Estudiante=el.id)
-    context = {"tareas" : [], "dia_semana" : day_after, "estudiante" : estudiante}
-    for tarea in tareas:
-        tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
-        new_tarea = tarea.__dict__
-        new_tarea["Descripcion"]=tarea_real.Descripcion
-        new_tarea["Imagen"]=tarea_real.Imagen
-        context['tareas'].append(new_tarea) 
-    return render(request, 'todoApp/agenda.html', context)
-
-def agendamenos(request,estudiante):
-    el = obtenerAlumno(estudiante)
-    day = datetime.datetime.today().strftime("%A")
-
-    if ( day != "Monday"):
-        yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-        day_yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime("%A")
-    else:
-        yesterday = (datetime.date.today() - datetime.timedelta(days=3)).strftime("%Y-%m-%d")
-        day_yesterday = (datetime.date.today() - datetime.timedelta(days=3)).strftime("%A")
-
-
-    tareas = Pool.objects.filter(FechaIni__startswith=(yesterday), Estudiante=el.id)
-    context = {"tareas" : [], "dia_semana" : day_yesterday, "estudiante" : estudiante}
+    tareas = Pool.objects.filter(FechaIni__startswith=(fecha), Estudiante=el.id)
+    context = {"tareas" : [], "dia_semana" : dia, "obj_estudiante" : el ,"estudiante" : estudiante, "prev": day_yesterday, "fecha_prev": yesterday, "pos":day_tomorrow, "fecha_pos":tomorrow}
     for tarea in tareas:
         tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
         new_tarea = tarea.__dict__
@@ -93,6 +61,10 @@ def index_estudiante(request):
 
 def login_estudiante(request, estudiante):
     el = obtenerAlumno(estudiante)
+
+    fecha = datetime.datetime.today().strftime("%Y-%m-%d")
+    dia = datetime.datetime.today().strftime("%A")
+
     lista_passwords = ImagenPassword.objects.all()
     if request.method == 'POST':
         user = request.POST.get('nombre-estudiante')
@@ -102,7 +74,7 @@ def login_estudiante(request, estudiante):
             return render(request, 'todoApp/login_estudiante.html',
                           {'estudiante': el, 'imagenes': lista_passwords, 'error': True})
         else:
-            return redirect('/alumno/agenda/' + el.Nombre)
+            return redirect('/alumno/agenda/' + el.Nombre + '/' + fecha + '/' + dia)
     return render(request, 'todoApp/login_estudiante.html',{'estudiante':el, 'imagenes': lista_passwords, 'error':False})
 
 

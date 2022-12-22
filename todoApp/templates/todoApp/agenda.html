@@ -15,9 +15,11 @@
     <div class = "cabecera">
         
         <div class = "anterior">
+            {% if dia_semana != 'Monday' %}
             <div class = "flecha" id ="paginaAnterior">
-                <a href="{% url 'agendamenos' estudiante %}" ><i class="fa-solid fa-left-long"></i></a>
+                <!-- <a href="{% url 'agenda' estudiante fecha_prev prev %}" ><i class="fa-solid fa-left-long"></i></a> -->
             </div>
+            {% endif %}
         </div>
 
         <div class = "imagenCentral">
@@ -25,9 +27,11 @@
         </div>
 
         <div class = "siguiente">
+            {% if dia_semana != 'Friday' %}
             <div class = "flecha" id = "paginaSiguiente">
-                <a href="{% url 'agendamas' estudiante %}" ><i class="fa-solid fa-right-long"></i></a>
+                <a href="{% url 'agenda' estudiante fecha_pos pos%}" ><i class="fa-solid fa-right-long"></i></a>
             </div>
+            {% endif %}
         </div>
 
     </div>
@@ -41,7 +45,11 @@
                 <div class="tarea">
 
                     <div class="titulo">
+                        {% if obj_estudiante.ModoImagen %}
                         <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        {% else %}
+                        <a href="{% url 'visualizar_tareas_txt' %}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        {% endif %}
                     </div>
                     <div class="contenedorImagen">
                         <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}">
