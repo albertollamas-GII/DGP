@@ -85,10 +85,11 @@ def index_profesor(request, profe):
 
     if request.method == 'POST':
         type = request.POST.get("oculta_number")
-        if type == 2:
+        if type == '2':
             cantidad = request.POST.get("cantidad_material")
             material = request.POST.get("nombre_material")
-            imagen = request.POST.get("")
+            imagen = request.POST.get("adjunto")
+            print(cantidad,material,imagen)
         else:
             estus = request.POST.getlist('estudiante')
             task = request.POST.getlist('tarea')
