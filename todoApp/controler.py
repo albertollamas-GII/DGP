@@ -88,7 +88,8 @@ def index_profesor(request, profe):
         task = request.POST.getlist('tarea')
         fecha_ini = request.POST.get('fecha_ini_id')
         fecha_fin = request.POST.get('fecha_ini_id_2')
-        print(task,estus,fecha_ini, fecha_fin)
+        comanda_comedor = request.POST.get('checkbox_comedor')
+        comanda_almacen = request.POST.get('checkbox_almacen')
         # nuevapool = Pool.objects()
         # nuevapool.Tarea = task
         # nuevapool.save()

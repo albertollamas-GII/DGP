@@ -62,17 +62,27 @@
                 </div>
 
             </div>
+                <div class="c_asignar">
+                    <label for="checkbox_comedor">ASIGNAR COMANDA COMEDOR</label>
+                    <input type="checkbox" id="checkbox_comedor" name="checkbox_comedor">
+                </div>
+                <div class="c_asignar">
+                    <label for="checkbox_almacen">ASIGNAR COMANDA ALMACEN</label>
+                    <input type="checkbox" id="checkbox_almacen" name="checkbox_almacen" onclick="addDiv()">
+                </div>
+
+                <div id="sel_imagen">
+                    <label for="adjunto">MATERIAL NECESARIO</label>
+                    <input type="text" name="nombre_material" id="nombre_material"/>
+                    <input type="file" name="adjunto" id="adjunto" accept=".pdf,.jpg,.png" />
+                    <label for="cantidad_material">CANTIDAD</label>
+                    <input type="number" name="cantidad_material" id="cantidad_material"/>
+                    <input type="submit" id="enviar_comanda_almacen" value="AÑADIR MATERIAL"/>
+                </div>
             </form>
         </div>
 
-        <div class="c_asignar">
-            <label>ASIGNAR COMANDA COMEDOR</label>
-            <input type="checkbox" id="checkbox_comedor">
-        </div>
-        <div class="c_asignar">
-            <label>ASIGNAR COMANDA ALMACEN</label>
-            <input type="checkbox" id="checkbox_almacen">
-        </div>
+
 
         <div id="message_to">
             <p>Rellena todos los campos con el simbolo "*"</p>
@@ -88,7 +98,10 @@
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    new MultiSelectTag('tarea')  // id
+
+
+
+new MultiSelectTag('tarea')  // id
     new MultiSelectTag('estudiante')  // id
 
     flatpickr("#fecha_ini_id",{
@@ -104,10 +117,20 @@
     var select_estudiante = document.getElementById("estudiante")
     var fecha_inicio = document.getElementById("fecha_ini_id")
     var fecha_fin = document.getElementById("fecha_ini_id_2")
+    var isAlmacen = false
+    var seleImage = document.getElementById("sel_imagen")
 
     var message = document.getElementById("message_to")
 
+    function addDiv() {
+        isAlmacen = !isAlmacen
 
+        if(isAlmacen){
+            seleImage.style.display = "block"
+        }else{
+            seleImage.style.display = "none"
+        }
+    }
 
     function pintar(){
         let result = getSelectValues(select_estudiante)

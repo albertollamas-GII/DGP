@@ -23,11 +23,12 @@ body{
 }
 
 .principal{
-    height: 95%;
+    height: 100%;
     width: 90%;
     /*border: 2px solid black;*/
     border-radius: 10px;
     background-color: #ebedf1;
+    padding-bottom: 50px;
     filter: drop-shadow(0 0px 2px black)
 }
 
@@ -48,7 +49,7 @@ body{
 .boton_enviar{
     text-align: center;
     width: 100%;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 .tarea_estudiante{
@@ -77,6 +78,30 @@ body{
 .mult-select-tag button:first-child {
     width: 4em;
     height: 70%;
+}
+
+#sel_imagen{
+    margin: 2%;
+    margin-top: 5%;
+    display: none;
+    justify-content: center;
+}
+
+#sel_imagen input[type='text']{
+    font-size: 0.6em;
+    width: 35%;
+}
+
+#cantidad_material{
+    width: 5%;
+    margin-top: 5%;
+    font-size: 0.6em;
+}
+
+
+#sel_imagen input[type='file'] {
+    width: 100%;
+    font-size: 0.6em;
 }
 
 .c_asignar{
@@ -117,8 +142,18 @@ body{
     border-color: #e2ebf0;
 }
 
+#sel_imagen input[type='submit'] {
+    background-color: #0497aa;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    width: auto;
+    font-size: 0.5em;
+    border: 5px;
+}
 
-input[type=submit] {
+.boton_enviar input[type=submit] {
     background-color: #04AA6D;
     color: white;
     padding: 16px 32px;
