@@ -117,15 +117,15 @@ new MultiSelectTag('tarea')  // id
     var select_estudiante = document.getElementById("estudiante")
     var fecha_inicio = document.getElementById("fecha_ini_id")
     var fecha_fin = document.getElementById("fecha_ini_id_2")
-    var isAlmacen = false
+    var isAlmacen = document.getElementById("checkbox_almacen")
     var seleImage = document.getElementById("sel_imagen")
 
     var message = document.getElementById("message_to")
 
-    function addDiv() {
-        isAlmacen = !isAlmacen
 
-        if(isAlmacen){
+    function addDiv() {
+
+        if(isAlmacen.checked){
             seleImage.style.display = "block"
         }else{
             seleImage.style.display = "none"
