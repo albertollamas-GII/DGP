@@ -77,7 +77,11 @@
                     <input type="file" name="adjunto" id="adjunto" accept=".pdf,.jpg,.png" />
                     <label for="cantidad_material">CANTIDAD</label>
                     <input type="number" name="cantidad_material" id="cantidad_material"/>
-                    <input type="submit" id="enviar_comanda_almacen" value="AÑADIR MATERIAL"/>
+                    <input type="submit" id="enviar_comanda_almacen" value="AÑADIR MATERIAL" onclick="setOculta()"/>
+                </div>
+
+                <div class="oculta">
+                    <input type="number" id="oculta_number" name="oculta_number">
                 </div>
             </form>
         </div>
@@ -121,7 +125,7 @@ new MultiSelectTag('tarea')  // id
     var seleImage = document.getElementById("sel_imagen")
 
     var message = document.getElementById("message_to")
-
+    var oculta = document.getElementById("oculta_number")
 
     function addDiv() {
 
@@ -130,6 +134,10 @@ new MultiSelectTag('tarea')  // id
         }else{
             seleImage.style.display = "none"
         }
+    }
+
+    function setOculta() {
+        oculta.value=2
     }
 
     function pintar(){
@@ -143,8 +151,7 @@ new MultiSelectTag('tarea')  // id
             return false
         }
 
-
-
+        oculta.value=1
         return true
 
 

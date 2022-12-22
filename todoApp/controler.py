@@ -84,15 +84,24 @@ def index_profesor(request, profe):
     profesor = Clase.objects.get(Profesor=profe)
 
     if request.method == 'POST':
-        estus = request.POST.getlist('estudiante')
-        task = request.POST.getlist('tarea')
-        fecha_ini = request.POST.get('fecha_ini_id')
-        fecha_fin = request.POST.get('fecha_ini_id_2')
-        comanda_comedor = request.POST.get('checkbox_comedor')
-        comanda_almacen = request.POST.get('checkbox_almacen')
-        # nuevapool = Pool.objects()
-        # nuevapool.Tarea = task
-        # nuevapool.save()
+        type = request.POST.get("oculta_number")
+        if type == 2:
+            cantidad = request.POST.get("cantidad_material")
+            material = request.POST.get("nombre_material")
+            imagen = request.POST.get("")
+        else:
+            estus = request.POST.getlist('estudiante')
+            task = request.POST.getlist('tarea')
+            fecha_ini = request.POST.get('fecha_ini_id')
+            fecha_fin = request.POST.get('fecha_ini_id_2')
+            comanda_comedor = request.POST.get('checkbox_comedor')
+            comanda_almacen = request.POST.get('checkbox_almacen')
+            nuevapool = Pool.objects
+
+            for est in estus:
+                el = obtenerAlumno(est)
+                for tarea in task:
+                    nuevapool.create(Tarea=tarea,Estudiante=el.id,FechaFin=fecha_fin,FechaIni=fecha_ini)
 
     return render(request, 'todoApp/index_profesor.html',
                   {'profesor': profe, 'estudiantes': estudiantes, 'tareas': tareas})
