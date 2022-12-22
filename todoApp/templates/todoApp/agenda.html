@@ -34,13 +34,10 @@
     </div>
 
     <div class="section"> 
-    
         <div class="grid-container">
             {% for tarea in tareas %}
                 <div class="reloj">
-                    <!--{% load static %}
-                    <img src='{% static "imagenes/horas/ocho.png" %}' alt="Pictograma de un reloj que marca las ocho en punto">-->
-                    {{tarea.FechaIni}}
+                    <img src="/static/imagenes/horas/{{tarea.FechaIni.hour}}.png" alt="Pictograma de un reloj que marca las {{tarea.FechaIni.hour}} en punto">
                 </div>
                 <div class="tarea">
 
