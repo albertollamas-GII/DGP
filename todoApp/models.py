@@ -130,8 +130,10 @@ class Pool(models.Model):
     )
     Check = models.BooleanField( default = False)
 
-    FechaIni = models.DateField(default = datetime.date.today())
-    FechaFin = models.DateField(default = datetime.date.today() + datetime.timedelta(days=2))
+    FechaIni = models.DateTimeField(default = datetime.date.today())
+    
+    FechaFin = models.DateTimeField(default = datetime.date.today() + datetime.timedelta(days=2))
+    
     
     def __str__(self):
-        return f'Tarea:{self.Tarea} - Estudiante:{self.Estudiante} - {self.Check}'
+        return f'Tarea:{self.Tarea} - Estudiante:{self.Estudiante} - {self.Check} - FechaIni:{self.FechaIni} - FechaFin:{self.FechaFin}'
