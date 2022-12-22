@@ -14,7 +14,7 @@
 
 
 <div class="panel">
-    <a href="#tareas"><div class="tareas" ><i style="font-size: 1em; margin-top: 3%;"class="fa fa-tasks" aria-hidden="true"></i><br>TAREAS</div></a>
+    <a href=""><div class="tareas" ><i style="font-size: 1em; margin-top: 3%;"class="fa fa-tasks" aria-hidden="true"></i><br>TAREAS</div></a>
     <a href="#alumnos"> <div class="alumnos"><i style="font-size: 1em; margin-top: 3%;"class="fa fa-graduation-cap" aria-hidden="true"></i><br>ALUMNOS</div></a>
     <a href="{% url 'menus_totales_profesor' %}" ><div class="comandas"><i style="font-size: 1em;margin-top: 3%;"class="fa fa-shopping-basket" aria-hidden="true"></i><br>COMANDAS</div></a>
 </div>
@@ -33,15 +33,15 @@
                 {% csrf_token %}
             <div class="tarea_estudiante">
                 <div class="tarea">
-                    <label for="tarea">SELECCIONE LA TAREA</label><br>
+                    <label for="tarea">SELECCIONE LA TAREA *</label><br>
                     <select  name="tarea" id="tarea" multiple>
                         {% for tarea in tareas %}
-                            <option value="{{ tarea.Descripcion }}">{{ tarea.Descripcion.upper }}</option>
+                            <option value="{{ tarea.Id }}">{{ tarea.Descripcion.upper }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="estudiante">
-                    <label for="estudiante">SELECCIONE AL ESTUDIANTE</label><br>
+                    <label for="estudiante">SELECCIONE AL ESTUDIANTE *</label><br>
                     <select name="estudiante" id="estudiante" multiple>
                         {% for estudiante in estudiantes %}
                             <option value={{ estudiante.Nombre }}>{{ estudiante.Nombre.upper }}</option>
@@ -52,24 +52,34 @@
             <div class="fechas">
 
                 <div class="fecha_inicio">
-                    <label for="fecha_ini">FECHA DE INICIO</label><br>
-                    <form>
-                        <input class="form-control" id="fecha_ini_id" name="fecha_ini_id" placeholder="Selecciona la fecha">
-                    </form>
+                    <label for="fecha_ini_id">FECHA DE INICIO *</label><br>
+                    <input class="form-control" id="fecha_ini_id" name="fecha_ini_id" placeholder="Selecciona la fecha">
                 </div>
 
                 <div class="fecha_inicio">
-                    <label for="fecha_fin">FECHA DE FIN</label><br>
-                    <form>
-                        <input class="form-control" id="fecha_fin_id" name="fecha_fin_id" placeholder="Selecciona la fecha">
-                    </form>
+                    <label for="fecha_ini_id_2">FECHA DE FIN *</label><br>
+                    <input class="form-control" id="fecha_ini_id_2" name="fecha_ini_id_2" placeholder="Selecciona la fecha">
                 </div>
 
             </div>
             </form>
         </div>
+
+        <div class="c_asignar">
+            <label>ASIGNAR COMANDA COMEDOR</label>
+            <input type="checkbox" id="checkbox_comedor">
+        </div>
+        <div class="c_asignar">
+            <label>ASIGNAR COMANDA ALMACEN</label>
+            <input type="checkbox" id="checkbox_almacen">
+        </div>
+
+        <div id="message_to">
+            <p>Rellena todos los campos con el simbolo "*"</p>
+        </div>
+
         <div class="boton_enviar">
-            <input form = "formularioBase" type="submit" value="Asignar" id="formularioBase" >
+            <input form = "formularioBase" type="submit" value="Asignar" id="formularioBase" onclick="return pintar()">
         </div>
     </div>
 </div>
@@ -85,7 +95,7 @@
         enableTime: true,
         dateFormat: "Y-m-d H:i",
     });
-     flatpickr("#fecha_fin_id",{
+     flatpickr("#fecha_ini_id_2",{
         enableTime: true,
         dateFormat: "Y-m-d H:i",
     });
@@ -93,7 +103,10 @@
     var select_tarea = document.getElementById("tarea")
     var select_estudiante = document.getElementById("estudiante")
     var fecha_inicio = document.getElementById("fecha_ini_id")
-    var fecha_fin = document.getElementById("fecha_fin_id")
+    var fecha_fin = document.getElementById("fecha_ini_id_2")
+
+    var message = document.getElementById("message_to")
+
 
 
     function pintar(){
@@ -101,6 +114,17 @@
         let result2 = getSelectValues(select_tarea)
         let inicio = fecha_inicio.value
         let fin = fecha_fin.value
+
+        if(result.length == 0 || result2.length == 0 || inicio.length == 0 || fin.length == 0){
+            message.style.display = "block"
+            return false
+        }
+
+
+
+        return true
+
+
 
     }
 
