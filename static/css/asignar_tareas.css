@@ -15,6 +15,13 @@ body{
     align-items: center;
     margin-top: 2.5%;
 }
+
+#message_to{
+    margin: 2%;
+    display: none;
+    color: red;
+}
+
 .principal{
     height: 95%;
     width: 90%;
@@ -53,14 +60,12 @@ body{
 }
 
 .tarea{
-    display: block;
     margin: 2%;
     color: #171710;
 }
 
 
 .estudiante{
-    display: block;
     margin: 2%;
     color: #171710;
 }
@@ -73,6 +78,18 @@ body{
     width: 4em;
     height: 70%;
 }
+
+.c_asignar{
+    margin: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.c_asignar input[type='checkbox']{
+    width: 30px;
+    height: 30px;
+}
+
 
 .mult-select-tag .item-label{
     font-size: 1em;

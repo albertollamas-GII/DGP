@@ -66,9 +66,11 @@ def index_profesor(request, profe):
         estus = request.POST.getlist('estudiante')
         task = request.POST.getlist('tarea')
         fecha_ini = request.POST.get('fecha_ini_id')
-        fecha_fin = request.POST.get('fecha_fin_id')
-
-        print(estus, task, fecha_fin, fecha_ini)
+        fecha_fin = request.POST.get('fecha_ini_id_2')
+        print(task,estus,fecha_ini, fecha_fin)
+        # nuevapool = Pool.objects()
+        # nuevapool.Tarea = task
+        # nuevapool.save()
 
     return render(request, 'todoApp/index_profesor.html',
                   {'profesor': profe, 'estudiantes': estudiantes, 'tareas': tareas})
