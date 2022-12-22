@@ -134,5 +134,6 @@ class Pool(models.Model):
     
     FechaFin = models.DateTimeField(default = datetime.date.today() + datetime.timedelta(days=2))
     
+    
     def __str__(self):
-        return f'Tarea:{self.Tarea} - Estudiante:{self.Estudiante} - {self.Check}'
+        return f'Tarea:{self.Tarea} - Estudiante:{self.Estudiante} - {self.Check} - FechaIni:{self.FechaIni} - FechaFin:{self.FechaFin}'

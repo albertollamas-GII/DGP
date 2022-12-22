@@ -10,8 +10,55 @@ from .funciones import *
 
 def agenda(request,estudiante):
     el = obtenerAlumno(estudiante)
-    tareas = Pool.objects.filter(Estudiante=el.id)
-    context = {"tareas" : []}
+    now = datetime.datetime.today().strftime("%Y-%m-%d")
+    day = datetime.datetime.today().strftime("%A")
+
+    tareas = Pool.objects.filter(FechaIni__startswith=(now), Estudiante=el.id)
+    context = {"tareas" : [], "dia_semana" : day, "estudiante" : estudiante}
+    for tarea in tareas:
+        tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
+        new_tarea = tarea.__dict__
+        new_tarea["Descripcion"]=tarea_real.Descripcion
+        new_tarea["Imagen"]=tarea_real.Imagen
+        context['tareas'].append(new_tarea) 
+    return render(request, 'todoApp/agenda.html', context)
+
+def agendamas(request,estudiante):
+    el = obtenerAlumno(estudiante)
+    day = datetime.datetime.today().strftime("%A")
+
+    if ( day != "Friday"):
+        tomorrow = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+        day_after = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%A")
+    else:
+        tomorrow = (datetime.date.today() + datetime.timedelta(days=3)).strftime("%Y-%m-%d")
+        day_after = (datetime.date.today() + datetime.timedelta(days=3)).strftime("%A")
+
+
+    tareas = Pool.objects.filter(FechaIni__startswith=(tomorrow), Estudiante=el.id)
+    context = {"tareas" : [], "dia_semana" : day_after, "estudiante" : estudiante}
+    for tarea in tareas:
+        tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
+        new_tarea = tarea.__dict__
+        new_tarea["Descripcion"]=tarea_real.Descripcion
+        new_tarea["Imagen"]=tarea_real.Imagen
+        context['tareas'].append(new_tarea) 
+    return render(request, 'todoApp/agenda.html', context)
+
+def agendamenos(request,estudiante):
+    el = obtenerAlumno(estudiante)
+    day = datetime.datetime.today().strftime("%A")
+
+    if ( day != "Monday"):
+        yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+        day_yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime("%A")
+    else:
+        yesterday = (datetime.date.today() - datetime.timedelta(days=3)).strftime("%Y-%m-%d")
+        day_yesterday = (datetime.date.today() - datetime.timedelta(days=3)).strftime("%A")
+
+
+    tareas = Pool.objects.filter(FechaIni__startswith=(yesterday), Estudiante=el.id)
+    context = {"tareas" : [], "dia_semana" : day_yesterday, "estudiante" : estudiante}
     for tarea in tareas:
         tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
         new_tarea = tarea.__dict__
@@ -29,7 +76,9 @@ def visualizar_tareas_img(request, tarea):
     Tarea_seleccionada = Tarea.objects.get(Id = tarea)
     Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
     context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea, 'Estudiante' : Estu }
+
     return render(request, 'todoApp/visualizar_tareas_img.html', context)
+    
 
 
 def index(request):

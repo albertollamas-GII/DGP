@@ -15,19 +15,18 @@
     <div class = "cabecera">
         
         <div class = "anterior">
-            <div class = "flecha" id ="paginaAnterior" onclick="previousPage()">
-                <i class="fa-solid fa-left-long"></i>
+            <div class = "flecha" id ="paginaAnterior">
+                <a href="{% url 'agendamenos' estudiante %}" ><i class="fa-solid fa-left-long"></i></a>
             </div>
         </div>
 
         <div class = "imagenCentral">
-            {% load static %}
-            <img src='{% static "imagenes/semana/lunes.png" %}' alt="Pictograma del dia de la semana Lunes">
+            <img src="/static/imagenes/semana/{{dia_semana}}.png" alt="Pictograma del dia de la semana {{dia_semana}}">
         </div>
 
         <div class = "siguiente">
-            <div class = "flecha" id = "paginaSiguiente" onclick="nextPage()">
-                <i class="fa-solid fa-right-long"></i>
+            <div class = "flecha" id = "paginaSiguiente">
+                <a href="{% url 'agendamas' estudiante %}" ><i class="fa-solid fa-right-long"></i></a>
             </div>
         </div>
 
@@ -69,14 +68,3 @@
     </div>
 
 </body>
-
-<script>
-     let previous = document.getElementById("paginaAnterior");
-        previous.hidden = true;
-    let next = document.getElementById("paginaSiguiente");
-    function nextPage() {
-        
-    }
-    function previousPage() {
-    }
-</script>
