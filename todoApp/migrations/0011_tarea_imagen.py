@@ -15,4 +15,9 @@ class Migration(migrations.Migration):
             name='Imagen',
             field=models.ImageField(null=True, upload_to='static/imagenes/tareas'),
         ),
+        migrations.AddField(
+            model_name='tarea',
+            name='Tipo',
+            field=models.CharField(help_text='C => Comedor | A => Almacen | Nada => Tarea normal', max_length=1, null=True),
+        ),
     ]
