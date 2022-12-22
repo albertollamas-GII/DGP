@@ -96,12 +96,11 @@ def index_profesor(request, profe):
             fecha_fin = request.POST.get('fecha_ini_id_2')
             comanda_comedor = request.POST.get('checkbox_comedor')
             comanda_almacen = request.POST.get('checkbox_almacen')
-            nuevapool = Pool.objects
-
             for est in estus:
-                el = obtenerAlumno(est)
+                estud = obtenerAlumno(est)
                 for tarea in task:
-                    nuevapool.create(Tarea=tarea,Estudiante=el.id,FechaFin=fecha_fin,FechaIni=fecha_ini)
+                    la_tarea =obtenerTarea(tarea)
+                    Pool.objects.create(Estudiante=estud,Tarea=la_tarea,FechaFin=fecha_fin,FechaIni=fecha_ini)
 
     return render(request, 'todoApp/index_profesor.html',
                   {'profesor': profe, 'estudiantes': estudiantes, 'tareas': tareas})

@@ -36,7 +36,7 @@
                     <label for="tarea">SELECCIONE LA TAREA *</label><br>
                     <select  name="tarea" id="tarea" multiple>
                         {% for tarea in tareas %}
-                            <option value="{{ tarea.Id }}">{{ tarea.Descripcion.upper }}</option>
+                            <option value="{{ tarea.Descripcion }}">{{ tarea.Descripcion.upper }}</option>
                         {% endfor %}
                     </select>
                 </div>

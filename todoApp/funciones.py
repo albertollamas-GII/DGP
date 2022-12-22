@@ -29,6 +29,14 @@ def obtenerAlumno(nombre):
             return estudiante
     return "not found"
 
+def obtenerTarea(id):
+    alumnos_totales = Tarea.objects.all()
+
+    for estudiante in alumnos_totales:
+        if estudiante.Descripcion == id:
+            return estudiante
+    return "not found"
+
 def obtenerAlumnoPassword(nombre, password):
     alumnos_totales = Estudiante.objects.all()
 
