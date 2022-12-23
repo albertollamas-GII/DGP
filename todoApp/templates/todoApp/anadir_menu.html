@@ -1,3 +1,4 @@
+<html lang="es">
 {%load static%}
 <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'css/anadir_menu.css' %}">
@@ -6,13 +7,13 @@
 <div class = "cabecera">
 	<div class = "contenedor-icono">
 		{% load static %}
-		<a href="{% url 'comanda_general' %}" ><i class="fa-solid fa-left-long"></i></a>
+		<a href="{% url 'comanda_general' %}" ><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i></a>
 	
 	</div>
 	<h1>CLASE {{profe.Letra}}: LA CLASE DE {{nombreProfesor}}</h1> 
 	<div class = "fotos-laterales">
-		<img src="../../../{{profe.FotoClase}}" alt="menu comedor" class ="fotoClase">
-		<img src="../../../{{profe.FotoProfesor}}" alt="menu comedor" class ="fotoProfesor">
+		<img src="../../../{{profe.FotoClase}}" alt="Pictograma de una clase con la letra {{profe.Letra}}" class ="fotoClase">
+		<img src="../../../{{profe.FotoProfesor}}" alt="Foto del profesor {{nombreProfesor}}" class ="fotoProfesor">
 	</div>
 	
 </div>
@@ -22,15 +23,15 @@
 		{% for menu in menus %}
 		<div class="menu" name="menuses">
 			<h2 class="tipo" name = "tipoMenu">{{menu.Tipo}}</h2>
-			<img src="../../../{{menu.Imagen}}" name="imagenMenu" class = "imagenMenu">
+			<img src="../../../{{menu.Imagen}}" name="imagenMenu" class = "imagenMenu" alt="Pictograma de un menú {{menu.Tipo}}">
 			{{form.Cantidad}}
 			{%load static%}
-			<img src="{% static 'menos.png' %}" name = "imagenMenos" class = "imagenMenos" onclick= "restarCantidad('{{ menu.Tipo }}')">
+			<img src="{% static 'menos.png' %}" name = "imagenMenos" class = "imagenMenos" onclick= "restarCantidad('{{ menu.Tipo }}')" alt="Pictograma del operador menos">
 			{% for numero in numeros %}
-			<img src="../../../{{numero.Imagen}}" name = "imagenNumero" class = "imagenNumero">
+			<img src="../../../{{numero.Imagen}}" name = "imagenNumero" class = "imagenNumero" alt="Pictograma de una mano mostrando el número {{numero.Imagen}}">
 			{% endfor %}
 			{%load static%}
-			<img src="{% static 'mas.png' %}" id = "{{ menu.Tipo }}" class = "imagenMas" onclick = "sumarCantidad('{{ menu.Tipo }}')">
+			<img src="{% static 'mas.png' %}" id = "{{ menu.Tipo }}" class = "imagenMas" onclick = "sumarCantidad('{{ menu.Tipo }}')" alt="Pictograma del operador más">
 			
 			{{solicitudes.TipoMenu}}
 			
@@ -40,25 +41,26 @@
 	<div class = "flechas">
         <div style="float: left;">
             <div class = "contenedor-icono2" id ="paginaAnterior" onclick="previousMenu()">
-                <i class="fa-solid fa-left-long"></i>
+                <i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i>
                 <span><u>Página anterior</u></span>
                 
             </div>
         </div>
 		
         <div id="botoncito">
-            <input form="formularioBase" type="image" name ="prueba" id="envioForm" src="{% static 'mano.png' %}">
+            <input form="formularioBase" type="image" name ="prueba" id="envioForm" src="{% static 'mano.png' %}" alt="Botón verde que muestra un pictograma de una mano con el pulgar hacia arriba">
         </div>
         <div style="float: right;">
             <div class = "contenedor-icono2" id ="paginaSiguiente" onclick="nextMenu()" >
                 <span><u>Página siguiente</u></span>
-                <i class="fa-solid fa-right-long"></i>
+                <i class="fa-solid fa-right-long" alt="Icono de una flecha que señala derecha"></i>
             </div>
         </div>
         
 	</div>
     
 </div>
+</html>
 
 <script>
     var pagSiguiente = document.getElementById("paginaSiguiente");

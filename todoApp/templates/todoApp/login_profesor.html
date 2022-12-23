@@ -1,4 +1,4 @@
-
+<html lang="es">
 {%load static%}
 <link rel="stylesheet" href="{% static 'styles.css' %}">
 <link rel="stylesheet" href="{% static 'css/login_profesor.css' %}">
@@ -12,14 +12,14 @@
     <div class = "cabecera">
         <div class = "contenedor-icono">
             {% load static %}
-            <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user"></i></a>
+            <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user" alt="Icono de un usuario"></i></a>
             <span>Administrador</span>
         </div>
         <a href="/"><h1 class="logo">APNE</h1></a>
         <div class = "contenedor-icono">
             {% load static %}
-            <a href="{% url 'index' %}" ><i class="fa-solid fa-user-graduate"></i></a>
-            <span>Estudiantes</span>
+            <a href="{% url 'login_profesor' %}" ><i class="fa-solid fa-user-tie" alt="Icono de un usuario con corbata"></i></a>
+            <span>Profesores</span>
         </div>
     </div>
 
@@ -48,3 +48,4 @@
 </div>
 
 </body>
+</html>

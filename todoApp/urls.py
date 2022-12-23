@@ -6,10 +6,11 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('alumno/agenda/<str:estudiante>/<str:fecha>/<str:dia>', controler.agenda, name="agenda"),
+    path('realizacion/<str:estudiante>/<str:fecha>/<str:dia>/<str:resultado>', controler.realizacion, name="realizacion"),
     #path('alumno/agendamas/<str:estudiante>', controler.agendamas, name="agendamas"),
     #path('alumno/agendamenos/<str:estudiante>', controler.agendamenos, name="agendamenos"),
-    path('visualizar_tareas_txt', controler.visualizar_tareas_txt, name="visualizar_tareas_txt"),
-    path('visualizar_tareas_img/<int:tarea>', controler.visualizar_tareas_img, name="visualizar_tareas_img"),
+    path('visualizar_tareas_txt/<int:tarea>/<str:estudiante>/<str:fecha>/<str:dia>', controler.visualizar_tareas_txt, name="visualizar_tareas_txt"),
+    path('visualizar_tareas_img/<int:tarea>/<str:estudiante>/<str:fecha>/<str:dia>', controler.visualizar_tareas_img, name="visualizar_tareas_img"),
     path('home/', controler.index_estudiante, name="index_estudiante"),
     path('login/<str:estudiante>',controler.login_estudiante, name="login_estudiante"),
     path('login/profesor/',controler.login_profesor, name="login_profesor"),

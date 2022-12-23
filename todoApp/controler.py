@@ -26,7 +26,7 @@ def agenda(request,estudiante, fecha, dia):
     day_yesterday = (fecha_formato - datetime.timedelta(days=1)).strftime("%A")
 
     tareas = Pool.objects.filter(FechaIni__startswith=(fecha), Estudiante=el.id)
-    context = {"tareas" : [], "dia_semana" : dia, "obj_estudiante" : el ,"estudiante" : estudiante, "prev": day_yesterday, "fecha_prev": yesterday, "pos":day_tomorrow, "fecha_pos":tomorrow}
+    context = {"tareas" : [], "dia_semana" : dia, "fecha" : fecha, "obj_estudiante" : el ,"estudiante" : estudiante, "prev": day_yesterday, "fecha_prev": yesterday, "pos":day_tomorrow, "fecha_pos":tomorrow}
     for tarea in tareas:
         tarea_real = Tarea.objects.get(Id = tarea.Tarea.Id)
         new_tarea = tarea.__dict__
@@ -36,18 +36,24 @@ def agenda(request,estudiante, fecha, dia):
     return render(request, 'todoApp/agenda.html', context)
 
 
-def visualizar_tareas_txt(request):
-    return render(request, 'todoApp/visualizar_tareas_txt.html')
-
-def visualizar_tareas_img(request, tarea):
-    Estu = Pool.objects.get(Tarea = tarea).Estudiante
+def visualizar_tareas_txt(request, tarea, estudiante, fecha, dia):
     Tarea_seleccionada = Tarea.objects.get(Id = tarea)
     Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
-    context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea, 'Estudiante' : Estu }
+    context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea, 'Estudiante' : estudiante , 'fecha' : fecha, 'dia' : dia}
+
+    return render(request, 'todoApp/visualizar_tareas_txt.html', context)
+
+def visualizar_tareas_img(request, tarea, estudiante, fecha, dia):
+    Tarea_seleccionada = Tarea.objects.get(Id = tarea)
+    Pasos_de_la_tarea = Paso.objects.filter(Tarea_asociada=tarea)
+    context = {'tarea' : Tarea_seleccionada, 'pasos' : Pasos_de_la_tarea, 'Estudiante' : estudiante , 'fecha' : fecha, 'dia' : dia}
 
     return render(request, 'todoApp/visualizar_tareas_img.html', context)
     
 
+def realizacion(request, estudiante, fecha, dia, resultado):
+    context = {'Estudiante' : estudiante , 'fecha' : fecha, 'dia' : dia, 'resultado' : resultado}
+    return render(request, 'todoApp/realizacion.html', context)
 
 def index(request):
     lista_estudiantes = Estudiante.objects.all()

@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -10,13 +11,13 @@
 <div class = "cabecera">
     <div class = "contenedor-icono">
         {% load static %}
-        <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user"></i></a>
+        <a href="http://127.0.0.1:8000/admin" ><i class="fa-solid fa-user" alt="Icono de un usuario"></i></a>
         <span>Administrador</span>
     </div>
 	<h1>APNE</h1>
     <div class = "contenedor-icono">
         {% load static %}
-        <a href="{% url 'login_profesor' %}" ><i class="fa-solid fa-user-tie"></i></a>
+        <a href="{% url 'login_profesor' %}" ><i class="fa-solid fa-user-tie" alt="Icono de un usuario con corbata"></i></a>
         <span>Profesores</span>
     </div>
 </div>
@@ -28,9 +29,9 @@
         {% load static %}
         <a href="{% url 'login_estudiante' estudiante.Nombre %}">
             {% load static %}
-            <img src="../../../{{estudiante.Imagen}}" alt="Foto">
+            <img src="../../../{{estudiante.Imagen}}" alt="Foto del estudiante {{estudiante.Nombre}}">
                 <div class="desc">
-                    <b> {{estudiante.Nombre}} </b>
+                    <b><u>{{estudiante.Nombre}}</u></b>
                 </div>
         </a>
     </div>
@@ -43,7 +44,7 @@
 
     <div class = "previous">
         <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
-            <i class="fa-solid fa-left-long"></i>
+            <i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i>
             <span><u>Página anterior</u></span>
         </div>
     </div>
@@ -51,13 +52,14 @@
     <div class = "next">
         <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
             <span><u>Página siguiente</u></span>
-            <i class="fa-solid fa-right-long"></i>
+            <i class="fa-solid fa-right-long" alt="Icono de una flecha que señala derecha"></i>
         </div>
     </div>
 </div>
 
 
 </body>
+</html>
 
 <script>
     let clases = document.getElementsByClassName("imagen");

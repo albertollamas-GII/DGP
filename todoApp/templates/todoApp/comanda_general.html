@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/comanda_general.css' %}">
@@ -14,14 +15,14 @@
 <div class = "cabecera">
     <div class = "contenedor-icono">
         {% load static %}
-        <a href="{% url 'index_estudiante' %}" ><i class="fa-solid fa-left-long"></i></a>
+        <a href="{% url 'index_estudiante' %}" ><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i></a>
     </div>
 
 	<h1><b>COMANDAS COMEDOR </b></h1>
 
     <div class = "imagenCentral">
         {% load static %}
-        <img src='{% static "clases.png" %}' alt="Pictograma de una clase">
+        <img src='{% static "clases.png" %}' alt="Pictograma de una pizarra">
     </div>
 </div>
 
@@ -34,18 +35,18 @@
             <div class="greenImg">
             {% else %}
             <div class = "redImg">
-            {% endif %}
+            {%endif%}
             {% load static %}
-            <img src="../../../{{clase.FotoProfesor}}" alt="Foto">
+            <img src="../../../{{clase.FotoProfesor}}" alt="Foto del profesor {{clase.Profesor}}">
                 <div class="desc">
-                    <b> Clase {{clase.Letra}}: {{clase.Profesor}} </b>
+                    <b><u>{{clase.Profesor}}</u></b>
                     {% if clase.Check == True %}
                     <div class="greenIcon">
-                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-regular fa-circle-check" alt="Icono que muestra un círculo con un check verde"></i>
                     </div>
                     {% else %}
                     <div class="redIcon">
-                        <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-xmark" alt="Icono que muestra una cruz roja"></i>
                     </div>
                     {% endif %}
                 </div>
@@ -60,21 +61,22 @@
 
     <div class = "previous">
         <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
-            <i class="fa-solid fa-left-long"></i>
-            <span>Página anterior</span>
+            <i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i>
+            <span><u>Página anterior</u></span>
         </div>
     </div>
 
     <div class = "next">
         <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()" style="float: right;">
-            <span>Página siguiente</span>
-            <i class="fa-solid fa-right-long"></i>
+            <span><u>Página siguiente</u></span>
+            <i class="fa-solid fa-right-long" alt="Icono de una flecha que señala derecha"></i>
         </div>
     </div>
 </div>
 
 
 </body>
+</html>
 
 <script>
     let clases = document.getElementsByClassName("imagen");

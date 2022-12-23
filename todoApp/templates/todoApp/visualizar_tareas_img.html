@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/visualizar_tareas_img.css' %}">
@@ -52,13 +53,13 @@
 
         <div class = "contenedor_btn1">
             <div class = "noRealizada">
-                <img src='{% static "mano_mal.png" %}'> 
+                <a href="{% url 'realizacion' Estudiante fecha dia 'mal'%}"><input type="image" src="{% static 'mano_mal.png' %}"></a>
             </div>
         </div>
     
         <div class = "contenedor_btn2">
             <div class="realizada">
-                    <input type="image" src="{% static 'mano.png' %}">
+                <a href="{% url 'realizacion' Estudiante fecha dia 'bien'%}"><input type="image" src="{% static 'mano.png' %}"></a>
             </div>
         </div>
 
@@ -70,12 +71,12 @@
 
             <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
                 <i class="fa-solid fa-left-long"></i>
-                <span>Página anterior</span>
+                <span><u>Página anterior</u></span>
             </div>
 
 
             <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
-                <span>Página siguiente</span>
+                <span><u>Página siguiente</u></span>
                 <i class="fa-solid fa-right-long"></i>
             </div>
 
@@ -83,6 +84,7 @@
 
 
 </body>
+</html>
 
 <script>
     // Si hay más de 6 pasos, tenemos más páginas

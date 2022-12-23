@@ -1,0 +1,28 @@
+<html lang="es">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/realizacion.css' %}">
+    <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
+    <!--<link rel="icon" type="image/x-icon" href='{% static "agenda.jpg" %}'>-->
+    <title>APNE</title>
+</head>
+
+<body>
+    <div class = "contenedor">
+        <div class = "cabecera">
+            <div class = "contenedor-icono">
+                {% load static %}
+                <a href="{% url 'agenda' Estudiante fecha dia%}"><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i></a>
+            </div>
+        </div>
+
+        <div class = "section">
+            {% if resultado == 'bien' %}
+            <img src="/static/bien.png" alt="Pictograma de unas persona sonriendo">
+            {% else %}
+            <img src="/static/mal.png" alt="Pictograma de unas persona triste">
+            {% endif %}
+        </div>
+    </div>
+
+</body>

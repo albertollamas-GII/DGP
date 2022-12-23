@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/agenda.css' %}">
@@ -9,15 +10,15 @@
 <body>
     <a href="{% url 'index' %}">
     <div class="logout">
-        <span>CERRAR SESIÓN</span>
+        <img src="/static/apagar.png" alt="Pictograma de un botón de apagado">
     </div>
     </a>
     <div class = "cabecera">
         
         <div class = "anterior">
             {% if dia_semana != 'Monday' %}
-            <div class = "flecha" id ="paginaAnterior">
-                <a href="{% url 'agenda' estudiante fecha_prev prev %}" ><i class="fa-solid fa-left-long"></i></a>
+            <div class = "flecha" id ="paginaAnterior" style="border: 2px solid black">
+                <a href="{% url 'agenda' estudiante fecha_prev prev %}" ><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala a la izquierda"></i></a>
             </div>
             {% endif %}
         </div>
@@ -28,8 +29,8 @@
 
         <div class = "siguiente">
             {% if dia_semana != 'Friday' %}
-            <div class = "flecha" id = "paginaSiguiente">
-                <a href="{% url 'agenda' estudiante fecha_pos pos%}" ><i class="fa-solid fa-right-long"></i></a>
+            <div class = "flecha" id = "paginaSiguiente" style="border: 2px solid black">
+                <a href="{% url 'agenda' estudiante fecha_pos pos%}" ><i class="fa-solid fa-right-long" alt="Icono de una flecha que señala a la derecha"></i></a>
             </div>
             {% endif %}
         </div>
@@ -46,13 +47,13 @@
 
                     <div class="titulo">
                         {% if obj_estudiante.ModoImagen %}
-                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span>{{tarea.Descripcion}}</span></b></a>
                         {% else %}
-                        <a href="{% url 'visualizar_tareas_txt' %}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        <a href="{% url 'visualizar_tareas_txt' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span>{{tarea.Descripcion}}</span></b></a>
                         {% endif %}
                     </div>
                     <div class="contenedorImagen">
-                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id %}">
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}">
                             {% load static %}
                             <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
                         </a>
@@ -61,11 +62,11 @@
                 <div class="realizacion">
                     {% if tarea.Check %}
                     <div class="greenIcon">
-                        <i class="fa-regular fa-circle-check"></i>
+                        <i class="fa-regular fa-circle-check" alt="Icono que muestra un círculo con un check verde"></i>
                     </div>
                     {% else %}
                     <div class="redIcon">
-                        <i class="fa-solid fa-xmark"></i>
+                        <i class="fa-solid fa-xmark" alt="Icono que muestra una cruz roja"></i>
                     </div>
                     {% endif %}
                 </div>  
@@ -76,3 +77,4 @@
     </div>
 
 </body>
+</html>

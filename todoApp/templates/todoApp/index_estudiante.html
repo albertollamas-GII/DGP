@@ -1,4 +1,4 @@
-
+<html lang="es">
 {%load static%}
 <link rel="stylesheet" href="{% static 'css/index_estudiante.css' %}">
 <link rel="stylesheet" href="{% static 'styles.css' %}">
@@ -7,7 +7,7 @@
 
 
 <div class = "cabecera">
-    <a href="{% url 'index' %}"> <i class="fa-solid fa-left-long"></i> </a>
+    <a href="{% url 'index' %}"> <i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i> </a>
 	<h1>COMANDAS</h1>
 </div>
 
@@ -18,7 +18,7 @@
 	
 			<div class="title_images"><b>MENUS</b></div>
 			{% load static %}
-			<img src='{% static "menu.png" %}' alt="menu comedor">
+			<img src='{% static "menu.png" %}' alt="Pictograma de un menu">
 
 		</div>
 	</a>
@@ -28,7 +28,8 @@
 			<div class="title_images"><b>ALMACEN</b></div>
 
 			{% load static %}
-			<img src='{% static "almacen.png" %}' alt="menu almacen">
+			<img src='{% static "almacen.png" %}' alt="Pictograma de una estantería con material escolar">
 		</div>
 	</a>
 </div>
+</html>

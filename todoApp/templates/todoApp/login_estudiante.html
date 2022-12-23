@@ -1,3 +1,4 @@
+<html lang="es">
 {% load static %}
 <script src="https://kit.fontawesome.com/5a852abedd.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{% static 'styles.css' %}">
@@ -6,14 +7,14 @@
 
 <div class="principal">
 
-    <div class = "contenedor-icono">
+    <div class = "contenedor-icono" >
         {% load static %}
-        <a href="{% url 'index' %}" ><i class="fa-solid fa-left-long"></i></a>
+        <a href="{% url 'index' %}" ><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda" ></i></a>
     </div>
 
     <div class="foto_estudiante">
         <div class="estudiante">
-            <img class="imagen_estudiante" src="../../../{{estudiante.Imagen}}" alt="estudiante" >
+            <img class="imagen_estudiante" src="../../../{{estudiante.Imagen}}" alt="Foto del estudiante {{estudiante.Nombre}}" >
         </div>
     </div>
 
@@ -21,7 +22,7 @@
         {% for imagen in imagenes %}
             <div class="password">
                 <!--<span>{{imagen.Imagen}}</span>-->
-                <img class="imagen_password" src="../../../{{imagen.Imagen}}"alt="estudiante" onclick="addImg('{{imagen.Nombre}}','{{ imagen.Imagen }}')">
+                <img class="imagen_password" src="../../../{{imagen.Imagen}}"alt="Pictograma de un/una {{imagen.Nombre}}" onclick="addImg('{{imagen.Nombre}}','{{ imagen.Imagen }}')">
             </div>
         {% endfor %}
     </div>
@@ -29,12 +30,12 @@
     <div class="foto_passwords_secuencia" id="secuencia">
         {% if error %}
             <div id="spacer"></div>
-            <div id="error"> <i class="fa-solid fa-x cross"></i> </div>
+            <div id="error"> <i class="fa-solid fa-x cross" alt="Icono que muestra una cruz roja"></i> </div>
         {% endif %}
     </div>
 
     <div class="boton_enviar">
-            <input form="formularioBase" type="image" name ="prueba" id="envioForm" src="{% static 'mano.png' %}">
+            <input form="formularioBase" type="image" name ="prueba" id="envioForm" src="{% static 'mano.png' %}" alt="Botón verde que muestra un pictograma de una mano con el pulgar hacia arriba">
             {% if error %}
             <script>
                 var btn = document.getElementById('envioForm');
@@ -56,6 +57,7 @@
     </form>
 
 </div>
+</html>
 
 <script>
 

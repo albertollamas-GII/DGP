@@ -1,3 +1,4 @@
+<html lang="es">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/visualizar_tareas_txt.css' %}">
@@ -12,7 +13,7 @@
         
         <div class = "anterior">
             <div class = "flecha" id ="pgAnterior">
-                <i class="fa-solid fa-left-long"></i>
+                <a href="{% url 'agenda' Estudiante fecha dia%}"><i class="fa-solid fa-left-long"></i></a>
             </div>
         </div>
 
@@ -22,7 +23,7 @@
 
         <div class = "imagenCentral">
             {% load static %}
-            <img src='{% static "tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
+            <img src='{% static "imagenes/tareas/lavarse_las_manos/lavarse_las_manos.png" %}' alt="Pictograma una persona enjabonandose las manos">
         </div>
 
 
@@ -107,12 +108,12 @@
 
         <div class = "contenido" id ="paginaAnterior" onclick="previousPage()">
             <i class="fa-solid fa-left-long"></i>
-            <span>Página anterior</span>
+            <span><u>Página anterior</u></span>
         </div>
 
 
         <div class = "contenido" id = "paginaSiguiente" onclick="nextPage()">
-            <span>Página siguiente</span>
+            <span><u>Página siguiente</u></span>
             <i class="fa-solid fa-right-long"></i>
         </div>
 
@@ -120,6 +121,7 @@
 
 
 </body>
+</html>
 
 <script>
     
