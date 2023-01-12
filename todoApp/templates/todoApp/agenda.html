@@ -47,9 +47,9 @@
 
                     <div class="titulo">
                         {% if obj_estudiante.ModoImagen %}
-                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
                         {% else %}
-                        <a href="{% url 'visualizar_tareas_txt' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span>{{tarea.Descripcion}}</span></b></a>
+                        <a href="{% url 'visualizar_tareas_txt' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
                         {% endif %}
                     </div>
                     <div class="contenedorImagen">
