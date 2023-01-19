@@ -2,7 +2,6 @@ asgiref==3.4.1
 brotlipy==0.7.0
 certifi==2021.5.30
 conda==4.10.3
-cryptography @ file:///opt/concourse/worker/volumes/live/d5dda287-c0b3-4861-7262-fab05baa64dc/volume/cryptography_1616769284011/work
 distlib==0.3.5
 Django==3.2.6
 django-cors-headers==3.13.0
@@ -15,20 +14,13 @@ pipenv==2022.7.4
 platformdirs==2.5.2
 psycopg2-binary==2.9.5
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 pydot==1.4.2
 pygame==2.1.2
 pygraphviz==1.10
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
 pyparsing==3.0.9
 pytz==2021.1
-requests @ file:///tmp/build/80754af9/requests_1608241421344/work
-ruamel-yaml-conda @ file:///opt/concourse/worker/volumes/live/e81cf0fe-611a-498e-6e69-a7320057c1ac/volume/ruamel_yaml_1616016689696/work
-six @ file:///tmp/build/80754af9/six_1623709665295/work
 sklearn==0.0.post1
 sqlparse==0.4.1
-tqdm @ file:///tmp/build/80754af9/tqdm_1625563689033/work
-urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
 virtualenv==20.15.1
 virtualenv-clone==0.5.7
 whitenoise==6.2.0
