@@ -1,10 +1,7 @@
 asgiref==3.4.1
 brotlipy==0.7.0
 certifi==2021.5.30
-cffi @ file:///opt/concourse/worker/volumes/live/976f8942-f51d-4f0e-7352-2a10f0820d0e/volume/cffi_1625814703974/work
-chardet @ file:///opt/concourse/worker/volumes/live/7e1102c4-8702-40f2-63d6-f260ce5f85e4/volume/chardet_1607706831384/work
 conda==4.10.3
-conda-package-handling @ file:///opt/concourse/worker/volumes/live/8fb3e065-760b-4a9d-4cd9-aca7fc8baf53/volume/conda-package-handling_1618262145611/work
 cryptography @ file:///opt/concourse/worker/volumes/live/d5dda287-c0b3-4861-7262-fab05baa64dc/volume/cryptography_1616769284011/work
 distlib==0.3.5
 Django==3.2.6
@@ -13,7 +10,6 @@ django-extensions==3.2.1
 djangorestframework==3.14.0
 filelock==3.7.1
 gunicorn==20.1.0
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
 Pillow==9.2.0
 pipenv==2022.7.4
 platformdirs==2.5.2
