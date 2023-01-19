@@ -1,7 +1,7 @@
 asgiref==3.4.1
 brotlipy==0.7.0
 certifi==2021.5.30
-conda==4.10.3
+conda==4.3.13
 distlib==0.3.5
 Django==3.2.6
 django-cors-headers==3.13.0
