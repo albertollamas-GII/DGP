@@ -43,21 +43,33 @@
                 <div class="reloj">
                     <img src="/static/imagenes/horas/{{tarea.FechaIni.hour}}.png" alt="Pictograma de un reloj que marca las {{tarea.FechaIni.hour}} en punto">
                 </div>
-                <div class="tarea">
-
-                    <div class="titulo">
-                        {% if obj_estudiante.ModoImagen %}
-                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
-                        {% else %}
-                        <a href="{% url 'visualizar_tareas_txt' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
-                        {% endif %}
-                    </div>
-                    <div class="contenedorImagen">
-                        <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}">
-                            {% load static %}
-                            <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
-                        </a>
-                    </div>
+                <div class="tarea">       
+                    {%if tarea.Tipo == 'C' %}
+                        <div class="titulo">
+                            <a href="{% url 'comanda_general'%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
+                        </div>
+                        <div class="contenedorImagen">
+                            <a href="{% url 'comanda_general'%}">
+                                {% load static %}
+                                <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
+                            </a>
+                        </div>
+                    {%else%}
+                        <div class="titulo">
+                            {% if obj_estudiante.ModoImagen %}
+                            <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
+                            {% else %}
+                            <a href="{% url 'visualizar_tareas_txt' tarea.Tarea_id estudiante fecha dia_semana%}"><b><span style="text-transform:uppercase">{{tarea.Descripcion}}</span></b></a>
+                            {% endif %}
+                        </div>
+                        <div class="contenedorImagen">
+                            <a href="{% url 'visualizar_tareas_img' tarea.Tarea_id estudiante fecha dia_semana%}">
+                                {% load static %}
+                                <img src="/{{tarea.Imagen}}" alt="Imagen de {{tarea.Descripcion}}"> 
+                            </a>
+                        </div>
+                    {%endif%}
+                       
                 </div>
                 <div class="realizacion">
                     {% if tarea.Check %}

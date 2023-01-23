@@ -32,7 +32,10 @@ def agenda(request,estudiante, fecha, dia):
         new_tarea = tarea.__dict__
         new_tarea["Descripcion"]=tarea_real.Descripcion
         new_tarea["Imagen"]=tarea_real.Imagen
-        context['tareas'].append(new_tarea) 
+        new_tarea["Tipo"] = tarea_real.Tipo
+        context['tareas'].append(new_tarea)
+
+    tasks = Tarea.objects.all()
     return render(request, 'todoApp/agenda.html', context)
 
 

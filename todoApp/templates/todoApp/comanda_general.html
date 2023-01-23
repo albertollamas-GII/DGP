@@ -15,7 +15,7 @@
 <div class = "cabecera">
     <div class = "contenedor-icono">
         {% load static %}
-        <a href="{% url 'index_estudiante' %}" ><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i></a>
+        <button onclick="history.go(-3)"><i class="fa-solid fa-left-long" alt="Icono de una flecha que señala izquierda"></i></button>
     </div>
 
 	<h1><b>COMANDAS COMEDOR </b></h1>
@@ -39,7 +39,7 @@
             {% load static %}
             <img src="../../../{{clase.FotoProfesor}}" alt="Foto del profesor {{clase.Profesor}}">
                 <div class="desc">
-                    <b><u>{{clase.Profesor}}</u></b>
+                    <b>CLASE {{clase.Letra}}: <u style="text-transform: uppercase;">{{clase.Profesor}}</u></b>
                     {% if clase.Check == True %}
                     <div class="greenIcon">
                         <i class="fa-regular fa-circle-check" alt="Icono que muestra un círculo con un check verde"></i>
